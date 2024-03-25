@@ -22,9 +22,6 @@ class UCCategory: Identifiable {
     
     init(fromPlaylist playlist: Playlist) {
         // The expects the Playlist to be already populated with Tracks
-        
-        print("^^ Making UCCat")
-        
         var albums: [Album]? = nil
         let tracks = playlist.tracks ?? []
         
