@@ -7,20 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010AB40B2BB2042E006A52C3 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010AB40A2BB2042E006A52C3 /* Utility.swift */; };
+		013BBA652BAE0E8A0089BD12 /* CategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BBA642BAE0E8A0089BD12 /* CategoryDetailView.swift */; };
 		01DB7E322BACE91400DB7376 /* UndercoverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E312BACE91400DB7376 /* UndercoverApp.swift */; };
 		01DB7E342BACE91400DB7376 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E332BACE91400DB7376 /* ContentView.swift */; };
 		01DB7E362BACE91400DB7376 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E352BACE91400DB7376 /* Item.swift */; };
 		01DB7E382BACE91500DB7376 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01DB7E372BACE91500DB7376 /* Assets.xcassets */; };
 		01DB7E3B2BACE91500DB7376 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01DB7E3A2BACE91500DB7376 /* Preview Assets.xcassets */; };
+		01DB7E432BAD163B00DB7376 /* AppleMusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E422BAD163B00DB7376 /* AppleMusicController.swift */; };
+		01DB7E452BAD19F200DB7376 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E442BAD19F200DB7376 /* SettingsView.swift */; };
+		01DB7E472BAD1FFF00DB7376 /* UCAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E462BAD1FFF00DB7376 /* UCAlbum.swift */; };
+		01DB7E492BAD338400DB7376 /* UCCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E482BAD338400DB7376 /* UCCategory.swift */; };
+		01DB7E4B2BAD352300DB7376 /* ImportPlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E4A2BAD352300DB7376 /* ImportPlaylistView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		010AB40A2BB2042E006A52C3 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		013BBA642BAE0E8A0089BD12 /* CategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailView.swift; sourceTree = "<group>"; };
+		016CC9292BAE0A9700FCEED4 /* Undercover.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Undercover.entitlements; sourceTree = "<group>"; };
 		01DB7E2E2BACE91400DB7376 /* Undercover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Undercover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01DB7E312BACE91400DB7376 /* UndercoverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndercoverApp.swift; sourceTree = "<group>"; };
 		01DB7E332BACE91400DB7376 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		01DB7E352BACE91400DB7376 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		01DB7E372BACE91500DB7376 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01DB7E3A2BACE91500DB7376 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		01DB7E412BACF16100DB7376 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		01DB7E422BAD163B00DB7376 /* AppleMusicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicController.swift; sourceTree = "<group>"; };
+		01DB7E442BAD19F200DB7376 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		01DB7E462BAD1FFF00DB7376 /* UCAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCAlbum.swift; sourceTree = "<group>"; };
+		01DB7E482BAD338400DB7376 /* UCCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCCategory.swift; sourceTree = "<group>"; };
+		01DB7E4A2BAD352300DB7376 /* ImportPlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportPlaylistView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,11 +69,20 @@
 		01DB7E302BACE91400DB7376 /* Undercover */ = {
 			isa = PBXGroup;
 			children = (
+				016CC9292BAE0A9700FCEED4 /* Undercover.entitlements */,
+				01DB7E412BACF16100DB7376 /* Info.plist */,
 				01DB7E312BACE91400DB7376 /* UndercoverApp.swift */,
 				01DB7E332BACE91400DB7376 /* ContentView.swift */,
+				01DB7E422BAD163B00DB7376 /* AppleMusicController.swift */,
 				01DB7E352BACE91400DB7376 /* Item.swift */,
+				01DB7E442BAD19F200DB7376 /* SettingsView.swift */,
 				01DB7E372BACE91500DB7376 /* Assets.xcassets */,
 				01DB7E392BACE91500DB7376 /* Preview Content */,
+				01DB7E462BAD1FFF00DB7376 /* UCAlbum.swift */,
+				01DB7E482BAD338400DB7376 /* UCCategory.swift */,
+				01DB7E4A2BAD352300DB7376 /* ImportPlaylistView.swift */,
+				013BBA642BAE0E8A0089BD12 /* CategoryDetailView.swift */,
+				010AB40A2BB2042E006A52C3 /* Utility.swift */,
 			);
 			path = Undercover;
 			sourceTree = "<group>";
@@ -140,9 +165,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				010AB40B2BB2042E006A52C3 /* Utility.swift in Sources */,
+				01DB7E452BAD19F200DB7376 /* SettingsView.swift in Sources */,
 				01DB7E342BACE91400DB7376 /* ContentView.swift in Sources */,
 				01DB7E362BACE91400DB7376 /* Item.swift in Sources */,
+				01DB7E4B2BAD352300DB7376 /* ImportPlaylistView.swift in Sources */,
+				01DB7E432BAD163B00DB7376 /* AppleMusicController.swift in Sources */,
+				013BBA652BAE0E8A0089BD12 /* CategoryDetailView.swift in Sources */,
+				01DB7E492BAD338400DB7376 /* UCCategory.swift in Sources */,
 				01DB7E322BACE91400DB7376 /* UndercoverApp.swift in Sources */,
+				01DB7E472BAD1FFF00DB7376 /* UCAlbum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,12 +305,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Undercover/Undercover.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Undercover/Preview Content\"";
 				DEVELOPMENT_TEAM = CCAQHTG68D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Undercover/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Gotta have it";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -302,12 +337,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Undercover/Undercover.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Undercover/Preview Content\"";
 				DEVELOPMENT_TEAM = CCAQHTG68D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Undercover/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Gotta have it";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -12,7 +12,7 @@ import SwiftData
 struct UndercoverApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            UCCategory.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -22,10 +22,13 @@ struct UndercoverApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    
+    @State private var appleMusicController = AppleMusicController()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(appleMusicController)
         }
         .modelContainer(sharedModelContainer)
     }

@@ -7,52 +7,60 @@
 
 import SwiftUI
 import SwiftData
+import MusicKit
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
+    @State private var searchText = ""
+    @State private var titles: [String] = []
+    @State private var isAuthorized = false
+    @State private var isShowingSettings = false
+    @Query var categories: [UCCategory]
+    @State private var selectedCategoryID: UUID? = nil
+    @Environment(\.modelContext) var modelContext
+    
     var body: some View {
         NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
+            List(selection: $selectedCategoryID) {
+                ForEach(categories) { cat in
+                    Text(cat.name)
+                        .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                            Button("Delete", systemImage: "trash", role: .destructive) {
+                                withAnimation {
+                                    modelContext.delete(cat)
+                                }
+                            }
+                        }
                 }
-                .onDelete(perform: deleteItems)
             }
+            .navigationTitle("Categories")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
                 ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    Button("Settings", systemImage: "gear") {
+                        isShowingSettings.toggle()
                     }
                 }
             }
+            .sheet(isPresented: $isShowingSettings, content: { SettingsView() })
         } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+            if let selectedCategoryID {
+                NavigationStack {
+                    CategoryDetailView(
+                        category: categories.first(where: {
+                            $0.id == selectedCategoryID
+                        })!
+                    )
+                }
+            } else {
+                NavigationStack {
+                    ContentUnavailableView("Nothing selected", systemImage: "square.dotted")
+                }
             }
         }
+
     }
+    
+    
+    
 }
 
 #Preview {
