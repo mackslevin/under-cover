@@ -24,11 +24,13 @@ struct UndercoverApp: App {
     }()
     
     @State private var appleMusicController = AppleMusicController()
+    @State private var singlePlayerGameController = SinglePlayerGameController()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(appleMusicController)
+                .environment(singlePlayerGameController)
         }
         .modelContainer(sharedModelContainer)
     }

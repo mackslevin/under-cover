@@ -44,13 +44,13 @@ struct ContentView: View {
             .sheet(isPresented: $isShowingSettings, content: { SettingsView() })
         } detail: {
             if let selectedCategoryID {
-                NavigationStack {
-                    CategoryDetailView(
-                        category: categories.first(where: {
-                            $0.id == selectedCategoryID
-                        })! 
-                    )
-                }
+                
+                CategoryDetailView(
+                    category: categories.first(where: {
+                        $0.id == selectedCategoryID
+                    })! 
+                )
+                
             } else {
                 NavigationStack {
                     ContentUnavailableView("Nothing selected", systemImage: "square.dotted")
