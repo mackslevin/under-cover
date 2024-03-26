@@ -26,6 +26,7 @@ struct ContentView: View {
                         .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                             Button("Delete", systemImage: "trash", role: .destructive) {
                                 withAnimation {
+                                    selectedCategoryID = nil
                                     modelContext.delete(cat)
                                 }
                             }
@@ -47,7 +48,7 @@ struct ContentView: View {
                     CategoryDetailView(
                         category: categories.first(where: {
                             $0.id == selectedCategoryID
-                        })!
+                        })! 
                     )
                 }
             } else {

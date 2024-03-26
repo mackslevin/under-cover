@@ -15,26 +15,15 @@ struct CategoryDetailView: View {
             
             
             List(category.albums!) { album in
-                
-                
-                
-                    Image(uiImage: UIImage(data: try! Data(contentsOf: category.albums!.first!.coverImageURL!))!)
-                        .resizable().scaledToFit()
-                
-                
-                
                 HStack {
-//                    AsyncImage(url: album.coverImageURL) { image in
-//                        image.resizable().scaledToFill()
-//                            .frame(width: 40, height: 40)
-//                    } placeholder: {
-//                        ZStack {
-//                            Rectangle().foregroundStyle(.gray.gradient)
-//                            Image(systemName: "questionmark.square.dashed")
-//                        }
-//                        .frame(width: 40, height : 40)
-//                    }
-//                    .clipShape(RoundedRectangle(cornerRadius: 5))
+                    AsyncImage(url: album.coverImageURL) { image in
+                        image.resizable().scaledToFill()
+                            .frame(width: 40, height: 40)
+                    } placeholder: {
+                        Color.gray
+                            .frame(width: 40, height: 40)
+                    }
+                    .clipShape(Circle())
                     
                     VStack(alignment: .leading, content: {
                         Text(album.albumTitle).italic()
@@ -42,8 +31,10 @@ struct CategoryDetailView: View {
                     })
                 }
             }
+            .listStyle(.plain)
             .padding()
             .navigationTitle(category.name)
+            
             
             
         }
