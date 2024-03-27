@@ -13,6 +13,7 @@ struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     @State private var isShowingImportPlaylist = false
     @AppStorage("secondsPerRound") var secondsPerRound: Int = 30
+    @AppStorage("guessLabelDisplayMode") var guessMode: GuessLabelDisplayMode = .both
     
     var body: some View {
         NavigationStack {
@@ -39,6 +40,12 @@ struct SettingsView: View {
                 
                 Section {
                     Stepper("\(secondsPerRound) seconds per round", value: $secondsPerRound, in: 3...50)
+                    
+                    Picker("Guess Labels", selection: $guessMode) {
+                        Text("Title Only").tag(GuessLabelDisplayMode.titleOnly)
+                        Text("Artist Only").tag(GuessLabelDisplayMode.artistOnly)
+                        Text("Both").tag(GuessLabelDisplayMode.both)
+                    }
                 }
             }
             .navigationTitle("Settings")

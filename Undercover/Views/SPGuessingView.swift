@@ -8,9 +8,12 @@
 import SwiftUI
 import Combine
 
+
+
 struct SPGuessingView: View {
     @Environment(SinglePlayerGameController.self) var gameController
     @AppStorage("secondsPerRound") var secondsPerRound: Int = 30
+    @AppStorage("guessLabelDisplayMode") var guessMode: GuessLabelDisplayMode = .titleOnly
     
     let onRoundEnd: () -> Void
     
@@ -46,7 +49,17 @@ struct SPGuessingView: View {
                                 endRound(withGuess: album)
                                 timer?.cancel()
                             } label: {
-                                Text(album.albumTitle)
+                                VStack() {
+                                    if guessMode == .titleOnly || guessMode == .both {
+                                        Text(album.albumTitle)
+                                    }
+                                    
+                                    if guessMode == .artistOnly || guessMode == .both {
+                                        Text("by \(album.artistName)")
+                                            .font(.body)
+                                    }
+                                }
+                                
                             }
                             .bold()
                             .font(.title2)

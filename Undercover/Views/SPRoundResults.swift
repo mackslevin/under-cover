@@ -15,10 +15,6 @@ struct SPRoundResults: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                Text(gameController.currentAnswer?.musicItemID == gameController.currentGuess?.musicItemID ? "Correct!" : gameController.currentGuess == nil ? "Out of time!" : "Wrong!")
-                    .font(.largeTitle).fontWeight(.black)
-                    .foregroundStyle(gameController.currentAnswer?.musicItemID == gameController.currentGuess?.musicItemID ? .blue : gameController.currentGuess == nil ? .orange : .red)
-                
                 if let rightAnswer = gameController.currentAnswer {
                     VStack {
                         AsyncImage(url: rightAnswer.coverImageURL) { image in
@@ -26,8 +22,8 @@ struct SPRoundResults: View {
                         } placeholder: {
                             Rectangle()
                         }
-                        .frame(maxWidth: 500, maxHeight: 500)
                         .clipShape(RoundedRectangle(cornerRadius: 5))
+                        .frame(maxWidth: 500, maxHeight: 500)
                         .shadow(radius: 12)
                         .padding()
                         
@@ -38,6 +34,18 @@ struct SPRoundResults: View {
                             Text("by \(rightAnswer.artistName)")
                         }
                         .font(.title2)
+                        .padding(.bottom)
+                        
+                        Text(gameController.currentAnswer?.musicItemID == gameController.currentGuess?.musicItemID ? "Correct!" : gameController.currentGuess == nil ? "Out of time!" : "Wrong!")
+                            .font(.largeTitle).fontWeight(.black)
+                            .foregroundStyle(.white)
+                            .padding(.horizontal, 14)
+                            .padding(.vertical, 6)
+                            .background {
+                                Capsule()
+                                    .foregroundStyle(gameController.currentAnswer?.musicItemID == gameController.currentGuess?.musicItemID ? .blue : gameController.currentGuess == nil ? .orange : .red)
+                            }
+                            
                     }
                 }
                 
@@ -47,8 +55,14 @@ struct SPRoundResults: View {
                 Button("Next") {
                     onNext()
                 }
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.plain)
+                .bold()
+                .font(.title2)
+                .foregroundStyle(.tint)
+                
+                Spacer()
             }
+            .navigationBarTitleDisplayMode(.inline)
             .padding([.horizontal, .bottom])
         }
         

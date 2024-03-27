@@ -23,6 +23,7 @@ struct ContentView: View {
             List(selection: $selectedCategoryID) {
                 ForEach(categories) { cat in
                     Text(cat.name)
+                        .font(.title2)
                         .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                             Button("Delete", systemImage: "trash", role: .destructive) {
                                 withAnimation {
