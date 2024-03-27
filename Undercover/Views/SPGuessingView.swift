@@ -21,34 +21,26 @@ struct SPGuessingView: View {
     
     @State private var timer: AnyCancellable? = nil
     @State private var blurAmount: CGFloat = 15
+    @State private var timerImageName: String = ""
     
     var body: some View {
-        Group {
+        VStack {
             if isLoading {
                 ProgressView()
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             } else {
                 ScrollView {
-                    
-                    
                     VStack(spacing: 20) {
-                        Text("Name the album...")
-                            .font(.largeTitle).fontWeight(.black)
-                            .opacity(0.5)
-                        
                         if let albumCover {
                             ZStack {
                                 Image(uiImage: albumCover)
                                     .resizable().scaledToFit()
                                     .blur(radius: blurAmount)
                                     .clipShape(RoundedRectangle(cornerRadius: 5))
+                                    .shadow(radius: 12)
                             }
                             .frame(maxWidth: 500, maxHeight: 500)
-                            .padding()
-                            
                         }
-                        
-                        Text("Time remaining: \(timeRemaining)s")
                         
                         ForEach(shuffledAlbums) { album in
                             Button(album.albumTitle) {
@@ -58,17 +50,25 @@ struct SPGuessingView: View {
                             .bold()
                             .font(.title3)
                         }
+                        
+                        Spacer()
                     }
+                    .padding([.horizontal, .bottom])
+                    
                 }
                 
             }
             
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Image(systemName: timerImageName)
+            }
+        }
         .onAppear {
             isLoading = true
-            
             timeRemaining = secondsPerRound
-            
             gameController.generateRound()
             
             if let current = gameController.currentAnswer {
@@ -78,7 +78,6 @@ struct SPGuessingView: View {
                 shuffledAlbums.append(decoy)
             }
             shuffledAlbums.shuffle()
-            
             
             Task {
                 if let url = gameController.currentAnswer?.coverImageURL {
@@ -108,7 +107,10 @@ struct SPGuessingView: View {
                 if timeRemaining > 0 {
                     timeRemaining -= 1
                     withAnimation {
-                        blurAmount -= 0.5
+                        let newBlurAmount = CGFloat((CGFloat(timeRemaining) / CGFloat(secondsPerRound)) * 15)
+                        blurAmount = newBlurAmount
+                        print(newBlurAmount)
+                        timerImageName = "\(timeRemaining).circle.fill"
                     }
                 } else {
                     // Dismiss the view
@@ -117,10 +119,9 @@ struct SPGuessingView: View {
                 }
             }
     }
-    
-    
 }
 
-//#Preview {
-//    SPGuessingView(onRoundEnd: {})
-//}
+#Preview {
+    SPGuessingView(onRoundEnd: {})
+        .environment(SinglePlayerGameController())
+}
