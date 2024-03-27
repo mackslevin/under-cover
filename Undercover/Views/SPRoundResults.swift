@@ -13,36 +13,43 @@ struct SPRoundResults: View {
     let onNext: () -> Void
     
     var body: some View {
-        VStack(spacing: 20) {
-            Text(gameController.currentAnswer?.musicItemID == gameController.currentGuess?.musicItemID ? "Correct!" : gameController.currentGuess == nil ? "Out of time!" : "Wrong!")
-                .font(.largeTitle)
-            
-            if let rightAnswer = gameController.currentAnswer {
-                HStack {
-                    AsyncImage(url: rightAnswer.coverImageURL) { image in
-                        image.resizable().scaledToFit()
-                            .frame(width: 100, height: 100)
-                            
-                    } placeholder: {
-                        Color.gray
-                            .frame(width: 100, height: 100)
-                    }
+        ScrollView {
+            VStack(spacing: 20) {
+                Text(gameController.currentAnswer?.musicItemID == gameController.currentGuess?.musicItemID ? "Correct!" : gameController.currentGuess == nil ? "Out of time!" : "Wrong!")
+                    .font(.largeTitle).fontWeight(.black)
+                    .foregroundStyle(gameController.currentAnswer?.musicItemID == gameController.currentGuess?.musicItemID ? .blue : gameController.currentGuess == nil ? .orange : .red)
+                
+                if let rightAnswer = gameController.currentAnswer {
+                    VStack {
+                        AsyncImage(url: rightAnswer.coverImageURL) { image in
+                            image.resizable().scaledToFit()
+                        } placeholder: {
+                            Rectangle()
+                        }
+                        .frame(maxWidth: 500, maxHeight: 500)
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                        .padding()
+                        
+                        .shadow(radius: 12)
 
-                    VStack(alignment: .leading) {
-                        Text(rightAnswer.albumTitle).italic()
-                        Text(rightAnswer.artistName)
+                        VStack() {
+                            Text(rightAnswer.albumTitle).italic().fontWeight(.semibold)
+                            Text("by \(rightAnswer.artistName)")
+                        }
+                        .font(.title2)
                     }
-                    
-                    
                 }
-            }
-            
-            Text("Points: \(gameController.points)")
-            
-            Button("Next") {
-                onNext()
+                
+                Text("Points: \(gameController.points)")
+                    .font(.title2).bold()
+                
+                Button("Next") {
+                    onNext()
+                }
+                .buttonStyle(.borderedProminent)
             }
         }
+        
     }
 }
 

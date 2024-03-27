@@ -28,6 +28,7 @@ struct SinglePlayerGameView: View {
                 case .finalResults:
                     SPFinalResults(onEndGame: {
                         print("^^ state change")
+                        gameController.reset()
                         dismiss()
                     })
             }
@@ -39,10 +40,6 @@ struct SinglePlayerGameView: View {
                 gameState = .finalResults
             }
         }
-        .onAppear(perform: {
-            
-            print("^^ game view: controller in progress \(gameController.inProgress) | category \(gameController.category?.name ?? "N/A") | game state \(gameState)")
-        })
     }
 }
 

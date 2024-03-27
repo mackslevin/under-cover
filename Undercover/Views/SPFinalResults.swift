@@ -13,15 +13,17 @@ struct SPFinalResults: View {
     let onEndGame: () -> Void
     
     var body: some View {
-        VStack {
+        VStack(spacing: 20) {
             Text("Game Over")
-                .font(.largeTitle)
+                .font(.largeTitle).fontWeight(.black)
             
             Text("Final score: \(gameController.points)")
+                .font(.title)
             
             Button("Done") {
                 onEndGame()
             }
+            .buttonStyle(.borderedProminent)
         }
     }
 }

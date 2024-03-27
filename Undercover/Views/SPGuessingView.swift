@@ -20,6 +20,7 @@ struct SPGuessingView: View {
     @State private var albumCover: UIImage? = nil
     
     @State private var timer: AnyCancellable? = nil
+    @State private var blurAmount: CGFloat = 15
     
     var body: some View {
         Group {
@@ -27,27 +28,39 @@ struct SPGuessingView: View {
                 ProgressView()
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             } else {
-                VStack(spacing: 20) {
-                    if let albumCover {
-                        ZStack {
-                            Image(uiImage: albumCover)
-                                .resizable().scaledToFit()
+                ScrollView {
+                    
+                    
+                    VStack(spacing: 20) {
+                        Text("Name the album...")
+                            .font(.largeTitle).fontWeight(.black)
+                            .opacity(0.5)
+                        
+                        if let albumCover {
+                            ZStack {
+                                Image(uiImage: albumCover)
+                                    .resizable().scaledToFit()
+                                    .blur(radius: blurAmount)
+                                    .clipShape(RoundedRectangle(cornerRadius: 5))
+                            }
+                            .frame(maxWidth: 500, maxHeight: 500)
+                            .padding()
                             
-                            Rectangle()
-                                .foregroundStyle(.ultraThinMaterial)
                         }
-                        .frame(maxWidth: 500, maxHeight: 500)
-                    }
-                    
-                    Text("Time remaining: \(timeRemaining)s")
-
-                    
-                    ForEach(shuffledAlbums) { album in
-                        Button(album.albumTitle) {
-                            endRound(withGuess: album)
+                        
+                        Text("Time remaining: \(timeRemaining)s")
+                        
+                        ForEach(shuffledAlbums) { album in
+                            Button(album.albumTitle) {
+                                timer?.cancel()
+                                endRound(withGuess: album)
+                            }
+                            .bold()
+                            .font(.title3)
                         }
                     }
                 }
+                
             }
             
         }
@@ -94,6 +107,9 @@ struct SPGuessingView: View {
             .sink { _ in
                 if timeRemaining > 0 {
                     timeRemaining -= 1
+                    withAnimation {
+                        blurAmount -= 0.5
+                    }
                 } else {
                     // Dismiss the view
                     timer?.cancel()
