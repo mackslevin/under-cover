@@ -23,7 +23,6 @@ class SinglePlayerGameController {
     
     var points = 0
     
-    
     func reset() {
         inProgress = false
         currentRound = 0
@@ -88,7 +87,14 @@ class SinglePlayerGameController {
         }
         
         if guess.musicItemID == currentAnswer?.musicItemID {
-            points += secondsRemaining
+            var newPoints = 100
+            let secondsPerRound = UserDefaults.standard.integer(forKey: "secondsPerRound")
+            let secondsUsed = secondsPerRound - secondsRemaining
+            print("^^ seconds used \(secondsUsed)")
+            let pointsToDeduct = (Double(secondsUsed) / Double(secondsPerRound)) * 100
+            print("^^ points to deduct \(pointsToDeduct)")
+            newPoints -= Int(floor(pointsToDeduct))
+            points += newPoints
         }
         
         currentGuess = guess
