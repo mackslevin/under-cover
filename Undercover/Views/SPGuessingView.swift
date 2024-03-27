@@ -52,8 +52,8 @@ struct SPGuessingView: View {
                         
                         ForEach(shuffledAlbums) { album in
                             Button(album.albumTitle) {
-                                timer?.cancel()
                                 endRound(withGuess: album)
+                                timer?.cancel()
                             }
                             .bold()
                             .font(.title3)
@@ -97,7 +97,7 @@ struct SPGuessingView: View {
     }
     
     func endRound(withGuess guess: UCAlbum?) {
-        gameController.handleRoundEnd(withGuess: guess)
+        gameController.handleRoundEnd(withGuess: guess, secondsRemaining: timeRemaining)
         onRoundEnd()
     }
     
@@ -112,8 +112,8 @@ struct SPGuessingView: View {
                     }
                 } else {
                     // Dismiss the view
-                    timer?.cancel()
                     endRound(withGuess: nil)
+                    timer?.cancel()
                 }
             }
     }

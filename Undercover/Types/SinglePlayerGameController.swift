@@ -78,7 +78,7 @@ class SinglePlayerGameController {
         }
     }
     
-    func handleRoundEnd(withGuess guess: UCAlbum?) {
+    func handleRoundEnd(withGuess guess: UCAlbum?, secondsRemaining: Int = 0) {
         if let currentAnswer { pastAnswers.append(currentAnswer) }
         
         guard let guess else {
@@ -88,7 +88,7 @@ class SinglePlayerGameController {
         }
         
         if guess.musicItemID == currentAnswer?.musicItemID {
-            points += 1
+            points += secondsRemaining
         }
         
         currentGuess = guess
