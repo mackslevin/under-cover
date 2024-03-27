@@ -21,7 +21,7 @@ struct SPGuessingView: View {
     
     @State private var timer: AnyCancellable? = nil
     @State private var blurAmount: CGFloat = 15
-    @State private var timerImageName: String = ""
+    @State private var timerImageName: String = "circle.fill"
     
     var body: some View {
         VStack {
@@ -32,23 +32,25 @@ struct SPGuessingView: View {
                 ScrollView {
                     VStack(spacing: 20) {
                         if let albumCover {
-                            ZStack {
-                                Image(uiImage: albumCover)
-                                    .resizable().scaledToFit()
-                                    .blur(radius: blurAmount)
-                                    .clipShape(RoundedRectangle(cornerRadius: 5))
-                                    .shadow(radius: 12)
-                            }
-                            .frame(maxWidth: 500, maxHeight: 500)
+                            Image(uiImage: albumCover)
+                                .resizable().scaledToFit()
+                                .blur(radius: blurAmount)
+                                .clipShape(RoundedRectangle(cornerRadius: 5))
+                                .frame(maxWidth: 500, maxHeight: 500)
+                                .shadow(radius: 12)
+                                .padding()
                         }
                         
                         ForEach(shuffledAlbums) { album in
-                            Button(album.albumTitle) {
+                            Button {
                                 endRound(withGuess: album)
                                 timer?.cancel()
+                            } label: {
+                                Text(album.albumTitle)
                             }
                             .bold()
-                            .font(.title3)
+                            .font(.title2)
+                            .frame(maxWidth: .infinity, alignment: .center)
                         }
                         
                         Spacer()
@@ -64,6 +66,8 @@ struct SPGuessingView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Image(systemName: timerImageName)
+                    .bold()
+                    .foregroundStyle(Double(timeRemaining) < (Double(secondsPerRound) * 0.25) ? Color.red : Color.primary)
             }
         }
         .onAppear {
@@ -109,7 +113,6 @@ struct SPGuessingView: View {
                     withAnimation {
                         let newBlurAmount = CGFloat((CGFloat(timeRemaining) / CGFloat(secondsPerRound)) * 15)
                         blurAmount = newBlurAmount
-                        print(newBlurAmount)
                         timerImageName = "\(timeRemaining).circle.fill"
                     }
                 } else {

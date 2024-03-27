@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CategoryDetailView: View {
     @Bindable var category: UCCategory
-    @State private var rounds: Int = 3
+    @AppStorage("spRounds") private var rounds: Int = 3
     @Environment(SinglePlayerGameController.self) var singlePlayerGameController
     @State private var isShowingSinglePlayerGame = false
     

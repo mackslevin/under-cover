@@ -12,6 +12,7 @@ struct SettingsView: View {
     @Environment(AppleMusicController.self) var appleMusicController
     @Environment(\.dismiss) var dismiss
     @State private var isShowingImportPlaylist = false
+    @AppStorage("secondsPerRound") var secondsPerRound: Int = 30
     
     var body: some View {
         NavigationStack {
@@ -35,10 +36,14 @@ struct SettingsView: View {
                         Text("Playlists")
                     }
                 }
+                
+                Section {
+                    Stepper("\(secondsPerRound) seconds per round", value: $secondsPerRound, in: 3...50)
+                }
             }
             .navigationTitle("Settings")
             .toolbar {
-                ToolbarItem {
+                ToolbarItem(placement: .topBarLeading) {
                     Button("Close", systemImage: "xmark", action: { dismiss() })
                 }
             }

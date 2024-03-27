@@ -15,7 +15,8 @@ struct SPFinalResults: View {
     var body: some View {
         VStack(spacing: 20) {
             Text("Game Over")
-                .font(.largeTitle).fontWeight(.black)
+                .font(.largeTitle)
+                .fontWeight(.black)
             
             Text("Final score: \(gameController.points)")
                 .font(.title)

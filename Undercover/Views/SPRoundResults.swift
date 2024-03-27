@@ -28,9 +28,10 @@ struct SPRoundResults: View {
                         }
                         .frame(maxWidth: 500, maxHeight: 500)
                         .clipShape(RoundedRectangle(cornerRadius: 5))
+                        .shadow(radius: 12)
                         .padding()
                         
-                        .shadow(radius: 12)
+                        
 
                         VStack() {
                             Text(rightAnswer.albumTitle).italic().fontWeight(.semibold)
@@ -48,6 +49,7 @@ struct SPRoundResults: View {
                 }
                 .buttonStyle(.borderedProminent)
             }
+            .padding([.horizontal, .bottom])
         }
         
     }

@@ -35,6 +35,9 @@ struct SinglePlayerGameView: View {
                 gameState = .finalResults
             }
         }
+        .onDisappear {
+            gameController.reset()
+        }
     }
 }
 
