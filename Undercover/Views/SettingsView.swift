@@ -14,6 +14,7 @@ struct SettingsView: View {
     @State private var isShowingImportPlaylist = false
     @AppStorage("secondsPerRound") var secondsPerRound: Int = 30
     @AppStorage("guessLabelDisplayMode") var guessMode: GuessLabelDisplayMode = .both
+    @AppStorage("shouldUseDesaturation") var shouldUseDesaturation = true
     
     var body: some View {
         NavigationStack {
@@ -46,6 +47,8 @@ struct SettingsView: View {
                         Text("Artist Only").tag(GuessLabelDisplayMode.artistOnly)
                         Text("Both").tag(GuessLabelDisplayMode.both)
                     }
+                    
+                    Toggle("Use Desaturation", isOn: $shouldUseDesaturation)
                 }
             }
             .navigationTitle("Settings")

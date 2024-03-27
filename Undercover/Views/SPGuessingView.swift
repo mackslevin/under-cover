@@ -14,6 +14,7 @@ struct SPGuessingView: View {
     @Environment(SinglePlayerGameController.self) var gameController
     @AppStorage("secondsPerRound") var secondsPerRound: Int = 30
     @AppStorage("guessLabelDisplayMode") var guessMode: GuessLabelDisplayMode = .titleOnly
+    @AppStorage("shouldUseDesaturation") var shouldUseDesaturation = true
     
     let onRoundEnd: () -> Void
     
@@ -25,6 +26,7 @@ struct SPGuessingView: View {
     @State private var timer: AnyCancellable? = nil
     @State private var blurAmount: CGFloat = 15
     @State private var timerImageName: String = "circle.fill"
+    @State private var grayscaleAmount: Double = 1
     
     var body: some View {
         VStack {
@@ -42,6 +44,7 @@ struct SPGuessingView: View {
                                 .frame(maxWidth: 500, maxHeight: 500)
                                 .shadow(radius: 12)
                                 .padding()
+                                .grayscale(shouldUseDesaturation ? grayscaleAmount : 0)
                         }
                         
                         ForEach(shuffledAlbums) { album in
@@ -127,6 +130,7 @@ struct SPGuessingView: View {
                         let newBlurAmount = CGFloat((CGFloat(timeRemaining) / CGFloat(secondsPerRound)) * 15)
                         blurAmount = newBlurAmount
                         timerImageName = "\(timeRemaining).circle.fill"
+                        grayscaleAmount = (Double(timeRemaining) / Double(secondsPerRound))
                     }
                 } else {
                     // Dismiss the view
