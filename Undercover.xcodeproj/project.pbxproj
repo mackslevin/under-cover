@@ -11,6 +11,9 @@
 		0119FC4C2BB34F6F0061FD69 /* SinglePlayerGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119FC4B2BB34F6F0061FD69 /* SinglePlayerGameController.swift */; };
 		0119FC4E2BB35A380061FD69 /* SinglePlayerGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119FC4D2BB35A380061FD69 /* SinglePlayerGameView.swift */; };
 		0119FC502BB35CF60061FD69 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119FC4F2BB35CF60061FD69 /* GameState.swift */; };
+		0119FC542BB35F8A0061FD69 /* SPGuessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119FC532BB35F8A0061FD69 /* SPGuessingView.swift */; };
+		0119FC572BB35FAD0061FD69 /* SPRoundResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119FC562BB35FAD0061FD69 /* SPRoundResults.swift */; };
+		0119FC592BB35FC70061FD69 /* SPFinalResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119FC582BB35FC70061FD69 /* SPFinalResults.swift */; };
 		013BBA652BAE0E8A0089BD12 /* CategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BBA642BAE0E8A0089BD12 /* CategoryDetailView.swift */; };
 		01DB7E322BACE91400DB7376 /* UndercoverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E312BACE91400DB7376 /* UndercoverApp.swift */; };
 		01DB7E342BACE91400DB7376 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E332BACE91400DB7376 /* ContentView.swift */; };
@@ -28,6 +31,9 @@
 		0119FC4B2BB34F6F0061FD69 /* SinglePlayerGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayerGameController.swift; sourceTree = "<group>"; };
 		0119FC4D2BB35A380061FD69 /* SinglePlayerGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayerGameView.swift; sourceTree = "<group>"; };
 		0119FC4F2BB35CF60061FD69 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		0119FC532BB35F8A0061FD69 /* SPGuessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPGuessingView.swift; sourceTree = "<group>"; };
+		0119FC562BB35FAD0061FD69 /* SPRoundResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPRoundResults.swift; sourceTree = "<group>"; };
+		0119FC582BB35FC70061FD69 /* SPFinalResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPFinalResults.swift; sourceTree = "<group>"; };
 		013BBA642BAE0E8A0089BD12 /* CategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailView.swift; sourceTree = "<group>"; };
 		016CC9292BAE0A9700FCEED4 /* Undercover.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Undercover.entitlements; sourceTree = "<group>"; };
 		01DB7E2E2BACE91400DB7376 /* Undercover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Undercover.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +68,9 @@
 				01DB7E4A2BAD352300DB7376 /* ImportPlaylistView.swift */,
 				013BBA642BAE0E8A0089BD12 /* CategoryDetailView.swift */,
 				0119FC4D2BB35A380061FD69 /* SinglePlayerGameView.swift */,
+				0119FC532BB35F8A0061FD69 /* SPGuessingView.swift */,
+				0119FC562BB35FAD0061FD69 /* SPRoundResults.swift */,
+				0119FC582BB35FC70061FD69 /* SPFinalResults.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,13 +198,16 @@
 			files = (
 				010AB40B2BB2042E006A52C3 /* Utility.swift in Sources */,
 				01DB7E452BAD19F200DB7376 /* SettingsView.swift in Sources */,
+				0119FC542BB35F8A0061FD69 /* SPGuessingView.swift in Sources */,
 				0119FC502BB35CF60061FD69 /* GameState.swift in Sources */,
+				0119FC572BB35FAD0061FD69 /* SPRoundResults.swift in Sources */,
 				01DB7E342BACE91400DB7376 /* ContentView.swift in Sources */,
 				01DB7E4B2BAD352300DB7376 /* ImportPlaylistView.swift in Sources */,
 				01DB7E432BAD163B00DB7376 /* AppleMusicController.swift in Sources */,
 				013BBA652BAE0E8A0089BD12 /* CategoryDetailView.swift in Sources */,
 				01DB7E492BAD338400DB7376 /* UCCategory.swift in Sources */,
 				01DB7E322BACE91400DB7376 /* UndercoverApp.swift in Sources */,
+				0119FC592BB35FC70061FD69 /* SPFinalResults.swift in Sources */,
 				0119FC4E2BB35A380061FD69 /* SinglePlayerGameView.swift in Sources */,
 				01DB7E472BAD1FFF00DB7376 /* UCAlbum.swift in Sources */,
 				0119FC4C2BB34F6F0061FD69 /* SinglePlayerGameController.swift in Sources */,

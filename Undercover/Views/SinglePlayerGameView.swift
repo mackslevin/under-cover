@@ -9,10 +9,40 @@ import SwiftUI
 
 struct SinglePlayerGameView: View {
     @Environment(SinglePlayerGameController.self) var gameController
+    @Environment(\.dismiss) var dismiss
     @State private var gameState: GameState = .guessing
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            switch gameState {
+                case .guessing:
+                    SPGuessingView(onRoundEnd: {
+                        print("^^ state change")
+                        gameState = .roundResults
+                    })
+                case .roundResults:
+                    SPRoundResults(onNext: {
+                        print("^^ state change")
+                        gameState = .guessing
+                    })
+                case .finalResults:
+                    SPFinalResults(onEndGame: {
+                        print("^^ state change")
+                        dismiss()
+                    })
+            }
+        }
+        .onChange(of: gameController.inProgress) { _, newValue in
+            print("^^ new inProgress val \(newValue)")
+            
+            if newValue == false {
+                gameState = .finalResults
+            }
+        }
+        .onAppear(perform: {
+            
+            print("^^ game view: controller in progress \(gameController.inProgress) | category \(gameController.category?.name ?? "N/A") | game state \(gameState)")
+        })
     }
 }
 
