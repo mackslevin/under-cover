@@ -23,7 +23,7 @@ struct ContentView: View {
             List(selection: $selectedCategoryID) {
                 ForEach(categories) { cat in
                     Text(cat.name)
-                        .font(.title2)
+                        .font(.title3)
                         .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                             Button("Delete", systemImage: "trash", role: .destructive) {
                                 withAnimation {
@@ -32,6 +32,7 @@ struct ContentView: View {
                                 }
                             }
                         }
+                        .padding(.vertical)
                 }
             }
             .navigationTitle("Categories")
@@ -43,6 +44,12 @@ struct ContentView: View {
                 }
             }
             .sheet(isPresented: $isShowingSettings, content: { SettingsView() })
+            .onAppear {
+                let fontRegular = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 20)
+                let fontLarge = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 36)
+                UINavigationBar.appearance().titleTextAttributes = [.font: fontRegular!]
+                UINavigationBar.appearance().largeTitleTextAttributes = [.font: fontLarge!]
+            }
         } detail: {
             if let selectedCategoryID {
                 
@@ -58,6 +65,8 @@ struct ContentView: View {
                 }
             }
         }
+        .fontDesign(.monospaced)
+        
 
     }
     

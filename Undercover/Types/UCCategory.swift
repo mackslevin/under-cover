@@ -19,7 +19,4 @@ class UCCategory: Identifiable {
         self.name = name
         self.albums = albums
     }
-    
-
-
 }

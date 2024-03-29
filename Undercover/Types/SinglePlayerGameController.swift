@@ -7,6 +7,8 @@
 
 import Foundation
 import Observation
+//import MediaPlayer
+import MusicKit
 
 @Observable
 class SinglePlayerGameController {
@@ -16,6 +18,8 @@ class SinglePlayerGameController {
     var currentRound = 0
     var numberOfOptions = 3
     
+    private var player = SystemMusicPlayer.shared
+    
     var pastAnswers: [UCAlbum] = [] // After a round, we'll put the album that would have been (or was) the correct guess, so that we can check this when making future rounds and not repeat albums.
     var currentAnswer: UCAlbum? = nil
     var currentDecoys: [UCAlbum] = [] // Decoys meaning albums presented in the multiple choice which would be wrong answers
@@ -23,6 +27,7 @@ class SinglePlayerGameController {
     
     var points = 0
     
+    // MARK: Game State
     func reset() {
         inProgress = false
         currentRound = 0
@@ -35,8 +40,6 @@ class SinglePlayerGameController {
     }
     
     func generateRound() {
-        print("^^ generating round. current: \(currentRound). category: \(category?.name ?? "none")")
-        
         currentRound += 1
         guard currentRound <= rounds, let albums = category?.albums else {
             inProgress = false
@@ -69,12 +72,6 @@ class SinglePlayerGameController {
         currentAnswer = options.randomElement()
         currentDecoys = options
         currentDecoys.removeAll(where: {$0.musicItemID == currentAnswer?.musicItemID})
-        
-        print("^^ current answer: \(currentAnswer!.albumTitle)")
-        print("^^ decoys: ")
-        for d in currentDecoys {
-            print("^^^ \(d.albumTitle)")
-        }
     }
     
     func handleRoundEnd(withGuess guess: UCAlbum?, secondsRemaining: Int = 0) {
@@ -90,13 +87,54 @@ class SinglePlayerGameController {
             var newPoints = 100
             let secondsPerRound = UserDefaults.standard.integer(forKey: "secondsPerRound")
             let secondsUsed = secondsPerRound - secondsRemaining
-            print("^^ seconds used \(secondsUsed)")
             let pointsToDeduct = (Double(secondsUsed) / Double(secondsPerRound)) * 100
-            print("^^ points to deduct \(pointsToDeduct)")
             newPoints -= Int(floor(pointsToDeduct))
             points += newPoints
         }
         
         currentGuess = guess
+    }
+    
+    
+    // MARK: Music
+    
+    func playSongFromCurrentAnswer() async throws {
+        guard let currentAnswer else { print("^^ No current answer"); return }
+        let musicItemID = currentAnswer.musicItemID
+        var req = MusicCatalogResourceRequest<Album>(matching: \.id, equalTo: MusicItemID(musicItemID))
+        req.limit = 1
+        req.properties = [.tracks]
+        let res = try await req.response()
+        if let album = res.items.first {
+            if let randomTrack = album.tracks?.randomElement() {
+                player.queue = [randomTrack]
+                try await player.play()
+            } else {
+                print("^^ No track")
+            }
+        } else {
+            print("^^ No album")
+        }
+    }
+    
+    func stopSongFromCurrentAnswer() {
+        player.stop()
+    }
+    
+    // MARK: Hi Scores
+    func hiScoresForCurrentGame(fromScores hiScores: [UCHiScoreEntry]) -> [UCHiScoreEntry]? {
+        var categoryScores = hiScores.filter({
+            $0.categoryID == category?.id &&
+            $0.rounds == rounds &&
+            $0.secondsPerRound == UserDefaults.standard.integer(forKey: "secondsPerRound") &&
+            $0.numberOfOptions == numberOfOptions
+        })
+        
+        
+        if categoryScores.isEmpty {
+            return nil
+        } else { 
+            return categoryScores.sorted(by: {$0.score > $1.score})
+        }
     }
 }

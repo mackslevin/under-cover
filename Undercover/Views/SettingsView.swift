@@ -15,6 +15,7 @@ struct SettingsView: View {
     @AppStorage("secondsPerRound") var secondsPerRound: Int = 30
     @AppStorage("guessLabelDisplayMode") var guessMode: GuessLabelDisplayMode = .both
     @AppStorage("shouldUseDesaturation") var shouldUseDesaturation = true
+    @AppStorage("shouldUseMusic") var shouldUseMusic = true
     
     var body: some View {
         NavigationStack {
@@ -49,6 +50,8 @@ struct SettingsView: View {
                     }
                     
                     Toggle("Use Desaturation", isOn: $shouldUseDesaturation)
+                    
+                    Toggle("Play Music", isOn: $shouldUseMusic)
                 }
             }
             .navigationTitle("Settings")

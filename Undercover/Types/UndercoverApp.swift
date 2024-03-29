@@ -13,6 +13,7 @@ struct UndercoverApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             UCCategory.self,
+            UCHiScoreEntry.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

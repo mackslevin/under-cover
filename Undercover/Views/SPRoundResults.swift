@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct SPRoundResults: View {
     @Environment(SinglePlayerGameController.self) var gameController
@@ -26,12 +27,12 @@ struct SPRoundResults: View {
                         .frame(maxWidth: 500, maxHeight: 500)
                         .shadow(radius: 12)
                         .padding()
-                        
-                        
 
                         VStack() {
                             Text(rightAnswer.albumTitle).italic().fontWeight(.semibold)
+                                .multilineTextAlignment(.center)
                             Text("by \(rightAnswer.artistName)")
+                                .multilineTextAlignment(.center)
                         }
                         .font(.title2)
                         .padding(.bottom)
@@ -45,14 +46,13 @@ struct SPRoundResults: View {
                                 Capsule()
                                     .foregroundStyle(gameController.currentAnswer?.musicItemID == gameController.currentGuess?.musicItemID ? .blue : gameController.currentGuess == nil ? .orange : .red)
                             }
-                            
                     }
                 }
                 
                 Text("Points: \(gameController.points)")
                     .font(.title2).bold()
                 
-                Button("Next") {
+                Button("\(gameController.currentRound == gameController.rounds ? "Done" : "Next")") {
                     onNext()
                 }
                 .buttonStyle(.plain)

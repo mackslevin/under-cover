@@ -15,6 +15,7 @@ struct SPGuessingView: View {
     @AppStorage("secondsPerRound") var secondsPerRound: Int = 30
     @AppStorage("guessLabelDisplayMode") var guessMode: GuessLabelDisplayMode = .titleOnly
     @AppStorage("shouldUseDesaturation") var shouldUseDesaturation = true
+    @AppStorage("shouldUseMusic") var shouldUseMusic = true
     
     let onRoundEnd: () -> Void
     
@@ -100,12 +101,22 @@ struct SPGuessingView: View {
             shuffledAlbums.shuffle()
             
             Task {
+                if gameController.currentRound <= gameController.rounds && shouldUseMusic {
+                    do {
+                        try await gameController.playSongFromCurrentAnswer()
+                    } catch {
+                        print("^^ error playing song \(error)")
+                    }
+                }
+                
                 if let url = gameController.currentAnswer?.coverImageURL {
                     let (data, _) = try await URLSession.shared.data(from: url)
                     let uiImage = UIImage(data: data)
                     albumCover = uiImage
                 }
             }
+            
+            
         }
         .onChange(of: albumCover) { oldValue, newValue in
             if oldValue == nil && newValue != nil {

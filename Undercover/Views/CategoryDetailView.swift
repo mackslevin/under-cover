@@ -12,6 +12,7 @@ struct CategoryDetailView: View {
     @AppStorage("spRounds") private var rounds: Int = 3
     @Environment(SinglePlayerGameController.self) var singlePlayerGameController
     @State private var isShowingSinglePlayerGame = false
+    @AppStorage("numberOfOptions") private var numberOfOptions: Int = 3
     
     var body: some View {
         NavigationStack {
@@ -25,6 +26,7 @@ struct CategoryDetailView: View {
                 
                 Section("Single Player") {
                     Stepper("\(rounds) \(rounds > 1 ? "rounds" : "round")", value: $rounds, in: 3...9)
+                    Stepper("\(numberOfOptions) \(numberOfOptions < 1 ? "option" : "options")", value: $numberOfOptions, in: 2...5)
                 }
                 .listSectionSeparator(.hidden)
                 .sheet(isPresented: $isShowingSinglePlayerGame) {
@@ -55,6 +57,7 @@ struct CategoryDetailView: View {
         singlePlayerGameController.reset()
         singlePlayerGameController.category = category
         singlePlayerGameController.rounds = rounds
+        singlePlayerGameController.numberOfOptions = numberOfOptions
     }
 }
 

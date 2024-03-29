@@ -25,6 +25,9 @@
 		01DB7E472BAD1FFF00DB7376 /* UCAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E462BAD1FFF00DB7376 /* UCAlbum.swift */; };
 		01DB7E492BAD338400DB7376 /* UCCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E482BAD338400DB7376 /* UCCategory.swift */; };
 		01DB7E4B2BAD352300DB7376 /* ImportPlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E4A2BAD352300DB7376 /* ImportPlaylistView.swift */; };
+		01FB4AFB2BB5DA2A007574CA /* UCHiScoreEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FB4AFA2BB5DA2A007574CA /* UCHiScoreEntry.swift */; };
+		01FB4AFD2BB63CE2007574CA /* OT2049-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 01FB4AFC2BB63CE2007574CA /* OT2049-Regular.otf */; };
+		01FB4AFF2BB64B4C007574CA /* PPNikkeiMaru-Ultrabold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 01FB4AFE2BB64B4C007574CA /* PPNikkeiMaru-Ultrabold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +52,9 @@
 		01DB7E462BAD1FFF00DB7376 /* UCAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCAlbum.swift; sourceTree = "<group>"; };
 		01DB7E482BAD338400DB7376 /* UCCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCCategory.swift; sourceTree = "<group>"; };
 		01DB7E4A2BAD352300DB7376 /* ImportPlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportPlaylistView.swift; sourceTree = "<group>"; };
+		01FB4AFA2BB5DA2A007574CA /* UCHiScoreEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCHiScoreEntry.swift; sourceTree = "<group>"; };
+		01FB4AFC2BB63CE2007574CA /* OT2049-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OT2049-Regular.otf"; sourceTree = "<group>"; };
+		01FB4AFE2BB64B4C007574CA /* PPNikkeiMaru-Ultrabold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PPNikkeiMaru-Ultrabold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,7 @@
 				0119FC4F2BB35CF60061FD69 /* GameState.swift */,
 				010AB40A2BB2042E006A52C3 /* Utility.swift */,
 				01769A662BB4C79D006F09C5 /* GuessLabelDisplayMode.swift */,
+				01FB4AFA2BB5DA2A007574CA /* UCHiScoreEntry.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -111,6 +118,7 @@
 		01DB7E302BACE91400DB7376 /* Undercover */ = {
 			isa = PBXGroup;
 			children = (
+				01FB4B002BB64B50007574CA /* Fonts */,
 				0119FC522BB35F0E0061FD69 /* Types */,
 				0119FC512BB35F040061FD69 /* Views */,
 				01DB7E392BACE91500DB7376 /* Preview Content */,
@@ -127,6 +135,15 @@
 				01DB7E3A2BACE91500DB7376 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		01FB4B002BB64B50007574CA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				01FB4AFC2BB63CE2007574CA /* OT2049-Regular.otf */,
+				01FB4AFE2BB64B4C007574CA /* PPNikkeiMaru-Ultrabold.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,7 +205,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				01DB7E3B2BACE91500DB7376 /* Preview Assets.xcassets in Resources */,
+				01FB4AFD2BB63CE2007574CA /* OT2049-Regular.otf in Resources */,
 				01DB7E382BACE91500DB7376 /* Assets.xcassets in Resources */,
+				01FB4AFF2BB64B4C007574CA /* PPNikkeiMaru-Ultrabold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +232,7 @@
 				01DB7E322BACE91400DB7376 /* UndercoverApp.swift in Sources */,
 				0119FC592BB35FC70061FD69 /* SPFinalResults.swift in Sources */,
 				0119FC4E2BB35A380061FD69 /* SinglePlayerGameView.swift in Sources */,
+				01FB4AFB2BB5DA2A007574CA /* UCHiScoreEntry.swift in Sources */,
 				01DB7E472BAD1FFF00DB7376 /* UCAlbum.swift in Sources */,
 				0119FC4C2BB34F6F0061FD69 /* SinglePlayerGameController.swift in Sources */,
 			);
@@ -353,6 +373,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Undercover/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Gotta have it";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -385,6 +406,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Undercover/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Gotta have it";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
