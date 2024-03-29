@@ -9,8 +9,8 @@ import SwiftUI
 
 struct BigPillListRow: View {
     let category: UCCategory
+    @Binding var selectedCategoryID: UUID?
     
-    @State private var isHighlighted = false
     
     var body: some View {
         Text(category.name)
@@ -18,11 +18,21 @@ struct BigPillListRow: View {
             .listRowSeparator(.hidden)
             .padding()
             .background {
-                Capsule().stroke()
+                ZStack {
+                    Capsule()
+                        .stroke()
+                    Capsule()
+                        .padding(1)
+                        .foregroundStyle(selectedCategoryID == category.id ? Color.accentColor : Color.clear)
+                }
+                
+                    
             }
             .font(.title3)
             .multilineTextAlignment(.center)
-            
+            .listRowBackground(selectedCategoryID == category.id ? Color.clear : Color.clear)
+            .tint(selectedCategoryID == category.id ? Color.clear : Color.clear)
+            .contentShape(Capsule())
     }
     
 }
@@ -30,9 +40,9 @@ struct BigPillListRow: View {
 #Preview {
     NavigationStack {
         List {
-            BigPillListRow(category: UCCategory(name: "This is Something"))
-            BigPillListRow(category: UCCategory(name: "This is Something"))
-            BigPillListRow(category: UCCategory(name: "This is Something"))
+            BigPillListRow(category: UCCategory(name: "This is Something"), selectedCategoryID: .constant(UUID()))
+            
+            
         }
         .navigationTitle("Categories")
         .onAppear {

@@ -22,8 +22,8 @@ struct ContentView: View {
         NavigationSplitView {
             List(selection: $selectedCategoryID) {
                 ForEach(categories) { cat in
-
-                    BigPillListRow(category: cat)
+// TODO: What about .brown though?
+                    BigPillListRow(category: cat, selectedCategoryID: $selectedCategoryID)
                         .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                             Button("Delete", systemImage: "trash", role: .destructive) {
                                 withAnimation {
@@ -34,7 +34,6 @@ struct ContentView: View {
                         }
                 }
             }
-            
             .listStyle(.plain)
             .navigationTitle("Categories")
             .toolbar {
@@ -67,6 +66,7 @@ struct ContentView: View {
             }
         }
         .fontDesign(.monospaced)
+        
         
 
     }

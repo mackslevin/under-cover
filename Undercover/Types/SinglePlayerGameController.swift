@@ -123,7 +123,7 @@ class SinglePlayerGameController {
     
     // MARK: Hi Scores
     func hiScoresForCurrentGame(fromScores hiScores: [UCHiScoreEntry]) -> [UCHiScoreEntry]? {
-        var categoryScores = hiScores.filter({
+        let categoryScores = hiScores.filter({
             $0.categoryID == category?.id &&
             $0.rounds == rounds &&
             $0.secondsPerRound == UserDefaults.standard.integer(forKey: "secondsPerRound") &&

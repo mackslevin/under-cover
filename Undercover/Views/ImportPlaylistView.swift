@@ -82,7 +82,7 @@ struct ImportPlaylistView: View {
                         
                         Button("Convert to Category", systemImage: "sparkles") {
                             // Create new UCCategory and loop through the Playlist's tracks to grab the albums for the new category.
-                            var newCategory = UCCategory(name: selectedPlaylist.name)
+                            let newCategory = UCCategory(name: selectedPlaylist.name)
                             var albums: [UCAlbum] = []
                             
                             Task {
