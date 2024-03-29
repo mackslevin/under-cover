@@ -33,6 +33,7 @@ struct BigPillListRow: View {
             .listRowBackground(selectedCategoryID == category.id ? Color.clear : Color.clear)
             .tint(selectedCategoryID == category.id ? Color.clear : Color.clear)
             .contentShape(Capsule())
+            .border(Color.clear)
             .sensoryFeedback(.selection, trigger: selectedCategoryID == category.id)
 
     }

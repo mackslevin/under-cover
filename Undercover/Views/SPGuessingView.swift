@@ -20,16 +20,16 @@ struct SPGuessingView: View {
     let onRoundEnd: () -> Void
     
     @State private var timeRemaining = 30
-//    @State private var shuffledAlbums: [UCAlbum] = []
-    @State private var shuffledAlbums: [UCAlbum] = [ // TODO: Change back
-        UCAlbum(musicItemID: "1234", artistName: "Chib Tuple", albumTitle: "Wet Summer", url: nil),
-        UCAlbum(musicItemID: "5234", artistName: "Grum Thunderlunt", albumTitle: "Peoria", url: nil),
-        UCAlbum(musicItemID: "1234", artistName: "Faltch", albumTitle: "Walking Through the Woods", url: nil)
-    ]
+    @State private var shuffledAlbums: [UCAlbum] = []
+//    @State private var shuffledAlbums: [UCAlbum] = [ // TODO: Change back
+//        UCAlbum(musicItemID: "1234", artistName: "Chib Tuple", albumTitle: "Wet Summer", url: nil),
+//        UCAlbum(musicItemID: "5234", artistName: "Grum Thunderlunt", albumTitle: "Peoria", url: nil),
+//        UCAlbum(musicItemID: "1234", artistName: "Faltch", albumTitle: "Walking Through the Woods", url: nil)
+//    ]
     @State private var isLoading = false
     
-//    @State private var albumCover: UIImage? = nil
-    @State private var albumCover: UIImage? = UIImage(named: "shape") // TODO: Change back
+    @State private var albumCover: UIImage? = nil
+//    @State private var albumCover: UIImage? = UIImage(named: "shape") // TODO: Change back
     
     @State private var timer: AnyCancellable? = nil
     @State private var blurAmount: CGFloat = 15
@@ -54,6 +54,13 @@ struct SPGuessingView: View {
                                 .padding()
                                 .grayscale(shouldUseDesaturation ? grayscaleAmount : 0)
                         }
+                        
+                        HStack {
+                            Image(systemName: "stopwatch.fill")
+                            Text("\(timeRemaining)s").bold()
+                        }
+                        .font(.title3)
+                        .foregroundStyle(Double(timeRemaining) < (Double(secondsPerRound) * 0.25) ? Color.red : Color.primary)
                         
                         ForEach(shuffledAlbums) { album in
                             Button {
@@ -96,7 +103,7 @@ struct SPGuessingView: View {
 //            }
 //        }
         .onAppear {
-//            isLoading = true // TODO: Change back
+            isLoading = true
             timeRemaining = secondsPerRound
             gameController.generateRound()
             
