@@ -13,16 +13,23 @@ import Combine
 struct SPGuessingView: View {
     @Environment(SinglePlayerGameController.self) var gameController
     @AppStorage("secondsPerRound") var secondsPerRound: Int = 30
-    @AppStorage("guessLabelDisplayMode") var guessMode: GuessLabelDisplayMode = .titleOnly
+    @AppStorage("guessLabelDisplayMode") var guessMode: GuessLabelDisplayMode = .both
     @AppStorage("shouldUseDesaturation") var shouldUseDesaturation = true
     @AppStorage("shouldUseMusic") var shouldUseMusic = true
     
     let onRoundEnd: () -> Void
     
     @State private var timeRemaining = 30
-    @State private var shuffledAlbums: [UCAlbum] = []
+//    @State private var shuffledAlbums: [UCAlbum] = []
+    @State private var shuffledAlbums: [UCAlbum] = [ // TODO: Change back
+        UCAlbum(musicItemID: "1234", artistName: "Chib Tuple", albumTitle: "Wet Summer", url: nil),
+        UCAlbum(musicItemID: "5234", artistName: "Grum Thunderlunt", albumTitle: "Peoria", url: nil),
+        UCAlbum(musicItemID: "1234", artistName: "Faltch", albumTitle: "Walking Through the Woods", url: nil)
+    ]
     @State private var isLoading = false
-    @State private var albumCover: UIImage? = nil
+    
+//    @State private var albumCover: UIImage? = nil
+    @State private var albumCover: UIImage? = UIImage(named: "shape") // TODO: Change back
     
     @State private var timer: AnyCancellable? = nil
     @State private var blurAmount: CGFloat = 15
@@ -56,6 +63,7 @@ struct SPGuessingView: View {
                                 VStack() {
                                     if guessMode == .titleOnly || guessMode == .both {
                                         Text(album.albumTitle)
+                                            .fontWeight(.medium)
                                     }
                                     
                                     if guessMode == .artistOnly || guessMode == .both {
@@ -65,7 +73,7 @@ struct SPGuessingView: View {
                                 }
                                 
                             }
-                            .bold()
+                            .buttonStyle(GuessButtonStyle())
                             .font(.title2)
                             .frame(maxWidth: .infinity, alignment: .center)
                         }
@@ -80,15 +88,15 @@ struct SPGuessingView: View {
             
         }
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Image(systemName: timerImageName)
-                    .bold()
-                    .foregroundStyle(Double(timeRemaining) < (Double(secondsPerRound) * 0.25) ? Color.red : Color.primary)
-            }
-        }
+//        .toolbar {
+//            ToolbarItem(placement: .topBarTrailing) {
+//                Image(systemName: timerImageName)
+//                    .bold()
+//                    .foregroundStyle(Double(timeRemaining) < (Double(secondsPerRound) * 0.25) ? Color.red : Color.primary)
+//            }
+//        }
         .onAppear {
-            isLoading = true
+//            isLoading = true // TODO: Change back
             timeRemaining = secondsPerRound
             gameController.generateRound()
             
@@ -152,7 +160,10 @@ struct SPGuessingView: View {
     }
 }
 
+
+
 #Preview {
     SPGuessingView(onRoundEnd: {})
         .environment(SinglePlayerGameController())
+        .fontDesign(.monospaced)
 }

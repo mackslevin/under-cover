@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		010AB40B2BB2042E006A52C3 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010AB40A2BB2042E006A52C3 /* Utility.swift */; };
 		011994912BB66CDA00F3DD31 /* BigPillListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011994902BB66CDA00F3DD31 /* BigPillListRow.swift */; };
+		011994952BB74DC500F3DD31 /* GuessButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011994942BB74DC500F3DD31 /* GuessButtonStyle.swift */; };
 		0119FC4C2BB34F6F0061FD69 /* SinglePlayerGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119FC4B2BB34F6F0061FD69 /* SinglePlayerGameController.swift */; };
 		0119FC4E2BB35A380061FD69 /* SinglePlayerGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119FC4D2BB35A380061FD69 /* SinglePlayerGameView.swift */; };
 		0119FC502BB35CF60061FD69 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119FC4F2BB35CF60061FD69 /* GameState.swift */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		010AB40A2BB2042E006A52C3 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		011994902BB66CDA00F3DD31 /* BigPillListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigPillListRow.swift; sourceTree = "<group>"; };
+		011994942BB74DC500F3DD31 /* GuessButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessButtonStyle.swift; sourceTree = "<group>"; };
 		0119FC4B2BB34F6F0061FD69 /* SinglePlayerGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayerGameController.swift; sourceTree = "<group>"; };
 		0119FC4D2BB35A380061FD69 /* SinglePlayerGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayerGameView.swift; sourceTree = "<group>"; };
 		0119FC4F2BB35CF60061FD69 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				010AB40A2BB2042E006A52C3 /* Utility.swift */,
 				01769A662BB4C79D006F09C5 /* GuessLabelDisplayMode.swift */,
 				01FB4AFA2BB5DA2A007574CA /* UCHiScoreEntry.swift */,
+				011994942BB74DC500F3DD31 /* GuessButtonStyle.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				013BBA652BAE0E8A0089BD12 /* CategoryDetailView.swift in Sources */,
 				01DB7E492BAD338400DB7376 /* UCCategory.swift in Sources */,
 				01DB7E322BACE91400DB7376 /* UndercoverApp.swift in Sources */,
+				011994952BB74DC500F3DD31 /* GuessButtonStyle.swift in Sources */,
 				011994912BB66CDA00F3DD31 /* BigPillListRow.swift in Sources */,
 				0119FC592BB35FC70061FD69 /* SPFinalResults.swift in Sources */,
 				0119FC4E2BB35A380061FD69 /* SinglePlayerGameView.swift in Sources */,
