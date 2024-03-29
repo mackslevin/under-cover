@@ -22,7 +22,6 @@ struct ContentView: View {
         NavigationSplitView {
             List(selection: $selectedCategoryID) {
                 ForEach(categories) { cat in
-// TODO: What about .brown though?
                     BigPillListRow(category: cat, selectedCategoryID: $selectedCategoryID)
                         .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                             Button("Delete", systemImage: "trash", role: .destructive) {
@@ -52,13 +51,11 @@ struct ContentView: View {
             }
         } detail: {
             if let selectedCategoryID {
-                
                 CategoryDetailView(
                     category: categories.first(where: {
                         $0.id == selectedCategoryID
                     })! 
                 )
-                
             } else {
                 NavigationStack {
                     ContentUnavailableView("Nothing selected", systemImage: "square.dotted")
@@ -66,8 +63,6 @@ struct ContentView: View {
             }
         }
         .fontDesign(.monospaced)
-        
-        
 
     }
     

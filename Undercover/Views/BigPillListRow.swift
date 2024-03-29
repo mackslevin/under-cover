@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+
 struct BigPillListRow: View {
+    
     let category: UCCategory
     @Binding var selectedCategoryID: UUID?
     
@@ -25,14 +27,14 @@ struct BigPillListRow: View {
                         .padding(1)
                         .foregroundStyle(selectedCategoryID == category.id ? Color.accentColor : Color.clear)
                 }
-                
-                    
             }
             .font(.title3)
             .multilineTextAlignment(.center)
             .listRowBackground(selectedCategoryID == category.id ? Color.clear : Color.clear)
             .tint(selectedCategoryID == category.id ? Color.clear : Color.clear)
             .contentShape(Capsule())
+            .sensoryFeedback(.selection, trigger: selectedCategoryID == category.id)
+
     }
     
 }
@@ -41,8 +43,6 @@ struct BigPillListRow: View {
     NavigationStack {
         List {
             BigPillListRow(category: UCCategory(name: "This is Something"), selectedCategoryID: .constant(UUID()))
-            
-            
         }
         .navigationTitle("Categories")
         .onAppear {
