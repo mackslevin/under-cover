@@ -22,8 +22,8 @@ struct ContentView: View {
         NavigationSplitView {
             List(selection: $selectedCategoryID) {
                 ForEach(categories) { cat in
-                    Text(cat.name)
-                        .font(.title3)
+
+                    BigPillListRow(category: cat)
                         .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                             Button("Delete", systemImage: "trash", role: .destructive) {
                                 withAnimation {
@@ -32,9 +32,10 @@ struct ContentView: View {
                                 }
                             }
                         }
-                        .padding(.vertical)
                 }
             }
+            
+            .listStyle(.plain)
             .navigationTitle("Categories")
             .toolbar {
                 ToolbarItem {
@@ -74,6 +75,6 @@ struct ContentView: View {
     
 }
 
-#Preview {
-    ContentView()
-}
+//#Preview {
+//    ContentView()
+//}
