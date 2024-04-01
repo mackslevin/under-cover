@@ -64,11 +64,14 @@ struct SPRoundResults: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .padding([.horizontal, .bottom])
+            .onAppear {
+                print("^^ time remaining \(gameController.currentRoundSecondsRemaining)")
+            }
         }
         
     }
 }
 
-#Preview {
-    SPRoundResults(onNext: {})
-}
+//#Preview {
+//    SPRoundResults(onNext: {})
+//}

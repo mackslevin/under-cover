@@ -1,10 +1,3 @@
-//
-//  UCHiScoreEntry.swift
-//  Undercover
-//
-//  Created by Mack Slevin on 3/28/24.
-//
-
 import Foundation
 import SwiftData
 

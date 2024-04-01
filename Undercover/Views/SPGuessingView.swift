@@ -21,16 +21,8 @@ struct SPGuessingView: View {
     
     @State private var timeRemaining = 30
     @State private var shuffledAlbums: [UCAlbum] = []
-//    @State private var shuffledAlbums: [UCAlbum] = [ // TODO: Change back
-//        UCAlbum(musicItemID: "1234", artistName: "Chib Tuple", albumTitle: "Wet Summer", url: nil),
-//        UCAlbum(musicItemID: "5234", artistName: "Grum Thunderlunt", albumTitle: "Peoria", url: nil),
-//        UCAlbum(musicItemID: "1234", artistName: "Faltch", albumTitle: "Walking Through the Woods", url: nil)
-//    ]
     @State private var isLoading = false
-    
     @State private var albumCover: UIImage? = nil
-//    @State private var albumCover: UIImage? = UIImage(named: "shape") // TODO: Change back
-    
     @State private var timer: AnyCancellable? = nil
     @State private var blurAmount: CGFloat = 15
     @State private var timerImageName: String = "circle.fill"
@@ -57,10 +49,12 @@ struct SPGuessingView: View {
                         
                         HStack {
                             Image(systemName: "stopwatch.fill")
-                            Text("\(timeRemaining)s").bold()
+//                            Text("\(timeRemaining)s").bold()
+                            Text("\(gameController.currentRoundSecondsRemaining ?? 0)s").bold()
                         }
                         .font(.title3)
-                        .foregroundStyle(Double(timeRemaining) < (Double(secondsPerRound) * 0.25) ? Color.red : Color.primary)
+//                        .foregroundStyle(Double(timeRemaining) < (Double(secondsPerRound) * 0.25) ? Color.red : Color.primary)
+                        .foregroundStyle(Double(gameController.currentRoundSecondsRemaining ?? 0) < (Double(secondsPerRound) * 0.25) ? Color.red : Color.primary)
                         
                         ForEach(shuffledAlbums) { album in
                             Button {
@@ -95,16 +89,12 @@ struct SPGuessingView: View {
             
         }
         .navigationBarTitleDisplayMode(.inline)
-//        .toolbar {
-//            ToolbarItem(placement: .topBarTrailing) {
-//                Image(systemName: timerImageName)
-//                    .bold()
-//                    .foregroundStyle(Double(timeRemaining) < (Double(secondsPerRound) * 0.25) ? Color.red : Color.primary)
-//            }
-//        }
         .onAppear {
             isLoading = true
+            
             timeRemaining = secondsPerRound
+            gameController.currentRoundSecondsRemaining = secondsPerRound
+            
             gameController.generateRound()
             
             if let current = gameController.currentAnswer {
@@ -142,7 +132,7 @@ struct SPGuessingView: View {
     }
     
     func endRound(withGuess guess: UCAlbum?) {
-        gameController.handleRoundEnd(withGuess: guess, secondsRemaining: timeRemaining)
+        gameController.handleRoundEnd(withGuess: guess, secondsRemaining: gameController.currentRoundSecondsRemaining ?? 0)
         onRoundEnd()
     }
     
@@ -150,13 +140,15 @@ struct SPGuessingView: View {
         timer = Timer.publish(every: 1, on: .main, in: .common)
             .autoconnect()
             .sink { _ in
-                if timeRemaining > 0 {
+                if gameController.currentRoundSecondsRemaining ?? 0 > 0 {
                     timeRemaining -= 1
+                    gameController.currentRoundSecondsRemaining = (gameController.currentRoundSecondsRemaining ?? 0) - 1
+                    
                     withAnimation {
-                        let newBlurAmount = CGFloat((CGFloat(timeRemaining) / CGFloat(secondsPerRound)) * 15)
+                        let newBlurAmount = CGFloat((CGFloat(gameController.currentRoundSecondsRemaining ?? 0) / CGFloat(secondsPerRound)) * 15)
                         blurAmount = newBlurAmount
-                        timerImageName = "\(timeRemaining).circle.fill"
-                        grayscaleAmount = (Double(timeRemaining) / Double(secondsPerRound))
+                        timerImageName = "\(gameController.currentRoundSecondsRemaining ?? 0).circle.fill"
+                        grayscaleAmount = (Double(gameController.currentRoundSecondsRemaining ?? 0) / Double(secondsPerRound))
                     }
                 } else {
                     // Dismiss the view
@@ -169,8 +161,8 @@ struct SPGuessingView: View {
 
 
 
-#Preview {
-    SPGuessingView(onRoundEnd: {})
-        .environment(SinglePlayerGameController())
-        .fontDesign(.monospaced)
-}
+//#Preview {
+//    SPGuessingView(onRoundEnd: {})
+//        .environment(SinglePlayerGameController())
+//        .fontDesign(.monospaced)
+//}

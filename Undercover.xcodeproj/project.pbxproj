@@ -18,6 +18,7 @@
 		0119FC592BB35FC70061FD69 /* SPFinalResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119FC582BB35FC70061FD69 /* SPFinalResults.swift */; };
 		013BBA652BAE0E8A0089BD12 /* CategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BBA642BAE0E8A0089BD12 /* CategoryDetailView.swift */; };
 		01769A672BB4C79D006F09C5 /* GuessLabelDisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01769A662BB4C79D006F09C5 /* GuessLabelDisplayMode.swift */; };
+		0193C0CB2BBB54A20024CB50 /* RoundResultBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193C0CA2BBB54A20024CB50 /* RoundResultBox.swift */; };
 		01DB7E322BACE91400DB7376 /* UndercoverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E312BACE91400DB7376 /* UndercoverApp.swift */; };
 		01DB7E342BACE91400DB7376 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E332BACE91400DB7376 /* ContentView.swift */; };
 		01DB7E382BACE91500DB7376 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01DB7E372BACE91500DB7376 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		013BBA642BAE0E8A0089BD12 /* CategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailView.swift; sourceTree = "<group>"; };
 		016CC9292BAE0A9700FCEED4 /* Undercover.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Undercover.entitlements; sourceTree = "<group>"; };
 		01769A662BB4C79D006F09C5 /* GuessLabelDisplayMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessLabelDisplayMode.swift; sourceTree = "<group>"; };
+		0193C0CA2BBB54A20024CB50 /* RoundResultBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundResultBox.swift; sourceTree = "<group>"; };
 		01DB7E2E2BACE91400DB7376 /* Undercover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Undercover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01DB7E312BACE91400DB7376 /* UndercoverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndercoverApp.swift; sourceTree = "<group>"; };
 		01DB7E332BACE91400DB7376 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				0119FC562BB35FAD0061FD69 /* SPRoundResults.swift */,
 				0119FC582BB35FC70061FD69 /* SPFinalResults.swift */,
 				011994902BB66CDA00F3DD31 /* BigPillListRow.swift */,
+				0193C0CA2BBB54A20024CB50 /* RoundResultBox.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				0119FC572BB35FAD0061FD69 /* SPRoundResults.swift in Sources */,
 				01DB7E342BACE91400DB7376 /* ContentView.swift in Sources */,
 				01DB7E4B2BAD352300DB7376 /* ImportPlaylistView.swift in Sources */,
+				0193C0CB2BBB54A20024CB50 /* RoundResultBox.swift in Sources */,
 				01DB7E432BAD163B00DB7376 /* AppleMusicController.swift in Sources */,
 				01769A672BB4C79D006F09C5 /* GuessLabelDisplayMode.swift in Sources */,
 				013BBA652BAE0E8A0089BD12 /* CategoryDetailView.swift in Sources */,

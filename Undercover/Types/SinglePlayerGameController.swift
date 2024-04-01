@@ -24,6 +24,7 @@ class SinglePlayerGameController {
     var currentAnswer: UCAlbum? = nil
     var currentDecoys: [UCAlbum] = [] // Decoys meaning albums presented in the multiple choice which would be wrong answers
     var currentGuess: UCAlbum? = nil
+    var currentRoundSecondsRemaining: Int? = nil
     
     var points = 0
     
@@ -37,6 +38,7 @@ class SinglePlayerGameController {
         currentAnswer = nil
         currentDecoys = []
         points = 0
+        currentRoundSecondsRemaining = nil
     }
     
     func generateRound() {
