@@ -45,7 +45,7 @@ struct BasicAlbumCard: View {
                     Button("Favorite", systemImage: "star") {
                         // TODO
                     }
-                    Button("Open...") {
+                    Button("Open in...") {
                         // TODO
                     }
                 } label: {

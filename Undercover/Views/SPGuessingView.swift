@@ -26,6 +26,8 @@ struct SPGuessingView: View {
     @State private var blurAmount: CGFloat = 15
     @State private var timerImageName: String = "circle.fill"
     @State private var grayscaleAmount: Double = 1
+    @State private var timeBarSeconds: Int = 100
+    
     
     var body: some View {
         VStack {
@@ -42,16 +44,31 @@ struct SPGuessingView: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 5))
                                 .frame(maxWidth: 500, maxHeight: 500)
                                 .shadow(radius: 12)
-//                                .padding()
                                 .grayscale(shouldUseDesaturation ? grayscaleAmount : 0)
                         }
                         
-                        HStack {
-                            Image(systemName: "stopwatch.fill")
+                        HStack(alignment: .center) {
                             Text("\(gameController.currentRoundSecondsRemaining ?? 0)s").bold()
+                                .foregroundStyle(.primary).colorInvert()
+                                .font(.caption).bold()
+                                .padding(4)
+                                .background{
+                                    Capsule()
+                                        .foregroundStyle(.primary)
+                                        .foregroundStyle(Double(gameController.currentRoundSecondsRemaining ?? 0) < (Double(secondsPerRound) * 0.25) ? Color.red : Color.primary)
+                                }
+                            
+                            GeometryReader(content: { geometry in
+                                Capsule()
+                                    .frame(
+                                        width: (geometry.size.width / CGFloat(secondsPerRound)) * CGFloat(timeBarSeconds),
+                                        height: geometry.size.height
+                                    )
+                                    .foregroundStyle(Double(gameController.currentRoundSecondsRemaining ?? 0) < (Double(secondsPerRound) * 0.25) ? Color.red : Color.primary)
+                            })
                         }
                         .font(.title3)
-                        .foregroundStyle(Double(gameController.currentRoundSecondsRemaining ?? 0) < (Double(secondsPerRound) * 0.25) ? Color.red : Color.primary)
+                        
                         
                         ForEach(shuffledAlbums) { album in
                             Button {
@@ -69,7 +86,6 @@ struct SPGuessingView: View {
                                             .font(.body)
                                     }
                                 }
-                                
                             }
                             .buttonStyle(PillButtonStyle())
                             .font(.title2)
@@ -79,11 +95,8 @@ struct SPGuessingView: View {
                         Spacer()
                     }
                     .padding([.horizontal, .bottom])
-                    
                 }
-                
             }
-            
         }
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
@@ -125,6 +138,15 @@ struct SPGuessingView: View {
                 startTimer()
             }
         }
+        .onChange(of: gameController.currentRoundSecondsRemaining) { _, newValue in
+            withAnimation(.linear(duration: 1)) {
+                if let newValue {
+                    timeBarSeconds = newValue
+                }
+            }
+            
+            
+        }
     }
     
     func endRound(withGuess guess: UCAlbum?) {
@@ -136,7 +158,7 @@ struct SPGuessingView: View {
         timer = Timer.publish(every: 1, on: .main, in: .common)
             .autoconnect()
             .sink { _ in
-                if gameController.currentRoundSecondsRemaining ?? 0 > 0 {   
+                if gameController.currentRoundSecondsRemaining ?? 0 > 0 {
                     gameController.currentRoundSecondsRemaining = (gameController.currentRoundSecondsRemaining ?? 0) - 1
                     
                     withAnimation {
