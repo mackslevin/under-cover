@@ -20,18 +20,23 @@ struct RoundResultBox: View {
     @State private var state: ResultState = .win
     @State private var symbolName = "hands.clap.fill"
     
+    @State private var symbolsShouldAnimate = false
+    
     var body: some View {
         VStack(spacing: 20) {
             HStack {
                 HStack {
                     Image(systemName: symbolName)
                         .resizable().scaledToFit().frame(height: 36)
+                        .symbolEffect(.bounce, options: .repeating, value: symbolsShouldAnimate)
+                    
                     Text(state == .win ? "Correct!" : state == .timeOut ? "Time's Up!" : "Wrong!")
                         .fontDesign(.default) // Needed so it doesn't get overriden with monospace
                         .font(Font.custom(Font.customFontName, size: 32))
                         
                     Image(systemName: symbolName)
                         .resizable().scaledToFit().frame(height: 36)
+                        .symbolEffect(.bounce, options: .repeating, value: symbolsShouldAnimate)
                 }
                 .frame(maxWidth: .infinity)
             }
@@ -75,6 +80,9 @@ struct RoundResultBox: View {
                 default:
                     symbolName = "hands.clap.fill"
             }
+            
+            // Trigger SF symbol animation loop
+            symbolsShouldAnimate = true
         }
     }
 }

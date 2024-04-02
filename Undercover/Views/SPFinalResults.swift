@@ -7,24 +7,16 @@
 
 import SwiftUI
 import SwiftData
+import MusicKit
 
 struct SPFinalResults: View {
     @Environment(SinglePlayerGameController.self) var gameController
     @Environment(\.modelContext) var modelContext
     @Query(sort: [SortDescriptor(\UCHiScoreEntry.date, order: .reverse)]) var hiScores: [UCHiScoreEntry]
-    @State private var thisScore: UCHiScoreEntry? = UCHiScoreEntry(categoryID: UUID(), score: 201, rounds: 3, secondsPerRound: 12, numberOfOptions: 3) // TODO: Set back to nil
+    @State private var thisScore: UCHiScoreEntry? = nil
     @State private var isNewHiScore = false
     @State private var highestScore: UCHiScoreEntry?
-    
-    @State private var currentGameScores: [UCHiScoreEntry]? = [ // TODO: Change back to empty array
-        UCHiScoreEntry(categoryID: UUID(), score: 123, rounds: 3, secondsPerRound: 12, numberOfOptions: 3),
-        UCHiScoreEntry(categoryID: UUID(), score: 205, rounds: 3, secondsPerRound: 12, numberOfOptions: 3),
-        UCHiScoreEntry(categoryID: UUID(), score: 76, rounds: 3, secondsPerRound: 12, numberOfOptions: 3),
-        UCHiScoreEntry(categoryID: UUID(), score: 509, rounds: 3, secondsPerRound: 12, numberOfOptions: 3),
-        UCHiScoreEntry(categoryID: UUID(), score: 325, rounds: 3, secondsPerRound: 12, numberOfOptions: 3),
-        UCHiScoreEntry(categoryID: UUID(), score: 100, rounds: 3, secondsPerRound: 12, numberOfOptions: 3),
-        UCHiScoreEntry(categoryID: UUID(), score: 100, rounds: 3, secondsPerRound: 12, numberOfOptions: 3)
-    ]
+    @State private var currentGameScores: [UCHiScoreEntry]? = []
     
     @AppStorage("secondsPerRound") var secondsPerRound: Int = 30
     
@@ -68,6 +60,7 @@ struct SPFinalResults: View {
             }
             .buttonStyle(PillButtonStyle())
             
+            
             Spacer()
         }
         .navigationTitle("Game Over")
@@ -86,6 +79,8 @@ struct SPFinalResults: View {
                     isNewHiScore = true
                 }
             }
+            
+            print("^^ gc pasts \(gameController.pastAnswers)")
         }
         .onDisappear {
             gameController.stopSongFromCurrentAnswer()

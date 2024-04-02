@@ -45,15 +45,18 @@ struct CategoryDetailView: View {
                 }
             }
             .onAppear {
+                print("^^ appear")
                 setUpForSinglePlayer()
             }
             .onChange(of: rounds) { _, _ in
+                print("^^ change")
                 setUpForSinglePlayer()
             }
         }
     }
     
     func setUpForSinglePlayer() {
+        print("^^ setup")
         singlePlayerGameController.reset()
         singlePlayerGameController.category = category
         singlePlayerGameController.rounds = rounds

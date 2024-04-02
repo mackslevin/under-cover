@@ -30,6 +30,7 @@
 		01DB7E472BAD1FFF00DB7376 /* UCAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E462BAD1FFF00DB7376 /* UCAlbum.swift */; };
 		01DB7E492BAD338400DB7376 /* UCCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E482BAD338400DB7376 /* UCCategory.swift */; };
 		01DB7E4B2BAD352300DB7376 /* ImportPlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E4A2BAD352300DB7376 /* ImportPlaylistView.swift */; };
+		01F72F402BBC8A0100E9E32D /* FuzzyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F72F3F2BBC8A0100E9E32D /* FuzzyImage.swift */; };
 		01FB4AFB2BB5DA2A007574CA /* UCHiScoreEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FB4AFA2BB5DA2A007574CA /* UCHiScoreEntry.swift */; };
 		01FB4AFD2BB63CE2007574CA /* OT2049-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 01FB4AFC2BB63CE2007574CA /* OT2049-Regular.otf */; };
 		01FB4AFF2BB64B4C007574CA /* PPNikkeiMaru-Ultrabold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 01FB4AFE2BB64B4C007574CA /* PPNikkeiMaru-Ultrabold.otf */; };
@@ -62,6 +63,7 @@
 		01DB7E462BAD1FFF00DB7376 /* UCAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCAlbum.swift; sourceTree = "<group>"; };
 		01DB7E482BAD338400DB7376 /* UCCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCCategory.swift; sourceTree = "<group>"; };
 		01DB7E4A2BAD352300DB7376 /* ImportPlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportPlaylistView.swift; sourceTree = "<group>"; };
+		01F72F3F2BBC8A0100E9E32D /* FuzzyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuzzyImage.swift; sourceTree = "<group>"; };
 		01FB4AFA2BB5DA2A007574CA /* UCHiScoreEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCHiScoreEntry.swift; sourceTree = "<group>"; };
 		01FB4AFC2BB63CE2007574CA /* OT2049-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OT2049-Regular.otf"; sourceTree = "<group>"; };
 		01FB4AFE2BB64B4C007574CA /* PPNikkeiMaru-Ultrabold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PPNikkeiMaru-Ultrabold.otf"; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				011994902BB66CDA00F3DD31 /* BigPillListRow.swift */,
 				0193C0CA2BBB54A20024CB50 /* RoundResultBox.swift */,
 				0193C0CE2BBB9A900024CB50 /* BasicAlbumCard.swift */,
+				01F72F3F2BBC8A0100E9E32D /* FuzzyImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				0119FC4E2BB35A380061FD69 /* SinglePlayerGameView.swift in Sources */,
 				01FB4AFB2BB5DA2A007574CA /* UCHiScoreEntry.swift in Sources */,
 				01DB7E472BAD1FFF00DB7376 /* UCAlbum.swift in Sources */,
+				01F72F402BBC8A0100E9E32D /* FuzzyImage.swift in Sources */,
 				0119FC4C2BB34F6F0061FD69 /* SinglePlayerGameController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

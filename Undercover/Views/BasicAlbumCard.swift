@@ -40,21 +40,27 @@ struct BasicAlbumCard: View {
                 
                 Spacer()
                 
-                Menu {
-                    ShareLink("Share", item: album.url!)
-                    Button("Favorite", systemImage: "star") {
-                        // TODO
-                    }
-                    Button("Open in...") {
-                        // TODO
-                    }
-                } label: {
-                    Image(systemName: "ellipsis")
-                        .resizable().scaledToFit()
-                        .frame(width: 40)
-                        .rotationEffect(.degrees(90.0))
-                }
-                .foregroundStyle(.primary)
+//                Menu {
+//                    ShareLink("Share", item: album.url!)
+//                    Button("Favorite", systemImage: "star") {
+//                        // TODO
+//                    }
+//                    Button("Open in...") {
+//                        // TODO
+//                    }
+//                } label: {
+//                    Image(systemName: "ellipsis")
+//                        .resizable().scaledToFit()
+//                        .frame(width: 40)
+//                        .rotationEffect(.degrees(90.0))
+//                }
+//                .foregroundStyle(.primary)
+                
+                ShareLink("Share", item: album.url!)
+                    .frame(width: 40)
+                    .labelStyle(.iconOnly)
+                    .bold()
+                    .foregroundStyle(.primary)
             }
         }
         .padding(10)

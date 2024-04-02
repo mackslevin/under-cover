@@ -21,9 +21,6 @@ struct SPGuessingView: View {
     @State private var isLoading = false
     @State private var albumCover: UIImage? = nil
     @State private var timer: AnyCancellable? = nil
-    @State private var blurAmount: CGFloat = 15
-    @State private var timerImageName: String = "circle.fill"
-    @State private var grayscaleAmount: Double = 1
     @State private var timeBarSeconds: Int = 100
     
     var body: some View {
@@ -35,13 +32,8 @@ struct SPGuessingView: View {
                 ScrollView {
                     VStack(spacing: 20) {
                         if let albumCover {
-                            Image(uiImage: albumCover)
-                                .resizable().scaledToFit()
-                                .blur(radius: blurAmount)
-                                .clipShape(RoundedRectangle(cornerRadius: 5))
+                            FuzzyImage(uiImage: albumCover)
                                 .frame(maxWidth: 500, maxHeight: 500)
-                                .shadow(radius: 12)
-                                .grayscale(shouldUseDesaturation ? grayscaleAmount : 0)
                         }
                         
                         HStack(alignment: .center) {
@@ -94,7 +86,7 @@ struct SPGuessingView: View {
                     .toolbar {
                         ToolbarItem(placement: .topBarTrailing) {
                             Text("\(gameController.currentRound)/\(gameController.rounds)")
-                                .font(Font.custom(Font.customFontName, size: 16))
+                                .fontWeight(.black)
                         }
                     }
                 }
@@ -162,13 +154,6 @@ struct SPGuessingView: View {
             .sink { _ in
                 if gameController.currentRoundSecondsRemaining ?? 0 > 0 {
                     gameController.currentRoundSecondsRemaining = (gameController.currentRoundSecondsRemaining ?? 0) - 1
-                    
-                    withAnimation {
-                        let newBlurAmount = CGFloat((CGFloat(gameController.currentRoundSecondsRemaining ?? 0) / CGFloat(secondsPerRound)) * 15)
-                        blurAmount = newBlurAmount
-                        timerImageName = "\(gameController.currentRoundSecondsRemaining ?? 0).circle.fill"
-                        grayscaleAmount = (Double(gameController.currentRoundSecondsRemaining ?? 0) / Double(secondsPerRound))
-                    }
                 } else {
                     // Dismiss the view
                     endRound(withGuess: nil)

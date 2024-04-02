@@ -12,6 +12,8 @@ struct SinglePlayerGameView: View {
     @Environment(\.dismiss) var dismiss
     @State private var gameState: GameState = .guessing
     
+    
+    
     var body: some View {
         NavigationStack {
             switch gameState {

@@ -47,7 +47,7 @@ struct SPRoundResults: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Text("\(gameController.currentRound)/\(gameController.rounds)")
-                        .font(Font.custom(Font.customFontName, size: 16))
+                        .fontWeight(.black)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)

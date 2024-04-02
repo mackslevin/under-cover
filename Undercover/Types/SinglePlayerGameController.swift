@@ -20,7 +20,7 @@ class SinglePlayerGameController {
     
     private var player = SystemMusicPlayer.shared
     
-    var pastAnswers: [UCAlbum] = [] // After a round, we'll put the album that would have been (or was) the correct guess, so that we can check this when making future rounds and not repeat albums.
+    var pastAnswers: [UCAlbum] = [] // After a round, we'll put the album that would have been (or was) the correct guess, so that we can check this when making future rounds and not repeat albums. (And to recap at the end.)
     var currentAnswer: UCAlbum? = nil
     var currentDecoys: [UCAlbum] = [] // Decoys meaning albums presented in the multiple choice which would be wrong answers
     var currentGuess: UCAlbum? = nil
@@ -30,6 +30,7 @@ class SinglePlayerGameController {
     
     // MARK: Game State
     func reset() {
+        print("^^ reset called")
         inProgress = false
         currentRound = 0
         category = nil
@@ -77,7 +78,10 @@ class SinglePlayerGameController {
     }
     
     func handleRoundEnd(withGuess guess: UCAlbum?, secondsRemaining: Int = 0) {
-        if let currentAnswer { pastAnswers.append(currentAnswer) }
+        if let currentAnswer {
+            print("^^ appending \(currentAnswer.albumTitle)")
+            pastAnswers.append(currentAnswer)
+        }
         
         guard let guess else {
             // Time probably ran out
