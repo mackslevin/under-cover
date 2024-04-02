@@ -19,7 +19,6 @@ struct SPGuessingView: View {
     
     let onRoundEnd: () -> Void
     
-    @State private var timeRemaining = 30
     @State private var shuffledAlbums: [UCAlbum] = []
     @State private var isLoading = false
     @State private var albumCover: UIImage? = nil
@@ -43,17 +42,15 @@ struct SPGuessingView: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 5))
                                 .frame(maxWidth: 500, maxHeight: 500)
                                 .shadow(radius: 12)
-                                .padding()
+//                                .padding()
                                 .grayscale(shouldUseDesaturation ? grayscaleAmount : 0)
                         }
                         
                         HStack {
                             Image(systemName: "stopwatch.fill")
-//                            Text("\(timeRemaining)s").bold()
                             Text("\(gameController.currentRoundSecondsRemaining ?? 0)s").bold()
                         }
                         .font(.title3)
-//                        .foregroundStyle(Double(timeRemaining) < (Double(secondsPerRound) * 0.25) ? Color.red : Color.primary)
                         .foregroundStyle(Double(gameController.currentRoundSecondsRemaining ?? 0) < (Double(secondsPerRound) * 0.25) ? Color.red : Color.primary)
                         
                         ForEach(shuffledAlbums) { album in
@@ -74,7 +71,7 @@ struct SPGuessingView: View {
                                 }
                                 
                             }
-                            .buttonStyle(GuessButtonStyle())
+                            .buttonStyle(PillButtonStyle())
                             .font(.title2)
                             .frame(maxWidth: .infinity, alignment: .center)
                         }
@@ -92,7 +89,6 @@ struct SPGuessingView: View {
         .onAppear {
             isLoading = true
             
-            timeRemaining = secondsPerRound
             gameController.currentRoundSecondsRemaining = secondsPerRound
             
             gameController.generateRound()
@@ -140,8 +136,7 @@ struct SPGuessingView: View {
         timer = Timer.publish(every: 1, on: .main, in: .common)
             .autoconnect()
             .sink { _ in
-                if gameController.currentRoundSecondsRemaining ?? 0 > 0 {
-                    timeRemaining -= 1
+                if gameController.currentRoundSecondsRemaining ?? 0 > 0 {   
                     gameController.currentRoundSecondsRemaining = (gameController.currentRoundSecondsRemaining ?? 0) - 1
                     
                     withAnimation {

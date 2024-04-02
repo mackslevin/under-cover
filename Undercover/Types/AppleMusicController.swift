@@ -11,6 +11,7 @@ import MusicKit
 
 @Observable
 class AppleMusicController {
+
     
     var isAuthorized = false
     func checkAuth() async {
@@ -35,24 +36,14 @@ class AppleMusicController {
         }
     }
     
-    func catalogAlbums(_ ucAlbums: [UCAlbum]) async throws -> [Album] {
-        for ucAlbum in ucAlbums {
-            do {
-                var req = MusicCatalogResourceRequest<Album>(matching: \.id, equalTo: MusicItemID(ucAlbum.musicItemID))
-                req.limit = 1
-                req.properties = [.artists]
-                let res = try await req.response()
-                var albums: [Album] = []
-                for album in res.items {
-                    albums.append(album)
-                }
-                return albums
-            } catch {
-                print(error)
-                throw error
-            }
+    func catalogAlbum(_ ucAlbum: UCAlbum) async throws -> Album? {
+        do {
+            var req = MusicCatalogResourceRequest<Album>(matching: \.id, equalTo: MusicItemID(ucAlbum.musicItemID))
+            req.limit = 1
+            let res = try await req.response()
+            return res.items.first
+        } catch {
+            throw error
         }
-        
-        return []
     }
 }

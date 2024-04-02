@@ -66,7 +66,7 @@ struct SPFinalResults: View {
             Button("Done") {
                 onEndGame()
             }
-            .buttonStyle(GuessButtonStyle())
+            .buttonStyle(PillButtonStyle())
             
             Spacer()
         }

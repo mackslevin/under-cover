@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GuessButtonStyle: ButtonStyle {
+struct PillButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
