@@ -8,8 +8,6 @@
 import SwiftUI
 import Combine
 
-
-
 struct SPGuessingView: View {
     @Environment(SinglePlayerGameController.self) var gameController
     @AppStorage("secondsPerRound") var secondsPerRound: Int = 30
@@ -27,7 +25,6 @@ struct SPGuessingView: View {
     @State private var timerImageName: String = "circle.fill"
     @State private var grayscaleAmount: Double = 1
     @State private var timeBarSeconds: Int = 100
-    
     
     var body: some View {
         VStack {
@@ -69,7 +66,6 @@ struct SPGuessingView: View {
                         }
                         .font(.title3)
                         
-                        
                         ForEach(shuffledAlbums) { album in
                             Button {
                                 endRound(withGuess: album)
@@ -95,6 +91,12 @@ struct SPGuessingView: View {
                         Spacer()
                     }
                     .padding([.horizontal, .bottom])
+                    .toolbar {
+                        ToolbarItem(placement: .topBarTrailing) {
+                            Text("\(gameController.currentRound)/\(gameController.rounds)")
+                                .font(Font.custom(Font.customFontName, size: 16))
+                        }
+                    }
                 }
             }
         }
