@@ -62,11 +62,11 @@ class SinglePlayerGameController {
             guard var randomAlbum = albums.randomElement() else { return }
             
             while
-                options.contains(where: {$0.musicItemID == randomAlbum.musicItemID}),
+                options.contains(where: {$0.musicItemID == randomAlbum.musicItemID})
+                ||
                 pastAnswers.contains(where: {$0.musicItemID == randomAlbum.musicItemID})
             {
                 if let random = albums.randomElement() { randomAlbum = random }
-                
             }
             
             options.append(randomAlbum)

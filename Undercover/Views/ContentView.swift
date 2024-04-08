@@ -48,6 +48,7 @@ struct ContentView: View {
                 let fontLarge = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 36)
                 UINavigationBar.appearance().titleTextAttributes = [.font: fontRegular!]
                 UINavigationBar.appearance().largeTitleTextAttributes = [.font: fontLarge!]
+                
             }
         } detail: {
             if let selectedCategoryID {
