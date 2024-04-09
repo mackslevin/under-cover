@@ -14,6 +14,7 @@ struct CategoryDetailView: View {
                     .font(.title3)
                     .foregroundStyle(.secondary)
                     .italic()
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
             
             VStack {
@@ -38,8 +39,9 @@ struct CategoryDetailView: View {
                 .labelStyle(.iconOnly)
                 .sensoryFeedback(.impact, trigger: rounds)
                 
-                Text("\(rounds > 1 ? "Rounds" : "Round")")
-                    .font(.title).bold()
+                Text("\(rounds > 1 ? "rounds" : "round")")
+                    .font(.custom(Font.customFontName, size: 20))
+                    .textCase(.uppercase)
             }
              
             Button {
