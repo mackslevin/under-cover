@@ -8,33 +8,57 @@ struct CategoryDetailView: View {
     
     
     var body: some View {
-            List {
-                if let count = category.albums?.count {
-                    Text("\(count) albums")
-                        .listRowBackground(Color.clear)
-                        .listRowInsets(EdgeInsets())
-                        .font(.title3)
-                }
-                
-                Section {
-                    Stepper("\(rounds) \(rounds > 1 ? "rounds" : "round")", value: $rounds, in: 3...9)
-                    
-                }
-                .listSectionSeparator(.hidden)
-                
-                Button {
-                    setUpGame()
-                    navigationPath.append(category)
-                } label: {
-                    Label("Start", systemImage: "flag.2.crossed")
-                }
+        VStack(spacing: 80) {
+            if let count = category.albums?.count {
+                Text("\(count) albums")
+                    .font(.title3)
+                    .foregroundStyle(.secondary)
+                    .italic()
             }
             
-            .navigationTitle(category.name)
-            .navigationBarTitleDisplayMode(.large)
-            .navigationDestination(for: UCCategory.self) { _ in
-                SinglePlayerGameView()
+            VStack {
+                HStack {
+                    Button("Decrease Rounds", systemImage: "minus.circle.fill") {
+                        rounds -= 1
+                    }
+                    .font(.title).bold()
+                    .disabled(rounds < 2)
+                    
+                    Text("\(rounds)")
+                        .font(.custom(Font.customFontName, size: 120))
+                        .frame(width:150)
+                    
+                    Button("Decrease Rounds", systemImage: "plus.circle.fill") {
+                        rounds += 1
+                    }
+                    .font(.title).bold()
+                    .disabled(rounds > 9)
+                }
+                .foregroundStyle(.primary)
+                .labelStyle(.iconOnly)
+                .sensoryFeedback(.impact, trigger: rounds)
+                
+                Text("\(rounds > 1 ? "Rounds" : "Round")")
+                    .font(.title).bold()
             }
+             
+            Button {
+                setUpGame()
+                navigationPath.append(category)
+            } label: {
+                Label("Start", systemImage: "flag.2.crossed")
+                    .font(.title).bold()
+            }
+            .buttonStyle(.borderedProminent)
+            
+            Spacer()
+        }
+        .padding()
+        .navigationTitle(category.name)
+        .navigationBarTitleDisplayMode(.large)
+        .navigationDestination(for: UCCategory.self) { _ in
+            SinglePlayerGameView()
+        }
     }
     
     func setUpGame() {
@@ -44,14 +68,14 @@ struct CategoryDetailView: View {
     }
 }
 
-//#Preview {
-//    CategoryDetailView(category: UCCategory(name: "Something Cool", albums: []))
-//        .environment(SinglePlayerGameController())
-//        .fontDesign(.monospaced)
-//        .onAppear {
-//            let fontRegular = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 20)
-//            let fontLarge = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 36)
-//            UINavigationBar.appearance().titleTextAttributes = [.font: fontRegular!]
-//            UINavigationBar.appearance().largeTitleTextAttributes = [.font: fontLarge!]
-//        }
-//}
+#Preview {
+    CategoryDetailView(category: UCCategory(name: "Something Cool", albums: []), navigationPath: .constant(NavigationPath()))
+        .environment(SinglePlayerGameController())
+        .fontDesign(.monospaced)
+        .onAppear {
+            let fontRegular = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 20)
+            let fontLarge = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 36)
+            UINavigationBar.appearance().titleTextAttributes = [.font: fontRegular!]
+            UINavigationBar.appearance().largeTitleTextAttributes = [.font: fontLarge!]
+        }
+}
