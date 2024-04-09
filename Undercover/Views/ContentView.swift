@@ -14,9 +14,12 @@ struct ContentView: View {
     @State private var titles: [String] = []
     @State private var isAuthorized = false
     @State private var isShowingSettings = false
-    @Query var categories: [UCCategory]
-    @State private var selectedCategoryID: UUID? = nil
+    
     @Environment(\.modelContext) var modelContext
+    @Query var categories: [UCCategory]
+    
+    @State private var selectedCategoryID: UUID? = nil
+    @State private var navigationPath = NavigationPath()
     
     var body: some View {
         NavigationSplitView {
@@ -48,15 +51,17 @@ struct ContentView: View {
                 let fontLarge = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 36)
                 UINavigationBar.appearance().titleTextAttributes = [.font: fontRegular!]
                 UINavigationBar.appearance().largeTitleTextAttributes = [.font: fontLarge!]
-                
             }
         } detail: {
             if let selectedCategoryID {
-                CategoryDetailView(
-                    category: categories.first(where: {
-                        $0.id == selectedCategoryID
-                    })! 
-                )
+                NavigationStack(path: $navigationPath) {
+                    CategoryDetailView(
+                        category: categories.first(where: {
+                            $0.id == selectedCategoryID
+                        })!,
+                        navigationPath: $navigationPath
+                    )
+                }
             } else {
                 NavigationStack {
                     ContentUnavailableView("Nothing selected", systemImage: "square.dotted")
@@ -64,7 +69,6 @@ struct ContentView: View {
             }
         }
         .fontDesign(.monospaced)
-
     }
     
     

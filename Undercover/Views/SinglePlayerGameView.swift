@@ -12,26 +12,22 @@ struct SinglePlayerGameView: View {
     @Environment(\.dismiss) var dismiss
     @State private var gameState: GameState = .guessing
     
-    
-    
     var body: some View {
-        NavigationStack {
-            Group {
-                switch gameState {
-                    case .guessing:
-                        SPGuessingView(onRoundEnd: {
-                            gameState = .roundResults
-                        })
-                    case .roundResults:
-                        SPRoundResults(onNext: {
-                            gameState = .guessing
-                        })
-                    case .finalResults:
-                        SPFinalResults(onEndGame: {
-                            gameController.reset()
-                            dismiss()
-                        })
-                }
+        Group {
+            switch gameState {
+                case .guessing:
+                    SPGuessingView(onRoundEnd: {
+                        gameState = .roundResults
+                    })
+                case .roundResults:
+                    SPRoundResults(onNext: {
+                        gameState = .guessing
+                    })
+                case .finalResults:
+                    SPFinalResults(onEndGame: {
+                        gameController.reset()
+                        dismiss()
+                    })
             }
         }
         .onChange(of: gameController.inProgress) { _, newValue in
