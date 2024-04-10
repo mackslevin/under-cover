@@ -10,8 +10,6 @@ import MusicKit
 
 struct PlaylistInfoCard: View {
     let playlist: Playlist
-    @Binding var searchResults: [Playlist]
-    @Binding var isConverting: Bool
     let conversion: () -> Void
     
     @State private var expanded = false
@@ -82,9 +80,6 @@ struct PlaylistInfoCard: View {
             }
             
             Button("Convert to Category", systemImage: "sparkles") {
-                withAnimation {
-                    isConverting = true
-                }
                 conversion()
             }
             .frame(maxWidth: .infinity, alignment: .center)
@@ -92,10 +87,6 @@ struct PlaylistInfoCard: View {
             .bold()
         }
         .onAppear {
-            withAnimation {
-                searchResults = []
-            }
-            
             if let tracks = playlist.tracks {
                 if tracks.count > numberOfPreviewTracks {
                     tracksToShow = numberOfPreviewTracks

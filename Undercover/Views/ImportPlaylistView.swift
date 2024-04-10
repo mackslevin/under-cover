@@ -36,7 +36,7 @@ struct ImportPlaylistView: View {
                             PlaylistSearchResultsRow(playlist: pl) {
                                 withAnimation {
                                     searchResults = []
-                                    searchText = ""
+//                                    searchText = ""
                                     selectedPlaylist = pl
                                 }
                             }
@@ -46,10 +46,16 @@ struct ImportPlaylistView: View {
                     if let selectedPlaylist {
                         Group {
                             if isConverting {
-                                ProgressView()
+                                VStack(spacing: 12) {
+                                    ProgressView()
+                                    Text("Converting...")
+                                        .font(.title3)
+                                }.padding(.vertical)
                             } else {
-                                PlaylistInfoCard(playlist: selectedPlaylist, searchResults: $searchResults, isConverting: $isConverting) {
-                                    
+                                PlaylistInfoCard(playlist: selectedPlaylist) {
+                                    withAnimation {
+                                        isConverting = true
+                                    }
                                     
                                     // Create new UCCategory and loop through the Playlist's tracks to grab the albums for the new category.
                                     let newCategory = UCCategory(name: selectedPlaylist.name)
@@ -68,19 +74,20 @@ struct ImportPlaylistView: View {
                                                 }
                                             }
                                         } else {
+                                            isConverting = false
                                             isShowingPlaylistImportError = true
                                         }
                                         
                                         if albums.count >= Utility.minimumAlbumsForCategory {
                                             newCategory.albums = albums
                                             modelContext.insert(newCategory)
+                                            isConverting = false
                                             dismiss()
                                         } else {
+                                            isConverting = false
                                             isShowingPlaylistImportError = true
                                         }
                                     }
-                                    
-                                    isConverting = false
                                 }
                             }
                         }
@@ -111,11 +118,11 @@ struct ImportPlaylistView: View {
                         }
                     }
                 }
-                .onChange(of: searchResults, { _, _ in
-                    if selectedPlaylist != nil {
-                        searchResults = []
-                    }
-                })
+//                .onChange(of: searchResults, { _, _ in
+//                    if selectedPlaylist != nil {
+//                        searchResults = []
+//                    }
+//                })
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Button("Close", systemImage: "xmark") { dismiss() }
@@ -133,13 +140,14 @@ struct ImportPlaylistView: View {
             
             if let res = try? await req.response() {
                 for pl in res.playlists {
-                    if selectedPlaylist == nil {
-                        let populated = try await pl.with([.entries])
-                        
-                        withAnimation {
+                    let populated = try await pl.with([.entries])
+                    
+                    withAnimation {
+                        if selectedPlaylist == nil {
                             searchResults.append(populated)
                         }
                     }
+                    
                 }
             }
         }
