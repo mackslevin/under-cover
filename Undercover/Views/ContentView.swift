@@ -14,6 +14,7 @@ struct ContentView: View {
     @State private var titles: [String] = []
     @State private var isAuthorized = false
     @State private var isShowingSettings = false
+    @State private var isShowingAddCategory = false
     
     @Environment(\.modelContext) var modelContext
     @Query var categories: [UCCategory]
@@ -23,29 +24,42 @@ struct ContentView: View {
     
     var body: some View {
         NavigationSplitView {
-            List(selection: $selectedCategoryID) {
-                ForEach(categories) { cat in
-                    BigPillListRow(category: cat, selectedCategoryID: $selectedCategoryID)
-                        .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-                            Button("Delete", systemImage: "trash", role: .destructive) {
-                                withAnimation {
-                                    selectedCategoryID = nil
-                                    modelContext.delete(cat)
+            Group {
+                if categories.isEmpty {
+                    NoCategoriesView(isShowingAddCategory: $isShowingAddCategory)
+                } else {
+                    List(selection: $selectedCategoryID) {
+                        ForEach(categories) { cat in
+                            BigPillListRow(category: cat, selectedCategoryID: $selectedCategoryID)
+                                .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                                    Button("Delete", systemImage: "trash", role: .destructive) {
+                                        withAnimation {
+                                            selectedCategoryID = nil
+                                            modelContext.delete(cat)
+                                        }
+                                    }
                                 }
-                            }
                         }
+                    }
+                    .listStyle(.plain)
                 }
             }
-            .listStyle(.plain)
             .navigationTitle("Categories")
             .toolbar {
-                ToolbarItem {
+                ToolbarItem(placement: .topBarLeading) {
                     Button("Settings", systemImage: "gear") {
                         isShowingSettings.toggle()
                     }
                 }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Add", systemImage: "plus") {
+                        isShowingAddCategory.toggle()
+                    }
+                }
             }
             .sheet(isPresented: $isShowingSettings, content: { SettingsView() })
+            .sheet(isPresented: $isShowingAddCategory, content: { ImportPlaylistView() })
             .onAppear {
                 let fontRegular = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 20)
                 let fontLarge = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 36)
@@ -77,4 +91,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .modelContainer(for: [UCCategory.self])
 }

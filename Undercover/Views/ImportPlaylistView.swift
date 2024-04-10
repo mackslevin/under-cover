@@ -162,4 +162,10 @@ struct ImportPlaylistView: View {
 #Preview {
     ImportPlaylistView()
         .modelContainer(for: UCCategory.self)
+        .onAppear {
+            let fontRegular = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 20)
+            let fontLarge = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 36)
+            UINavigationBar.appearance().titleTextAttributes = [.font: fontRegular!]
+            UINavigationBar.appearance().largeTitleTextAttributes = [.font: fontLarge!]
+        }
 }
