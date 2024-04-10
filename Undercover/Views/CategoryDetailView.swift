@@ -43,6 +43,7 @@ struct CategoryDetailView: View {
                     .font(.custom(Font.customFontName, size: 20))
                     .textCase(.uppercase)
             }
+            .fontDesign(.none)
              
             Button {
                 setUpGame()

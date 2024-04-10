@@ -10,7 +10,6 @@ import SwiftUI
 struct NoCategoriesView: View {
     @Binding var isShowingAddCategory: Bool
     
-    
     var body: some View {
         ContentUnavailableView(label: {
             Label("No categories yet...", systemImage: "xmark.seal.fill")
@@ -18,9 +17,7 @@ struct NoCategoriesView: View {
             Text("You can convert Apple Music playlists into categories. This works best on playlists with tracks from many different albums.")
         }, actions: {
             Button {
-                withAnimation(.bouncy) {
-                    isShowingAddCategory.toggle()
-                }
+                isShowingAddCategory.toggle()
             } label: {
                 Text("Search Playlists")
             }

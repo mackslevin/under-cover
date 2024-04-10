@@ -18,6 +18,7 @@ struct ImportPlaylistView: View {
     @State private var searchText = ""
     @State private var searchResults: [Playlist] = []
     @State private var selectedPlaylist: Playlist? = nil
+    @State private var isConverting = false
     
     @FocusState var isFocused
     
@@ -32,10 +33,10 @@ struct ImportPlaylistView: View {
                     
                     VStack {
                         ForEach(searchResults) { pl in
-                            
                             PlaylistSearchResultsRow(playlist: pl) {
                                 withAnimation {
                                     searchResults = []
+                                    searchText = ""
                                     selectedPlaylist = pl
                                 }
                             }
@@ -43,71 +44,47 @@ struct ImportPlaylistView: View {
                     }
                     
                     if let selectedPlaylist {
-                        VStack {
-                            AsyncImage(url: selectedPlaylist.artwork?.url(width: Utility.defaultArtworkSize, height: Utility.defaultArtworkSize)) { image in
-                                image.resizable().scaledToFill()
-                                    .frame(maxWidth: CGFloat(Utility.defaultArtworkSize))
-                            } placeholder: {
-                                Rectangle()
-                                    .frame(maxWidth: CGFloat(Utility.defaultArtworkSize), maxHeight: CGFloat(Utility.defaultArtworkSize))
-                            }
-                            
-                            Text(selectedPlaylist.name).font(.largeTitle)
-                            
-                            if let tracks = selectedPlaylist.tracks {
-                                VStack(alignment: .leading) {
-                                    ForEach(tracks) { track in
-                                        
-                                        
-                                        VStack(alignment: .leading) {
-                                            Text(track.title).fontWeight(.semibold)
-                                            Text(track.artistName).foregroundStyle(.secondary)
+                        Group {
+                            if isConverting {
+                                ProgressView()
+                            } else {
+                                PlaylistInfoCard(playlist: selectedPlaylist, searchResults: $searchResults, isConverting: $isConverting) {
+                                    
+                                    
+                                    // Create new UCCategory and loop through the Playlist's tracks to grab the albums for the new category.
+                                    let newCategory = UCCategory(name: selectedPlaylist.name)
+                                    var albums: [UCAlbum] = []
+                                    
+                                    Task {
+                                        if let tracks = selectedPlaylist.tracks {
+                                            for track in tracks {
+                                                var req = MusicCatalogResourceRequest<Song>(matching: \.id, equalTo: track.id)
+                                                req.limit = 1
+                                                req.properties = [.albums]
+                                                
+                                                let res = try await req.response()
+                                                if let album = res.items.first?.albums?.first {
+                                                    albums.append(UCAlbum(fromAlbum: album))
+                                                }
+                                            }
+                                        } else {
+                                            isShowingPlaylistImportError = true
                                         }
                                         
-                                        .padding(.bottom, 8)
-                                        .font(.caption)
-                                        
+                                        if albums.count >= Utility.minimumAlbumsForCategory {
+                                            newCategory.albums = albums
+                                            modelContext.insert(newCategory)
+                                            dismiss()
+                                        } else {
+                                            isShowingPlaylistImportError = true
+                                        }
                                     }
+                                    
+                                    isConverting = false
                                 }
-                                .frame(maxWidth: .infinity, alignment: .leading)
                             }
                         }
                         .padding(.vertical)
-                        
-                        
-                        Button("Convert to Category", systemImage: "sparkles") {
-                            // Create new UCCategory and loop through the Playlist's tracks to grab the albums for the new category.
-                            let newCategory = UCCategory(name: selectedPlaylist.name)
-                            var albums: [UCAlbum] = []
-                            
-                            Task {
-                                
-                                if let tracks = selectedPlaylist.tracks {
-                                    for track in tracks {
-                                        
-                                        var req = MusicCatalogResourceRequest<Song>(matching: \.id, equalTo: track.id)
-                                        req.limit = 1
-                                        req.properties = [.albums]
-                                        
-                                        let res = try await req.response()
-                                        if let album = res.items.first?.albums?.first {
-                                            albums.append(UCAlbum(fromAlbum: album))
-                                        } else {
-                                            print("^^ no album")
-                                        }
-                                        
-                                    }
-                                } else { print("^^ The playlist has no tracks") }
-                                
-                                if albums.count >= Utility.minimumAlbumsForCategory {
-                                    newCategory.albums = albums
-                                    modelContext.insert(newCategory)
-                                    dismiss()
-                                } else {
-                                    isShowingPlaylistImportError = true
-                                }
-                            }
-                        }
                     }
                     
                     Spacer()
@@ -119,6 +96,7 @@ struct ImportPlaylistView: View {
                     isFocused = true
                 }
                 .onChange(of: searchText) { _, newValue in
+                    selectedPlaylist = nil
                     search()
                 }
                 .onChange(of: selectedPlaylist) { _, newValue in
@@ -133,6 +111,11 @@ struct ImportPlaylistView: View {
                         }
                     }
                 }
+                .onChange(of: searchResults, { _, _ in
+                    if selectedPlaylist != nil {
+                        searchResults = []
+                    }
+                })
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Button("Close", systemImage: "xmark") { dismiss() }
@@ -150,10 +133,12 @@ struct ImportPlaylistView: View {
             
             if let res = try? await req.response() {
                 for pl in res.playlists {
-                    let populated = try await pl.with([.entries])
-                    
-                    withAnimation {
-                        searchResults.append(populated)
+                    if selectedPlaylist == nil {
+                        let populated = try await pl.with([.entries])
+                        
+                        withAnimation {
+                            searchResults.append(populated)
+                        }
                     }
                 }
             }

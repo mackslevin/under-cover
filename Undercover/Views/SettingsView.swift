@@ -49,7 +49,7 @@ struct SettingsView: View {
                         Text("Both").tag(GuessLabelDisplayMode.both)
                     }
                     
-                    Toggle("Use Desaturation", isOn: $shouldUseDesaturation)
+                    Toggle("Black & White Mode", isOn: $shouldUseDesaturation)
                     
                     Toggle("Play Music", isOn: $shouldUseMusic)
                 }
