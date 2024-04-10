@@ -28,22 +28,17 @@ struct ImportPlaylistView: View {
                     TextField("Enter text...", text: $searchText)
                         .textFieldStyle(.roundedBorder)
                         .focused($isFocused)
+                        .padding(.bottom, 4) // Match default spacing of VStack below
+                    
                     VStack {
                         ForEach(searchResults) { pl in
-                            Button {
+                            
+                            PlaylistSearchResultsRow(playlist: pl) {
                                 withAnimation {
                                     searchResults = []
                                     selectedPlaylist = pl
                                 }
-                            } label: {
-                                HStack {
-                                    VStack(alignment: .leading) {
-                                        Text(pl.name)
-                                    }
-                                    Spacer()
-                                }
                             }
-                            
                         }
                     }
                     
@@ -138,6 +133,11 @@ struct ImportPlaylistView: View {
                         }
                     }
                 }
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button("Close", systemImage: "xmark") { dismiss() }
+                    }
+                }
                 
             }
         }
@@ -147,15 +147,17 @@ struct ImportPlaylistView: View {
         searchResults = []
         Task {
             let req = MusicCatalogSearchRequest(term: searchText, types: [Playlist.self])
+            
             if let res = try? await req.response() {
                 for pl in res.playlists {
+                    let populated = try await pl.with([.entries])
+                    
                     withAnimation {
-                        searchResults.append(pl)
+                        searchResults.append(populated)
                     }
                 }
             }
         }
-        
     }
 }
 
