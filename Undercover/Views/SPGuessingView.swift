@@ -37,7 +37,9 @@ struct SPGuessingView: View {
                         }
                         
                         HStack(alignment: .center) {
-                            Text("\(gameController.currentRoundSecondsRemaining ?? 0)s").bold()
+                            Text("\(gameController.currentRoundSecondsRemaining ?? 0)s")
+//                                .contentTransition(.numericText()) // TODO: Figure out how to properly do this 
+                                .bold()
                                 .foregroundStyle(.primary).colorInvert()
                                 .font(.caption).bold()
                                 .padding(4)

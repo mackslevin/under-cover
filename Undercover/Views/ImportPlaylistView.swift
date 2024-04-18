@@ -36,7 +36,6 @@ struct ImportPlaylistView: View {
                             PlaylistSearchResultsRow(playlist: pl) {
                                 withAnimation {
                                     searchResults = []
-//                                    searchText = ""
                                     selectedPlaylist = pl
                                 }
                             }
@@ -118,11 +117,6 @@ struct ImportPlaylistView: View {
                         }
                     }
                 }
-//                .onChange(of: searchResults, { _, _ in
-//                    if selectedPlaylist != nil {
-//                        searchResults = []
-//                    }
-//                })
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Button("Close", systemImage: "xmark") { dismiss() }
