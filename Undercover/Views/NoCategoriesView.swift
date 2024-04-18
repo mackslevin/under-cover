@@ -20,8 +20,15 @@ struct NoCategoriesView: View {
                 isShowingAddCategory.toggle()
             } label: {
                 Text("Search Playlists")
+                    .bold()
             }
-            .buttonStyle(.borderedProminent)
+            .buttonStyle(.plain)
+            .padding()
+            .background {
+                Capsule()
+                    .foregroundStyle(.accent.gradient)
+                    .shadow(radius: 1, x: 1, y: 2)
+            }
         })
     }
 }

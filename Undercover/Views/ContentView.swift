@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var isAuthorized = false
     @State private var isShowingSettings = false
     @State private var isShowingAddCategory = false
+    @State private var isShowingFavorites = false
     
     @Environment(\.modelContext) var modelContext
     @Query var categories: [UCCategory]
@@ -35,6 +36,16 @@ struct ContentView: View {
                                     Button("Delete", systemImage: "trash", role: .destructive) {
                                         withAnimation {
                                             selectedCategoryID = nil
+                                            
+                                            // Delete only the category albums which are *not* favorited
+                                            if let albums = cat.albums {
+                                                for album in albums {
+                                                    if !album.isFavorited {
+                                                        modelContext.delete(album)
+                                                    }
+                                                }
+                                            }
+                                            
                                             modelContext.delete(cat)
                                         }
                                     }
@@ -53,6 +64,12 @@ struct ContentView: View {
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
+                    Button("Favorites", systemImage: "list.star") {
+                        isShowingFavorites.toggle()
+                    }
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
                     Button("Add", systemImage: "plus") {
                         isShowingAddCategory.toggle()
                     }
@@ -60,6 +77,7 @@ struct ContentView: View {
             }
             .sheet(isPresented: $isShowingSettings, content: { SettingsView() })
             .sheet(isPresented: $isShowingAddCategory, content: { ImportPlaylistView() })
+            .sheet(isPresented: $isShowingFavorites, content: { FavoritesIndexView() })
             .onAppear {
                 let fontRegular = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 20)
                 let fontLarge = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 36)

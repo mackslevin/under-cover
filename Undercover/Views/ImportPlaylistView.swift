@@ -92,8 +92,6 @@ struct ImportPlaylistView: View {
                         }
                         .padding(.vertical)
                     }
-                    
-                    Spacer()
                 }
                 .padding()
                 .navigationTitle("Search Playlists")

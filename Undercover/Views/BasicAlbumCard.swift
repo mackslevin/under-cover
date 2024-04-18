@@ -40,9 +40,11 @@ struct BasicAlbumCard: View {
                 
                 Spacer()
                 
-                HStack(spacing: 10) {
+                HStack(spacing: 12) {
                     Button("Favorite", systemImage: ucAlbum.isFavorited ? "star.fill" : "star") {
-                        ucAlbum.isFavorited.toggle()
+                        withAnimation {
+                            ucAlbum.isFavorited.toggle()
+                        }
                     }
                     .foregroundStyle(ucAlbum.isFavorited ? .accent : .primary)
                     
