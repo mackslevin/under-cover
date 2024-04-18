@@ -9,7 +9,7 @@ import SwiftUI
 import MusicKit
 
 struct BasicAlbumCard: View {
-    let ucAlbum: UCAlbum
+    @State var ucAlbum: UCAlbum
     
     @Environment(AppleMusicController.self) var appleMusicController
     @State private var album: Album? = nil
@@ -40,27 +40,18 @@ struct BasicAlbumCard: View {
                 
                 Spacer()
                 
-//                Menu {
-//                    ShareLink("Share", item: album.url!)
-//                    Button("Favorite", systemImage: "star") {
-//                        // TODO
-//                    }
-//                    Button("Open in...") {
-//                        // TODO
-//                    }
-//                } label: {
-//                    Image(systemName: "ellipsis")
-//                        .resizable().scaledToFit()
-//                        .frame(width: 40)
-//                        .rotationEffect(.degrees(90.0))
-//                }
-//                .foregroundStyle(.primary)
-                
-                ShareLink("Share", item: album.url!)
-                    .frame(width: 40)
-                    .labelStyle(.iconOnly)
-                    .bold()
-                    .foregroundStyle(.primary)
+                HStack(spacing: 10) {
+                    Button("Favorite", systemImage: ucAlbum.isFavorited ? "star.fill" : "star") {
+                        ucAlbum.isFavorited.toggle()
+                    }
+                    .foregroundStyle(ucAlbum.isFavorited ? .accent : .primary)
+                    
+                    ShareLink("Share", item: album.url!)
+                        .foregroundStyle(.primary)
+                }
+                .bold()
+                .labelStyle(.iconOnly)
+                .font(.title2)
             }
         }
         .padding(10)
@@ -89,9 +80,11 @@ struct BasicAlbumCard: View {
 
 //#Preview {
 //    VStack {
-//        BasicAlbumCard()
+//        BasicAlbumCard(ucAlbum: UCAlbum(musicItemID: "1234", artistName: "Chunk Gubblits", albumTitle: "Chunking of the World", url: URL(string:"https://images.squarespace-cdn.com/content/54e35397e4b043f1c9a4b2d1/1472072556586-HR3BOOK0U2Q6CFKA8Z1O/?content-type=image%2Fjpeg")!))
+//    
 //    }
 //    .padding()
 //    .fontDesign(.monospaced)
+//    .environment(AppleMusicController())
 //    
 //}

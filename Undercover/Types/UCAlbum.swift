@@ -18,6 +18,8 @@ class UCAlbum: Identifiable {
     var coverImageURL: URL? = nil
     var category: UCCategory? = nil
     
+    var isFavorited = false
+    
     init(musicItemID: String, artistName: String, albumTitle: String, url: URL?) {
         self.musicItemID = musicItemID
         self.artistName = artistName

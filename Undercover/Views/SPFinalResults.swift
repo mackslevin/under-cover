@@ -27,7 +27,7 @@ struct SPFinalResults: View {
             if let thisScore {
                 if isNewHiScore {
                     Text("New Hi Score: \(thisScore.score)!")
-                        .font(.title2).foregroundStyle(.yellow).bold()
+                        .font(.title2).foregroundStyle(.accent).bold()
                 } else {
                     Text("Final score: \(thisScore.score)")
                         .font(.title2).fontWeight(.bold)
@@ -39,7 +39,7 @@ struct SPFinalResults: View {
                     
                         ForEach(currentGameScores.sorted(by: {$0.score > $1.score}).prefix(5)) { hiScore in
                             Text("#\((currentGameScores.sorted(by: {$0.score > $1.score}).firstIndex(of: hiScore) ?? 0) + 1): \(hiScore.score) - \(hiScore.date.formatted())")
-                                .foregroundStyle(hiScore.id == thisScore?.id ? Color.yellow : Color.primary)
+                                .foregroundStyle(hiScore.id == thisScore?.id ? Color.accentColor : Color.primary)
                                 .fontWeight(hiScore.id == thisScore?.id ? .semibold : .regular)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
@@ -79,8 +79,6 @@ struct SPFinalResults: View {
                     isNewHiScore = true
                 }
             }
-            
-            print("^^ gc pasts \(gameController.pastAnswers)")
         }
         .onDisappear {
             gameController.stopSongFromCurrentAnswer()
