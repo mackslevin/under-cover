@@ -14,7 +14,7 @@ struct FavoritesListRow: View {
     
     let album: UCAlbum
     
-    
+    let dummyURL = URL(string: "https://amvolume.com")!
     
     var body: some View {
         VStack {
@@ -48,8 +48,9 @@ struct FavoritesListRow: View {
             
             HStack {
                 Button("Open in Apple Music", systemImage: "arrow.up.right.square.fill") {
-                    print("open")
+                    UIApplication.shared.open(catalogAlbum?.url ?? dummyURL)
                 }
+                .disabled(catalogAlbum?.url == nil)
                 
                 Spacer()
                 
@@ -59,7 +60,7 @@ struct FavoritesListRow: View {
                 
                 Spacer()
                 
-                ShareLink(item: catalogAlbum?.url ?? URL(string: "https://amvolume.com")!)
+                ShareLink(item: catalogAlbum?.url ?? dummyURL)
                     .disabled(catalogAlbum?.url == nil)
             }
             .font(.largeTitle)
