@@ -6,9 +6,15 @@
 //
 
 import SwiftUI
+import MusicKit
 
 struct FavoritesListRow: View {
+    @Environment(AppleMusicController.self) var appleMusicController
+    @State private var catalogAlbum: Album? = nil
+    
     let album: UCAlbum
+    
+    
     
     var body: some View {
         VStack {
@@ -44,25 +50,21 @@ struct FavoritesListRow: View {
                 Button("Open in Apple Music", systemImage: "arrow.up.right.square.fill") {
                     print("open")
                 }
-                .labelStyle(.iconOnly)
                 
                 Spacer()
                 
                 Button("Play", systemImage: "play.fill") {
                     print("play")
                 }
-                .labelStyle(.iconOnly)
                 
                 Spacer()
                 
-                Button("Share", systemImage: "square.and.arrow.up.fill") {
-                    print("share")
-                }
-                .labelStyle(.iconOnly)
-                
+                ShareLink(item: catalogAlbum?.url ?? URL(string: "https://amvolume.com")!)
+                    .disabled(catalogAlbum?.url == nil)
             }
             .font(.largeTitle)
             .padding(.vertical, 6)
+            .labelStyle(.iconOnly)
             
             
         }
@@ -78,6 +80,11 @@ struct FavoritesListRow: View {
                     .opacity(0.07)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+        }
+        .onAppear {
+            Task {
+                catalogAlbum = try? await appleMusicController.catalogAlbum(album)
+            }
         }
     }
 }
