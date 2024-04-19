@@ -13,7 +13,6 @@ struct FavoritesListRow: View {
     @State private var catalogAlbum: Album? = nil
     
     let album: UCAlbum
-    let allListItems: [UCAlbum] // The array which the conataining list is iterating through. We compare our album with this to see if it's the last list item and thus not show a bottom divider.
     
     let musicPlayer = SystemMusicPlayer.shared
     let dummyURL = URL(string: "https://amvolume.com")!
@@ -85,21 +84,6 @@ struct FavoritesListRow: View {
         }
         .listRowSeparator(.hidden)
         .listRowSpacing(0)
-        .padding(.bottom, 10)
-        .overlay {
-            if !(isTheLastListItem() == true) {
-                VStack(spacing: 0) {
-                    Spacer()
-                    Rectangle()
-                        .frame(height: 1)
-                        .opacity(0.15)
-                    Rectangle()
-                        .frame(height: 2)
-                        .opacity(0.07)
-                }
-                .frame(maxWidth: .infinity, alignment: .bottom)
-            }
-        }
         .onAppear {
             Task {
                 var req = MusicCatalogResourceRequest<Album>(matching: \.id, equalTo: MusicItemID(album.musicItemID))
@@ -109,15 +93,6 @@ struct FavoritesListRow: View {
                     catalogAlbum = fetchedAlbum
                 }
             }
-        }
-    }
-    
-    func isTheLastListItem() -> Bool? {
-        guard let lastItem = allListItems.last else { return nil }
-        if album.id == lastItem.id {
-            return true
-        } else {
-            return false
         }
     }
 }

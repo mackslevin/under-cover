@@ -15,11 +15,10 @@ struct FavoritesIndexView: View {
     
     var body: some View {
         NavigationStack {
-            
             List(favoritedAlbums.reversed()) { album in
-                FavoritesListRow(album: album, allListItems: favoritedAlbums.reversed())
+                FavoritesListRow(album: album)
                     .buttonStyle(PlainButtonStyle())
-                    .listRowSeparator(.hidden)
+                    
                     .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                         Button("Delete", systemImage: "trash", role: .destructive) {
                             withAnimation {
@@ -27,9 +26,24 @@ struct FavoritesIndexView: View {
                             }
                         }
                     }
+                
+                // Add a divider after every row but the last
+                if !(album.id == favoritedAlbums.reversed().last?.id) {
+                    VStack(spacing: 0) {
+                        Rectangle()
+                            .frame(height: 1)
+                            .opacity(0.15)
+                        Rectangle()
+                            .frame(height: 2)
+                            .opacity(0.07)
+                    }
+                    .listRowSeparator(.hidden)
+                }
             }
+            .listRowSpacing(0)
             .listStyle(.plain)
             .listRowInsets(EdgeInsets())
+            .padding(.bottom)
             .navigationTitle("Favorites")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
