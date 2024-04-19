@@ -15,7 +15,7 @@ struct FavoritesIndexView: View {
     var body: some View {
         NavigationStack {
             List(favoritedAlbums) { album in
-                BasicAlbumCard(ucAlbum: album)
+                FavoritesListRow(album: album)
                     .buttonStyle(PlainButtonStyle())
                     .listRowSeparator(.hidden)
             }

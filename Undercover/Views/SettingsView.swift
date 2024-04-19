@@ -34,6 +34,7 @@ struct SettingsView: View {
                         }
                     }
                 }
+                .bold()
                 
                 Section {
                     Stepper("\(secondsPerRound) seconds per round", value: $secondsPerRound, in: 3...30)

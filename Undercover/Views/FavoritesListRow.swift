@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct FavoritesListRow: View {
+    let album: UCAlbum
+    
     var body: some View {
         VStack {
             HStack(alignment: .top) {
-                AsyncImage(url: URL(string:"https://images.squarespace-cdn.com/content/54e35397e4b043f1c9a4b2d1/1472072556586-HR3BOOK0U2Q6CFKA8Z1O/?content-type=image%2Fjpeg")) { image in
+                AsyncImage(url: album.coverImageURL) { image in
                     image.resizable().scaledToFit()
                 } placeholder: {
                     ProgressView()
@@ -21,14 +23,16 @@ struct FavoritesListRow: View {
                 
                 HStack {
                     VStack(alignment: .leading) {
-                        Text("Sail Away")
+                        Text(album.albumTitle)
                             .italic()
-                        Text("by Randy Newman")
+                        Text("by \(album.artistName)")
                         
                         Spacer()
                         
-                        Text("From the category \"Hot 70s Daddies\"")
-                            .font(.caption)
+                        if let category = album.category {
+                            Text("From the category \"\(category.name)\"")
+                                .font(.caption)
+                        }
                     }
                     
                     Spacer()
@@ -41,7 +45,6 @@ struct FavoritesListRow: View {
                     print("open")
                 }
                 .labelStyle(.iconOnly)
-                .buttonStyle(PlainButtonStyle())
                 
                 Spacer()
                 
@@ -49,7 +52,6 @@ struct FavoritesListRow: View {
                     print("play")
                 }
                 .labelStyle(.iconOnly)
-                .buttonStyle(PlainButtonStyle())
                 
                 Spacer()
                 
@@ -57,7 +59,6 @@ struct FavoritesListRow: View {
                     print("share")
                 }
                 .labelStyle(.iconOnly)
-                .buttonStyle(PlainButtonStyle())
                 
             }
             .font(.largeTitle)
@@ -81,23 +82,23 @@ struct FavoritesListRow: View {
     }
 }
 
-#Preview {
-    NavigationStack {
-        List {
-            FavoritesListRow()
-            FavoritesListRow()
-            FavoritesListRow()
-        }
-        .listRowSpacing(20)
-        .listStyle(.plain)
-        .listRowInsets(EdgeInsets())
-        .navigationTitle("Favorites")
-        .toolbar {
-            ToolbarItem(placement: .cancellationAction) {
-                Button("Close", systemImage: "xmark") {
-                }
-            }
-        }
-        .fontDesign(.monospaced)
-    }
-}
+//#Preview {
+//    NavigationStack {
+//        List {
+//            FavoritesListRow()
+//            FavoritesListRow()
+//            FavoritesListRow()
+//        }
+//        .listRowSpacing(20)
+//        .listStyle(.plain)
+//        .listRowInsets(EdgeInsets())
+//        .navigationTitle("Favorites")
+//        .toolbar {
+//            ToolbarItem(placement: .cancellationAction) {
+//                Button("Close", systemImage: "xmark") {
+//                }
+//            }
+//        }
+//        .fontDesign(.monospaced)
+//    }
+//}
