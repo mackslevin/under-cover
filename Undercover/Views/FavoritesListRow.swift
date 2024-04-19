@@ -18,13 +18,17 @@ struct FavoritesListRow: View {
     let musicPlayer = SystemMusicPlayer.shared
     let dummyURL = URL(string: "https://amvolume.com")!
     
+    let maxArtworkSize: CGFloat = 120
+    
     var body: some View {
         VStack {
             HStack(alignment: .top) {
                 AsyncImage(url: album.coverImageURL) { image in
                     image.resizable().scaledToFit()
                 } placeholder: {
-                    ProgressView()
+                    Rectangle()
+                        .aspectRatio(1, contentMode: .fit)
+                        .frame(maxWidth: maxArtworkSize, maxHeight: maxArtworkSize)
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 5))
                 .shadow(radius: 1, x: 1, y: 2)
@@ -46,7 +50,7 @@ struct FavoritesListRow: View {
                     Spacer()
                 }
             }
-            .frame(maxHeight: 120)
+            .frame(maxHeight: maxArtworkSize)
             
             HStack {
                 Button("Open in Apple Music", systemImage: "arrow.up.right.square.fill") {
@@ -80,10 +84,12 @@ struct FavoritesListRow: View {
             .labelStyle(.iconOnly)
         }
         .listRowSeparator(.hidden)
+        .listRowSpacing(0)
         .padding(.bottom, 10)
         .overlay {
             if !(isTheLastListItem() == true) {
                 VStack(spacing: 0) {
+                    Spacer()
                     Rectangle()
                         .frame(height: 1)
                         .opacity(0.15)
@@ -91,7 +97,7 @@ struct FavoritesListRow: View {
                         .frame(height: 2)
                         .opacity(0.07)
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+                .frame(maxWidth: .infinity, alignment: .bottom)
             }
         }
         .onAppear {
