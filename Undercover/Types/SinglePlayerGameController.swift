@@ -29,7 +29,6 @@ class SinglePlayerGameController {
     
     // MARK: Game State
     func reset() {
-        print("^^ reset called")
         inProgress = false
         currentRound = 0
         category = nil
@@ -78,7 +77,6 @@ class SinglePlayerGameController {
     
     func handleRoundEnd(withGuess guess: UCAlbum?, secondsRemaining: Int = 0) {
         if let currentAnswer {
-            print("^^ appending \(currentAnswer.albumTitle)")
             pastAnswers.append(currentAnswer)
         }
         
@@ -114,11 +112,7 @@ class SinglePlayerGameController {
             if let randomTrack = album.tracks?.randomElement() {
                 player.queue = [randomTrack]
                 try await player.play()
-            } else {
-                print("^^ No track")
             }
-        } else {
-            print("^^ No album")
         }
     }
     
@@ -134,7 +128,6 @@ class SinglePlayerGameController {
             $0.secondsPerRound == UserDefaults.standard.integer(forKey: "secondsPerRound") &&
             $0.numberOfOptions == numberOfOptions
         })
-        
         
         if categoryScores.isEmpty {
             return nil

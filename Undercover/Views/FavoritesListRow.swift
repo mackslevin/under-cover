@@ -14,6 +14,7 @@ struct FavoritesListRow: View {
     
     let album: UCAlbum
     
+    let musicPlayer = SystemMusicPlayer.shared
     let dummyURL = URL(string: "https://amvolume.com")!
     
     var body: some View {
@@ -56,7 +57,16 @@ struct FavoritesListRow: View {
                 
                 Button("Play", systemImage: "play.fill") {
                     print("play")
+                    if let catalogAlbum, let track1 = catalogAlbum.tracks?.first {
+                        musicPlayer.queue = .init(album: catalogAlbum, startingAt: track1)
+                        
+                        Task {
+                            try? await musicPlayer.prepareToPlay()
+                            try? await musicPlayer.play()
+                        }
+                    }
                 }
+                .disabled(catalogAlbum == nil)
                 
                 Spacer()
                 
@@ -66,8 +76,6 @@ struct FavoritesListRow: View {
             .font(.largeTitle)
             .padding(.vertical, 6)
             .labelStyle(.iconOnly)
-            
-            
         }
         .listRowSeparator(.hidden)
         .padding(.bottom, 10)
@@ -84,7 +92,12 @@ struct FavoritesListRow: View {
         }
         .onAppear {
             Task {
-                catalogAlbum = try? await appleMusicController.catalogAlbum(album)
+                var req = MusicCatalogResourceRequest<Album>(matching: \.id, equalTo: MusicItemID(album.musicItemID))
+                req.limit = 1
+                req.properties = [.tracks]
+                if let response = try? await req.response(), let fetchedAlbum = response.items.first {
+                    catalogAlbum = fetchedAlbum
+                }
             }
         }
     }
