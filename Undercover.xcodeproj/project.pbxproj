@@ -122,12 +122,12 @@
 				0119FC4B2BB34F6F0061FD69 /* SinglePlayerGameController.swift */,
 				01DB7E462BAD1FFF00DB7376 /* UCAlbum.swift */,
 				01DB7E482BAD338400DB7376 /* UCCategory.swift */,
-				0119FC4F2BB35CF60061FD69 /* GameState.swift */,
-				010AB40A2BB2042E006A52C3 /* Utility.swift */,
-				01769A662BB4C79D006F09C5 /* GuessLabelDisplayMode.swift */,
 				01FB4AFA2BB5DA2A007574CA /* UCHiScoreEntry.swift */,
+				0119FC4F2BB35CF60061FD69 /* GameState.swift */,
+				01769A662BB4C79D006F09C5 /* GuessLabelDisplayMode.swift */,
 				011994942BB74DC500F3DD31 /* PillButtonStyle.swift */,
 				0193C0CC2BBB5F850024CB50 /* Font-Extension.swift */,
+				010AB40A2BB2042E006A52C3 /* Utility.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";

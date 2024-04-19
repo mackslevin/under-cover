@@ -17,7 +17,7 @@ struct PillButtonStyle: ButtonStyle {
                 ZStack {
                     Capsule().stroke()
                     Capsule().padding(1)
-                        .foregroundStyle(configuration.isPressed ? Color.accentColor : Color.clear)
+                        .foregroundStyle(configuration.isPressed ? Color.accentColor : Color(uiColor: UIColor.systemBackground))
                 }
             }
     }

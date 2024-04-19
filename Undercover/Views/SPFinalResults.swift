@@ -23,47 +23,24 @@ struct SPFinalResults: View {
     let onEndGame: () -> Void
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            if let thisScore {
-                if isNewHiScore {
-                    Text("New Hi Score: \(thisScore.score)!")
-                        .font(.title2).foregroundStyle(.accent).bold()
-                } else {
-                    Text("Final score: \(thisScore.score)")
-                        .font(.title2).fontWeight(.bold)
-                }
+        VStack(alignment: .leading, spacing: 40) {
+            VStack {
+                Text("GAME OVER")
+                    .italic()
+                Text("483pts")
             }
-            
-            if let currentGameScores {
-                VStack(alignment: .leading) {
-                    
-                        ForEach(currentGameScores.sorted(by: {$0.score > $1.score}).prefix(5)) { hiScore in
-                            Text("#\((currentGameScores.sorted(by: {$0.score > $1.score}).firstIndex(of: hiScore) ?? 0) + 1): \(hiScore.score) - \(hiScore.date.formatted())")
-                                .foregroundStyle(hiScore.id == thisScore?.id ? Color.accentColor : Color.primary)
-                                .fontWeight(hiScore.id == thisScore?.id ? .semibold : .regular)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                    
-                }
-                .padding()
-                .background {
-                    Rectangle()
-                        .foregroundStyle(Color.accentColor)
-                        .opacity(0.1)
-                }
-                .clipShape(RoundedRectangle(cornerRadius: 5))
-            }
-            
+            .frame(maxWidth: .infinity, alignment: .center)
+            .font(.largeTitle)
+            .fontWeight(.black)
             
             Button("Done") {
                 onEndGame()
             }
+            .bold()
             .buttonStyle(PillButtonStyle())
-            
             
             Spacer()
         }
-        .navigationTitle("Game Over")
         .padding()
         .onAppear {
             if let category = gameController.category {
