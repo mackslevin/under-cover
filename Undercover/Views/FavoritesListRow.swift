@@ -13,6 +13,7 @@ struct FavoritesListRow: View {
     @State private var catalogAlbum: Album? = nil
     
     let album: UCAlbum
+    let allListItems: [UCAlbum] // The array which the conataining list is iterating through. We compare our album with this to see if it's the last list item and thus not show a bottom divider.
     
     let musicPlayer = SystemMusicPlayer.shared
     let dummyURL = URL(string: "https://amvolume.com")!
@@ -69,9 +70,10 @@ struct FavoritesListRow: View {
                 .disabled(catalogAlbum == nil)
                 
                 Spacer()
-                
-                ShareLink(item: catalogAlbum?.url ?? dummyURL)
-                    .disabled(catalogAlbum?.url == nil)
+
+                ShareLink(item: catalogAlbum?.url ?? dummyURL) {
+                    Label("Share", systemImage: "square.and.arrow.up.fill")
+                }
             }
             .font(.largeTitle)
             .padding(.vertical, 6)
@@ -80,15 +82,17 @@ struct FavoritesListRow: View {
         .listRowSeparator(.hidden)
         .padding(.bottom, 10)
         .overlay {
-            VStack(spacing: 0) {
-                Rectangle()
-                    .frame(height: 1)
-                    .opacity(0.15)
-                Rectangle()
-                    .frame(height: 2)
-                    .opacity(0.07)
+            if !(isTheLastListItem() == true) {
+                VStack(spacing: 0) {
+                    Rectangle()
+                        .frame(height: 1)
+                        .opacity(0.15)
+                    Rectangle()
+                        .frame(height: 2)
+                        .opacity(0.07)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         }
         .onAppear {
             Task {
@@ -99,6 +103,15 @@ struct FavoritesListRow: View {
                     catalogAlbum = fetchedAlbum
                 }
             }
+        }
+    }
+    
+    func isTheLastListItem() -> Bool? {
+        guard let lastItem = allListItems.last else { return nil }
+        if album.id == lastItem.id {
+            return true
+        } else {
+            return false
         }
     }
 }

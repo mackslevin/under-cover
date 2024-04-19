@@ -14,8 +14,8 @@ struct FavoritesIndexView: View {
     
     var body: some View {
         NavigationStack {
-            List(favoritedAlbums) { album in
-                FavoritesListRow(album: album)
+            List(favoritedAlbums.reversed()) { album in
+                FavoritesListRow(album: album, allListItems: favoritedAlbums.reversed())
                     .buttonStyle(PlainButtonStyle())
                     .listRowSeparator(.hidden)
             }
