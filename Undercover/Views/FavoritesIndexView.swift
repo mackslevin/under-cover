@@ -10,6 +10,7 @@ import SwiftData
 
 struct FavoritesIndexView: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(\.modelContext) var modelContext
     @Query(filter: #Predicate<UCAlbum> { $0.isFavorited }) var favoritedAlbums: [UCAlbum]
     
     var body: some View {
@@ -18,6 +19,13 @@ struct FavoritesIndexView: View {
                 FavoritesListRow(album: album, allListItems: favoritedAlbums.reversed())
                     .buttonStyle(PlainButtonStyle())
                     .listRowSeparator(.hidden)
+                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                        Button("Delete", systemImage: "trash", role: .destructive) {
+                            withAnimation {
+                                modelContext.delete(album)
+                            }
+                        }
+                    }
             }
             .listStyle(.plain)
             .listRowInsets(EdgeInsets())
