@@ -14,7 +14,7 @@ struct SPFinalResults: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: [SortDescriptor(\UCHiScoreEntry.date, order: .reverse)]) var hiScores: [UCHiScoreEntry]
     @State private var thisScore: UCHiScoreEntry? = nil
-    @State private var isNewHiScore = true // TODO: Change back
+    @State private var isNewHiScore = false
     @State private var hiScoreNoticeShouldFlash = false
     @State private var highestScore: UCHiScoreEntry?
     @State private var currentGameScores: [UCHiScoreEntry]? = []
@@ -65,32 +65,36 @@ struct SPFinalResults: View {
                         }
                 }
                 
-//                if let scores = currentGameScores {
-//                    VStack {
-//                        ForEach(scores.enumerated(), id: \.1.id) { (iteration, score) in
-//                            HStack(spacing: 12) {
-//                                Text("1")
-//                                    .padding()
-//                                    .foregroundStyle(.primary).colorInvert()
-//                                    .background {
-//                                        Circle()
-//                                            .foregroundStyle(.tertiary)
-//                                            .shadow(radius: 2, x: 1, y: 1)
-//                                    }
-//                                    .fontWeight(.black)
-//                                Text("493pts, 2/3/34 2:34pm")
-//                                    .fontWeight(.medium)
-//                            }
-//                        }
-//                        
-//                    }
-//                    .padding()
-//                    .frame(maxWidth: .infinity, alignment: .leading)
-//                    .background {
-//                        RoundedRectangle(cornerRadius: 5)
-//                            .foregroundStyle(.quaternary)
-//                    }
-//                }
+                if let scores = currentGameScores {
+                    VStack(alignment: .leading) {
+                        Text("Scoreboard")
+                            .bold()
+                            .frame(maxWidth: .infinity, alignment: .center)
+                        
+                        ForEach(scores) { scoreEntry in
+                            HStack(spacing: 12) {
+                                Text("\(positionOf(scoreEntry, within: currentGameScores ?? []))")
+                                    .padding()
+                                    .foregroundStyle(.primary).colorInvert()
+                                    .background {
+                                        Circle()
+                                            .foregroundStyle(.tertiary)
+                                            .shadow(radius: 2, x: 1, y: 1)
+                                    }
+                                    .fontWeight(.black)
+                                Text("\(scoreEntry.score), \(scoreEntry.date.formatted())")
+                                    .fontWeight(.medium)
+                                    .foregroundStyle(scoreEntry.id == thisScore?.id ? Color.accentColor : Color.primary)
+                            }
+                        }
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background {
+                        RoundedRectangle(cornerRadius: 5)
+                            .foregroundStyle(.quaternary)
+                    }
+                }
                 
                 VStack(spacing: 8) {
                     ForEach(gameController.pastAnswers) { album in
@@ -116,7 +120,9 @@ struct SPFinalResults: View {
                     
                     currentGameScores = gameController.hiScoresForCurrentGame(fromScores: hiScores)?.sorted(using: [SortDescriptor(\UCHiScoreEntry.score, order: .reverse)])
                     
+                    
                     highestScore = currentGameScores?.first
+                    
                     
                     if highestScore?.id == thisScore?.id {
                         isNewHiScore = true
@@ -129,6 +135,14 @@ struct SPFinalResults: View {
             }
         }
         
+    }
+    
+    func positionOf(_ score: UCHiScoreEntry, within scores: [UCHiScoreEntry]) -> Int {
+        let sortedScores = scores.sorted(using: SortDescriptor(\.score, order: .reverse))
+        guard let index = sortedScores.firstIndex(where: {$0.id == score.id}) else {
+            return -1
+        }
+        return index + 1
     }
 }
 
