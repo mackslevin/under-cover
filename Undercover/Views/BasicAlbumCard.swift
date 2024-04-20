@@ -10,7 +10,6 @@ import MusicKit
 
 struct BasicAlbumCard: View {
     @State var ucAlbum: UCAlbum
-    
     @Environment(AppleMusicController.self) var appleMusicController
     @State private var album: Album? = nil
     @State private var yearText = ""
