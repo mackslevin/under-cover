@@ -65,35 +65,8 @@ struct SPFinalResults: View {
                         }
                 }
                 
-                if let scores = currentGameScores {
-                    VStack(alignment: .leading) {
-                        Text("Scoreboard")
-                            .bold()
-                            .frame(maxWidth: .infinity, alignment: .center)
-                        
-                        ForEach(scores) { scoreEntry in
-                            HStack(spacing: 12) {
-                                Text("\(positionOf(scoreEntry, within: currentGameScores ?? []))")
-                                    .padding()
-                                    .foregroundStyle(.primary).colorInvert()
-                                    .background {
-                                        Circle()
-                                            .foregroundStyle(.tertiary)
-                                            .shadow(radius: 2, x: 1, y: 1)
-                                    }
-                                    .fontWeight(.black)
-                                Text("\(scoreEntry.score), \(scoreEntry.date.formatted())")
-                                    .fontWeight(.medium)
-                                    .foregroundStyle(scoreEntry.id == thisScore?.id ? Color.accentColor : Color.primary)
-                            }
-                        }
-                    }
-                    .padding()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background {
-                        RoundedRectangle(cornerRadius: 5)
-                            .foregroundStyle(.quaternary)
-                    }
+                if let scores = currentGameScores, let thisScore {
+                    ScoreboardView(scores: scores, currentGameScore: thisScore)
                 }
                 
                 VStack(spacing: 8) {
@@ -127,6 +100,8 @@ struct SPFinalResults: View {
                     if highestScore?.id == thisScore?.id {
                         isNewHiScore = true
                         hiScoreNoticeShouldFlash = true
+                    } else {
+                        print("^^ Not highest")
                     }
                 }
             }
