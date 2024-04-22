@@ -28,6 +28,7 @@ struct ScoreboardView: View {
                         Rectangle()
                             .foregroundStyle(.ultraThinMaterial)
                         Rectangle().frame(height: 1)
+                            .padding(.horizontal, 1) // Accounting for outer stroke
                     }
                 }
             
@@ -72,7 +73,6 @@ struct ScoreboardView: View {
                 }
                 .padding(.horizontal, 3) // Account for stroke and shadow positioning
                 .padding(.bottom, 100)
-                
             }
             .scrollIndicators(.hidden)
             .padding(.horizontal)
@@ -83,6 +83,7 @@ struct ScoreboardView: View {
             VStack(spacing: 0) {
                 Spacer()
                 Rectangle().frame(height: 1)
+                    .padding(.horizontal, 1) // Accounting for outer stroke
                 ZStack {
                     Rectangle()
                         .frame(maxHeight: 50)
@@ -102,9 +103,9 @@ struct ScoreboardView: View {
         }
         .overlay {
             RoundedRectangle(cornerRadius: 40)
-                .stroke()
+                .stroke().padding(1)
         }
-        .clipShape(RoundedRectangle(cornerRadius: 39))
+        .clipShape(RoundedRectangle(cornerRadius: 40))
         .confirmationDialog("Are you sure you want to delete all these scores?", isPresented: $isShowingScoreDeletionConfirmation) {
             Button("Delete All These Cool Scores", role: .destructive) {
                 let toDelete = scores
