@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ScoreboardView: View {
-    let scores: [UCHiScoreEntry]
+    @State var scores: [UCHiScoreEntry]
     let currentGameScore: UCHiScoreEntry
+    
+    @Environment(\.modelContext) var modelContext
+    @State private var isShowingScoreDeletionConfirmation = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -67,6 +71,7 @@ struct ScoreboardView: View {
                     }
                 }
                 .padding(.horizontal, 3) // Account for stroke and shadow positioning
+                .padding(.bottom, 100)
                 
             }
             .scrollIndicators(.hidden)
@@ -78,9 +83,20 @@ struct ScoreboardView: View {
             VStack(spacing: 0) {
                 Spacer()
                 Rectangle().frame(height: 1)
-                Rectangle()
-                    .frame(maxHeight: 50)
-                    .foregroundStyle(.ultraThinMaterial)
+                ZStack {
+                    Rectangle()
+                        .frame(maxHeight: 50)
+                        .foregroundStyle(.ultraThinMaterial)
+                    HStack {
+                        Button("Clear", systemImage: "xmark") {
+                            isShowingScoreDeletionConfirmation.toggle()
+                        }
+                        .foregroundStyle(.secondary)
+                        .labelStyle(.titleOnly)
+                        .font(.caption)
+                        .disabled(scores.isEmpty)
+                    }
+                }
             }
             .frame(maxWidth: .infinity)
         }
@@ -89,6 +105,24 @@ struct ScoreboardView: View {
                 .stroke()
         }
         .clipShape(RoundedRectangle(cornerRadius: 39))
+        .confirmationDialog("Are you sure you want to delete all these scores?", isPresented: $isShowingScoreDeletionConfirmation) {
+            Button("Delete All These Cool Scores", role: .destructive) {
+                let toDelete = scores
+                
+                withAnimation {
+                    scores = []
+                }
+                
+                for score in toDelete {
+                    print("^^ deleting \(score)")
+                    modelContext.delete(score)
+                    print("^^ deleted \(score)")
+                    
+                }
+            }
+            
+            Button("Never Mind!") {}
+        }
     }
     
     func positionOf(_ score: UCHiScoreEntry, within scores: [UCHiScoreEntry]) -> Int {
@@ -101,19 +135,35 @@ struct ScoreboardView: View {
 }
 
 
-let current = UCHiScoreEntry(categoryID: UUID(), score: 236, rounds: 3, secondsPerRound: 10, numberOfOptions: 3)
-let scores = [
+
+
+#Preview {
+    VStack {
+        ScoreboardView(scores: scores, currentGameScore: current)
+            .modelContext(ModelContext(previewModelContainer))
+    }
+    .padding()
+    .fontDesign(.monospaced)
+}
+
+fileprivate var previewModelContainer: ModelContainer = {
+    let schema = Schema([
+        UCCategory.self,
+        UCHiScoreEntry.self
+    ])
+    let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+
+    do {
+        return try ModelContainer(for: schema, configurations: [modelConfiguration])
+    } catch {
+        fatalError("Could not create ModelContainer: \(error)")
+    }
+}()
+fileprivate let current = UCHiScoreEntry(categoryID: UUID(), score: 236, rounds: 3, secondsPerRound: 10, numberOfOptions: 3)
+fileprivate let scores = [
     UCHiScoreEntry(categoryID: UUID(), score: 235, rounds: 3, secondsPerRound: 10, numberOfOptions: 3),
     UCHiScoreEntry(categoryID: UUID(), score: 335, rounds: 3, secondsPerRound: 10, numberOfOptions: 3),
     UCHiScoreEntry(categoryID: UUID(), score: 201, rounds: 3, secondsPerRound: 10, numberOfOptions: 3),
     current,
     UCHiScoreEntry(categoryID: UUID(), score: 108, rounds: 3, secondsPerRound: 10, numberOfOptions: 3)
 ]
-
-#Preview {
-    VStack {
-        ScoreboardView(scores: scores, currentGameScore: current)
-    }
-    .padding()
-    .fontDesign(.monospaced)
-}

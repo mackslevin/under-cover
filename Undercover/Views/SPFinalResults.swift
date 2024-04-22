@@ -80,8 +80,6 @@ struct SPFinalResults: View {
                 }
                 .bold()
                 .buttonStyle(PillButtonStyle())
-                
-                Spacer()
             }
             .navigationBarTitleDisplayMode(.inline)
             .padding()
