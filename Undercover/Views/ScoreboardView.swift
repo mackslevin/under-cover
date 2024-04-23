@@ -14,23 +14,49 @@ struct ScoreboardView: View {
     
     @Environment(\.modelContext) var modelContext
     @State private var isShowingScoreDeletionConfirmation = false
+    @State private var isShowingInfo = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("Scoreboard")
-                .fontWeight(.black)
-                .textCase(.uppercase)
-                .tracking(2)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .padding(.vertical)
-                .background {
-                    VStack(spacing: 0) {
-                        Rectangle()
-                            .foregroundStyle(.ultraThinMaterial)
-                        Rectangle().frame(height: 1)
-                            .padding(.horizontal, 1) // Accounting for outer stroke
+            HStack {
+                Text("Scoreboard")
+                    .fontWeight(.black)
+                    .textCase(.uppercase)
+                    .tracking(1.4)
+                    .padding(.leading, 20)
+                
+                Image(systemName: "info.circle")
+                    .foregroundStyle(.secondary)
+                    .frame(width: 20)
+                    .accessibilityLabel("Scoreboard info")
+                    .onTapGesture {
+                        isShowingInfo.toggle()
                     }
+                    .popover(isPresented: $isShowingInfo, attachmentAnchor: .point(UnitPoint.topTrailing), arrowEdge: .top, content: {
+                        ScrollView {
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text("About Hi Scores")
+                                    .fontDesign(.none)
+                                    .font(.custom(Font.customFontName, size: 24))
+                                Text(Utility.hiScoresExplainer)
+                                    .presentationDetents([.medium])
+                            }
+                            .padding()
+                        }
+                    })
+                    
+                    
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
+            .padding(.vertical)
+            .background {
+                VStack(spacing: 0) {
+                    Rectangle()
+                        .foregroundStyle(.ultraThinMaterial)
+                    Rectangle().frame(height: 1)
+                        .padding(.horizontal, 1) // Accounting for outer stroke
                 }
+            }
             
             ScrollView {
                 Rectangle().opacity(0).frame(height: 8) // Hacky inner padding
@@ -46,7 +72,7 @@ struct ScoreboardView: View {
                                         .stroke()
                                         .opacity(currentGameScore.id == scoreEntry.id ? 0 : 1)
                                 }
-                                
+                            
                             VStack(alignment: .leading) {
                                 Text("\(scoreEntry.score) pts")
                                     .font(.title3)
@@ -59,11 +85,11 @@ struct ScoreboardView: View {
                         .background {
                             if currentGameScore.id == scoreEntry.id {
                                 ZStack {
-                                    RoundedRectangle(cornerRadius: 20)
+                                    RoundedRectangle(cornerRadius: 10)
                                         .foregroundStyle(Color.accentColor)
                                         .shadow(radius: 2, x: 1, y: 2)
                                     
-                                    RoundedRectangle(cornerRadius: 20)
+                                    RoundedRectangle(cornerRadius: 10)
                                         .stroke()
                                 }
                             }
@@ -153,7 +179,7 @@ fileprivate var previewModelContainer: ModelContainer = {
         UCHiScoreEntry.self
     ])
     let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
+    
     do {
         return try ModelContainer(for: schema, configurations: [modelConfiguration])
     } catch {

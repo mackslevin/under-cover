@@ -43,7 +43,7 @@ struct SPFinalResults: View {
                         .font(.custom(Font.customFontName, size: 16))
                     Text("\(thisScore?.score ?? 0)")
                         .font(.custom(Font.customFontName, size: 72))
-                    Text("POINTS TOTAL")
+                    Text("TOTAL POINTS")
                         .font(.custom(Font.customFontName, size: 16))
                 }
                 .fontDesign(.none)
