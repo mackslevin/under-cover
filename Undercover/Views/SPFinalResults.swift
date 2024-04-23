@@ -57,12 +57,16 @@ struct SPFinalResults: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                         .background {
                             Capsule().stroke(Color.accentColor, style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round, miterLimit: 10, dash: [10], dashPhase: 100))
+                                .animation(Animation.snappy(duration: 0.4).repeatForever()) { view in
+                                    view.opacity(hiScoreNoticeShouldFlash ? 0 : 1)
+                                }
+                                .onAppear {
+                                    hiScoreNoticeShouldFlash = true
+                                }
                                 
                         }
                         .foregroundStyle(Color.accentColor)
-                        .animation(Animation.snappy(duration: 0.3).repeatForever()) { view in
-                            view.opacity(hiScoreNoticeShouldFlash ? 0 : 1)
-                        }
+                        
                 }
                 
                 if let scores = currentGameScores, let thisScore {
@@ -97,7 +101,6 @@ struct SPFinalResults: View {
                     
                     if highestScore?.id == thisScore?.id {
                         isNewHiScore = true
-                        hiScoreNoticeShouldFlash = true
                     } else {
                         print("^^ Not highest")
                     }
