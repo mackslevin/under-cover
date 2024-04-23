@@ -31,8 +31,15 @@ struct SPFinalResults: View {
                     .italic()
                     .fontWeight(.black)
                     
-                if thisScore?.score ?? 0 > 0 {
-                    Image("victory1")
+                if thisScore?.score ?? 1 > 0 {
+                    // Congratulatory image
+                    Image(Utility.victoryImageNames.randomElement()!)
+                        .resizable().scaledToFit()
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .shadow(radius: 2)
+                } else {
+                    // Not-quite-congratulatory image
+                    Image(Utility.nonvictoryImageNames.randomElement()!)
                         .resizable().scaledToFit()
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                         .shadow(radius: 2)
@@ -47,6 +54,9 @@ struct SPFinalResults: View {
                         .font(.custom(Font.customFontName, size: 16))
                 }
                 .fontDesign(.none)
+                
+                
+                
                 
                 if isNewHiScore {
                     Text("New Hi Score!")
@@ -66,7 +76,6 @@ struct SPFinalResults: View {
                                 
                         }
                         .foregroundStyle(Color.accentColor)
-                        
                 }
                 
                 if let scores = currentGameScores, let thisScore {
@@ -94,15 +103,10 @@ struct SPFinalResults: View {
                     modelContext.insert(newEntry)
                     
                     currentGameScores = gameController.hiScoresForCurrentGame(fromScores: hiScores)?.sorted(using: [SortDescriptor(\UCHiScoreEntry.score, order: .reverse)])
-                    
-                    
                     highestScore = currentGameScores?.first
                     
-                    
-                    if highestScore?.id == thisScore?.id {
+                    if highestScore?.id == thisScore?.id, currentGameScores?.count ?? 0 > 1 {
                         isNewHiScore = true
-                    } else {
-                        print("^^ Not highest")
                     }
                 }
             }

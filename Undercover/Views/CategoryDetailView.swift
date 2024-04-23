@@ -27,7 +27,7 @@ struct CategoryDetailView: View {
                     
                     Text("\(rounds)")
                         .font(.custom(Font.customFontName, size: 120))
-                        .frame(width:150)
+                        .frame(minWidth: 100)
                     
                     Button("Decrease Rounds", systemImage: "plus.circle.fill") {
                         rounds += 1
