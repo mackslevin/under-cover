@@ -29,9 +29,12 @@ struct FuzzyImage: View {
             .shadow(radius: 10)
             .onAppear {
                 Task { @MainActor in
+                    // Define frequency of blur adjustment so that we reach 0 with 10% time remaining.
+                    var frequency = Double(secondsPerRound)/100.00
+                    frequency = frequency - (frequency * 0.1)
+                    
                     while true {
-                        try await Task.sleep(for: .seconds(Double(secondsPerRound)/100.00))
-                        
+                        try await Task.sleep(for: .seconds(frequency))
                         blurAmount = blurAmount - (maxBlur/100.0)
                     }
                 }
