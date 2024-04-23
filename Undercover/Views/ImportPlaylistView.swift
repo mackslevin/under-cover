@@ -69,7 +69,13 @@ struct ImportPlaylistView: View {
                                                 
                                                 let res = try await req.response()
                                                 if let album = res.items.first?.albums?.first {
-                                                    albums.append(UCAlbum(fromAlbum: album))
+                                                    
+                                                    
+                                                    // Make sure we don't add anything where the artist is credited as "Various Artists" (as is somewhat common on compilations), because that's not very helpful for multiple choice guessing.
+                                                    if !(album.artistName.lowercased().trimmingCharacters(in: .whitespaces) == "various artists") {
+                                                        albums.append(UCAlbum(fromAlbum: album))
+                                                    }
+                                                    
                                                 }
                                             }
                                         } else {

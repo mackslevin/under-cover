@@ -68,7 +68,7 @@ struct PlaylistInfoCard: View {
                             Label(expanded ? "Collapse" : "Show All", systemImage: expanded ? "chevron.up" : "chevron.down")
                         }
                         .bold()
-                        .buttonStyle(.bordered)
+                        .buttonStyle(.borderedProminent)
                     }
                 }
                 .font(.caption)
