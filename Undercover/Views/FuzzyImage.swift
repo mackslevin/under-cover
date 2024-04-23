@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct FuzzyImage: View {
     let uiImage: UIImage
@@ -14,28 +15,27 @@ struct FuzzyImage: View {
     @AppStorage("secondsPerRound") var secondsPerRound: Int = 30
     @AppStorage("shouldUseDesaturation") var shouldUseDesaturation = false
     
+    @State private var blurAmount = 50.0
     
-    @State private var blurAmount: Double = 50.0
+    let maxBlur = 50.0
     
     var body: some View {
         
         Image(uiImage: uiImage)
             .resizable().scaledToFit()
-            .grayscale(shouldUseDesaturation ? 1 : 0)
             .blur(radius: blurAmount, opaque: true)
+            .grayscale(shouldUseDesaturation ? 1 : 0)
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .shadow(radius: 10)
-            .onChange(of: gameController.currentRoundSecondsRemaining) { _, newValue in
-                if let newValue {
-                    let percentageThrough = (Double(newValue) / Double(secondsPerRound)) // What percantage of the time allotted has been used so far. From 0.0 to 1.0
-                    
-                    withAnimation(.linear(duration: 1)) {
-                        blurAmount = blurAmount * percentageThrough
+            .onAppear {
+                Task { @MainActor in
+                    while true {
+                        try await Task.sleep(for: .seconds(Double(secondsPerRound)/100.00))
+                        
+                        blurAmount = blurAmount - (maxBlur/100.0)
                     }
                 }
             }
-            
-        
     }
 }
 

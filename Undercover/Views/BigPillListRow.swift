@@ -54,9 +54,5 @@ struct BigPillListRow: View {
         }
         .fontDesign(.monospaced)
         .listStyle(.plain)
-        
-        
     }
-    
-    
 }

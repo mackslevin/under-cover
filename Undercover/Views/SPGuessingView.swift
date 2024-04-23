@@ -12,7 +12,6 @@ struct SPGuessingView: View {
     @Environment(SinglePlayerGameController.self) var gameController
     @AppStorage("secondsPerRound") var secondsPerRound: Int = 30
     @AppStorage("guessLabelDisplayMode") var guessMode: GuessLabelDisplayMode = .both
-    @AppStorage("shouldUseDesaturation") var shouldUseDesaturation = true
     @AppStorage("shouldUseMusic") var shouldUseMusic = true
     
     let onRoundEnd: () -> Void
