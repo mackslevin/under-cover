@@ -24,7 +24,7 @@ class AppleMusicController {
             isAuthorized = true
         default:
             isAuthorized = false
-                error = AppleMusicControllerError.missingPermissions(message: "This app requires Apple Music access in order to display music catalog information. You can allow this in Settings.")
+                error = AppleMusicControllerError.missingPermissions(message: "This app requires Apple Music access in order to gather music information and construct categories for you to play. Please allow this in Settings.")
         }
     }
 
@@ -35,7 +35,7 @@ class AppleMusicController {
                 musicSubscription = subscriptionType
                 
                 if !(musicSubscription?.canPlayCatalogContent == true) {
-                    error = AppleMusicControllerError.subscriptionRequired(message: "An active Apple Music subscription is needed in order to play catalog music.")
+                    error = AppleMusicControllerError.subscriptionRequired(message: "No active Apple Music subscription found. Album covers will still show but this app will not be able to play music from the albums.")
                 }
             }
         }

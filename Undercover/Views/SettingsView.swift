@@ -11,7 +11,7 @@ import SwiftData
 struct SettingsView: View {
     @Environment(AppleMusicController.self) var appleMusicController
     @Environment(\.dismiss) var dismiss
-    @AppStorage("secondsPerRound") var secondsPerRound: Int = 30
+    @AppStorage("secondsPerRound") var secondsPerRound: Int = Utility.defaultSecondsPerRound
     @AppStorage("guessLabelDisplayMode") var guessMode: GuessLabelDisplayMode = .both
     @AppStorage("shouldUseDesaturation") var shouldUseDesaturation = true
     @AppStorage("shouldUseMusic") var shouldUseMusic = true

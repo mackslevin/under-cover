@@ -88,7 +88,15 @@ class SinglePlayerGameController {
         
         if guess.musicItemID == currentAnswer?.musicItemID {
             var newPoints = 100
-            let secondsPerRound = UserDefaults.standard.integer(forKey: "secondsPerRound")
+            
+            var secondsPerRound = UserDefaults.standard.integer(forKey: "secondsPerRound")
+            
+            // The User Defaults value will default to 0 on first run if the user doesn't happen to have adjusted the seconds per round in settings already and thus set a value.
+            if secondsPerRound <= 0 {
+                secondsPerRound = Utility.defaultSecondsPerRound
+                UserDefaults.standard.setValue(Utility.defaultSecondsPerRound, forKey: "secondsPerRound")
+            }
+            
             let secondsUsed = secondsPerRound - secondsRemaining
             let pointsToDeduct = (Double(secondsUsed) / Double(secondsPerRound)) * 100
             newPoints -= Int(floor(pointsToDeduct))

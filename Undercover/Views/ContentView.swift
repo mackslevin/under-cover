@@ -89,6 +89,9 @@ struct ContentView: View {
                     await appleMusicController.checkAuth()
                     await appleMusicController.getMusicSubscriptionUpdates()
                 }
+                
+                let secondsPerRound = UserDefaults.standard.integer(forKey: "secondsPerRound")
+                print("^^ secs \(secondsPerRound)")
             }
             .alert(isPresented: $shouldShowAppleMusicError, error: appleMusicController.error) {
                 Button("OK"){}

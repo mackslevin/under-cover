@@ -7,7 +7,7 @@ class UCHiScoreEntry: Identifiable {
     let categoryID: UUID? = nil
     let score: Int = 0
     let rounds: Int = 0
-    let secondsPerRound: Int = 0
+    let secondsPerRound: Int = Utility.defaultSecondsPerRound
     let numberOfOptions: Int = 0
     let date = Date()
     
