@@ -22,13 +22,13 @@ struct SettingsView: View {
         NavigationStack {
             Form {
                 Section {
-                    Button("Prompt for music library authorization") {
+                    Button("Refresh music library authorization") {
                         Task {
                             await appleMusicController.checkAuth()
                         }
                     }
                     
-                    Button("Check Apple Music subscription") {
+                    Button("Refresh Apple Music subscription status") {
                         Task {
                             await appleMusicController.getMusicSubscriptionUpdates()
                         }

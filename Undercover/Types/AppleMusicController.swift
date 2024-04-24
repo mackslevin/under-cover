@@ -15,8 +15,6 @@ class AppleMusicController {
     var error: AppleMusicControllerError? = nil
     
     func checkAuth() async {
-        // This should prompt the user for authorization if unauthorized
-        
         let status = await MusicAuthorization.request()
 
         switch status {

@@ -11,10 +11,12 @@ import SwiftData
 
 struct ImportPlaylistView: View {
     @Environment(\.dismiss) var dismiss
-    @Query var categories: [UCCategory]
     @Environment(\.modelContext) var modelContext
-    @State private var isShowingPlaylistImportError = false
+    @Environment(AppleMusicController.self) var appleMusicController
     
+    @Query var categories: [UCCategory]
+    
+    @State private var isShowingPlaylistImportError = false
     @State private var searchText = ""
     @State private var searchResults: [Playlist] = []
     @State private var selectedPlaylist: Playlist? = nil
@@ -30,73 +32,91 @@ struct ImportPlaylistView: View {
                         .textFieldStyle(.roundedBorder)
                         .focused($isFocused)
                         .padding(.bottom, 4) // Match default spacing of VStack below
+                        .disabled(appleMusicController.isAuthorized == false)
                     
-                    VStack {
-                        ForEach(searchResults) { pl in
-                            PlaylistSearchResultsRow(playlist: pl) {
-                                withAnimation {
-                                    searchResults = []
-                                    selectedPlaylist = pl
+                    
+                    if appleMusicController.isAuthorized == false {
+                        ContentUnavailableView {
+                            Label("Music Library Authorization Required", systemImage: "xmark.circle")
+                        } description: {
+                            Text("This can be enabled in Settings ➡️ Undercover ➡️ Media & Apple Music")
+                        } actions: {
+                            Button("Refresh Authorization status") {
+                                Task {
+                                    await appleMusicController.checkAuth()
+                                }
+                            }
+                            .buttonStyle(.borderedProminent).bold()
+                        }
+
+                    } else {
+                        VStack {
+                            ForEach(searchResults) { pl in
+                                PlaylistSearchResultsRow(playlist: pl) {
+                                    withAnimation {
+                                        searchResults = []
+                                        selectedPlaylist = pl
+                                    }
                                 }
                             }
                         }
-                    }
-                    
-                    if let selectedPlaylist {
-                        Group {
-                            if isConverting {
-                                VStack(spacing: 12) {
-                                    ProgressView()
-                                    Text("Converting...")
-                                        .font(.title3)
-                                }.padding(.vertical)
-                            } else {
-                                PlaylistInfoCard(playlist: selectedPlaylist) {
-                                    withAnimation {
-                                        isConverting = true
-                                    }
-                                    
-                                    // Create new UCCategory and loop through the Playlist's tracks to grab the albums for the new category.
-                                    let newCategory = UCCategory(name: selectedPlaylist.name)
-                                    var albums: [UCAlbum] = []
-                                    
-                                    Task {
-                                        if let tracks = selectedPlaylist.tracks {
-                                            for track in tracks {
-                                                var req = MusicCatalogResourceRequest<Song>(matching: \.id, equalTo: track.id)
-                                                req.limit = 1
-                                                req.properties = [.albums]
-                                                
-                                                let res = try await req.response()
-                                                if let album = res.items.first?.albums?.first {
-                                                    
-                                                    
-                                                    // Make sure we don't add anything where the artist is credited as "Various Artists" (as is somewhat common on compilations), because that's not very helpful for multiple choice guessing.
-                                                    if !(album.artistName.lowercased().trimmingCharacters(in: .whitespaces) == "various artists") {
-                                                        albums.append(UCAlbum(fromAlbum: album))
-                                                    }
-                                                    
-                                                }
-                                            }
-                                        } else {
-                                            isConverting = false
-                                            isShowingPlaylistImportError = true
+                        
+                        if let selectedPlaylist {
+                            Group {
+                                if isConverting {
+                                    VStack(spacing: 12) {
+                                        ProgressView()
+                                        Text("Converting...")
+                                            .font(.title3)
+                                    }.padding(.vertical)
+                                } else {
+                                    PlaylistInfoCard(playlist: selectedPlaylist) {
+                                        withAnimation {
+                                            isConverting = true
                                         }
                                         
-                                        if albums.count >= Utility.minimumAlbumsForCategory {
-                                            newCategory.albums = albums
-                                            modelContext.insert(newCategory)
-                                            isConverting = false
-                                            dismiss()
-                                        } else {
-                                            isConverting = false
-                                            isShowingPlaylistImportError = true
+                                        // Create new UCCategory and loop through the Playlist's tracks to grab the albums for the new category.
+                                        let newCategory = UCCategory(name: selectedPlaylist.name)
+                                        var albums: [UCAlbum] = []
+                                        
+                                        Task {
+                                            if let tracks = selectedPlaylist.tracks {
+                                                for track in tracks {
+                                                    var req = MusicCatalogResourceRequest<Song>(matching: \.id, equalTo: track.id)
+                                                    req.limit = 1
+                                                    req.properties = [.albums]
+                                                    
+                                                    let res = try await req.response()
+                                                    if let album = res.items.first?.albums?.first {
+                                                        
+                                                        
+                                                        // Make sure we don't add anything where the artist is credited as "Various Artists" (as is somewhat common on compilations), because that's not very helpful for multiple choice guessing.
+                                                        if !(album.artistName.lowercased().trimmingCharacters(in: .whitespaces) == "various artists") {
+                                                            albums.append(UCAlbum(fromAlbum: album))
+                                                        }
+                                                        
+                                                    }
+                                                }
+                                            } else {
+                                                isConverting = false
+                                                isShowingPlaylistImportError = true
+                                            }
+                                            
+                                            if albums.count >= Utility.minimumAlbumsForCategory {
+                                                newCategory.albums = albums
+                                                modelContext.insert(newCategory)
+                                                isConverting = false
+                                                dismiss()
+                                            } else {
+                                                isConverting = false
+                                                isShowingPlaylistImportError = true
+                                            }
                                         }
                                     }
                                 }
                             }
+                            .padding(.vertical)
                         }
-                        .padding(.vertical)
                     }
                 }
                 .padding()
@@ -154,6 +174,7 @@ struct ImportPlaylistView: View {
 
 #Preview {
     ImportPlaylistView()
+        .environment(AppleMusicController())
         .modelContainer(for: UCCategory.self)
         .onAppear {
             let fontRegular = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 20)
