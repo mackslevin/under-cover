@@ -28,7 +28,7 @@ struct ImportPlaylistView: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    TextField("Enter text...", text: $searchText)
+                    TextField("Try \"90s Hip Hop\" or \"Classic Rock\"...", text: $searchText)
                         .textFieldStyle(.roundedBorder)
                         .focused($isFocused)
                         .padding(.bottom, 4) // Match default spacing of VStack below
@@ -53,10 +53,10 @@ struct ImportPlaylistView: View {
                         VStack {
                             ForEach(searchResults) { pl in
                                 PlaylistSearchResultsRow(playlist: pl) {
-                                    withAnimation {
+//                                    withAnimation {
                                         searchResults = []
                                         selectedPlaylist = pl
-                                    }
+//                                    }
                                 }
                             }
                         }
@@ -160,12 +160,9 @@ struct ImportPlaylistView: View {
                 for pl in res.playlists {
                     let populated = try await pl.with([.entries])
                     
-                    withAnimation {
-                        if selectedPlaylist == nil {
-                            searchResults.append(populated)
-                        }
+                    if selectedPlaylist == nil { // For request results that come in late
+                        searchResults.append(populated)
                     }
-                    
                 }
             }
         }
