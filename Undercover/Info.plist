@@ -12,6 +12,6 @@
 		<string>remote-notification</string>
 	</array>
 	<key>kTCCServiceMediaLibrary</key>
-	<string>Needed in order to access Apple Music's catalog for display</string>
+	<string>Permission is required in order to display information about playlists and albums from Apple Music.</string>
 </dict>
 </plist>

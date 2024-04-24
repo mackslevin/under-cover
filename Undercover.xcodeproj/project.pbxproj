@@ -22,6 +22,7 @@
 		013C166C2BC618FD00E895D3 /* PlaylistSearchResultsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013C166B2BC618FD00E895D3 /* PlaylistSearchResultsRow.swift */; };
 		013C166E2BC62AE900E895D3 /* PlaylistInfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013C166D2BC62AE900E895D3 /* PlaylistInfoCard.swift */; };
 		0157E5CB2BC5AD7100A55A39 /* NoCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157E5CA2BC5AD7100A55A39 /* NoCategoriesView.swift */; };
+		0169601F2BD892AF004B59AF /* AppleMusicControllerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169601E2BD892AF004B59AF /* AppleMusicControllerError.swift */; };
 		01769A672BB4C79D006F09C5 /* GuessLabelDisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01769A662BB4C79D006F09C5 /* GuessLabelDisplayMode.swift */; };
 		0193C0CB2BBB54A20024CB50 /* RoundResultBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193C0CA2BBB54A20024CB50 /* RoundResultBox.swift */; };
 		0193C0CD2BBB5F850024CB50 /* Font-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193C0CC2BBB5F850024CB50 /* Font-Extension.swift */; };
@@ -58,6 +59,7 @@
 		013C166B2BC618FD00E895D3 /* PlaylistSearchResultsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistSearchResultsRow.swift; sourceTree = "<group>"; };
 		013C166D2BC62AE900E895D3 /* PlaylistInfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistInfoCard.swift; sourceTree = "<group>"; };
 		0157E5CA2BC5AD7100A55A39 /* NoCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCategoriesView.swift; sourceTree = "<group>"; };
+		0169601E2BD892AF004B59AF /* AppleMusicControllerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicControllerError.swift; sourceTree = "<group>"; };
 		016CC9292BAE0A9700FCEED4 /* Undercover.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Undercover.entitlements; sourceTree = "<group>"; };
 		01769A662BB4C79D006F09C5 /* GuessLabelDisplayMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessLabelDisplayMode.swift; sourceTree = "<group>"; };
 		0193C0CA2BBB54A20024CB50 /* RoundResultBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundResultBox.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				011994942BB74DC500F3DD31 /* PillButtonStyle.swift */,
 				0193C0CC2BBB5F850024CB50 /* Font-Extension.swift */,
 				010AB40A2BB2042E006A52C3 /* Utility.swift */,
+				0169601E2BD892AF004B59AF /* AppleMusicControllerError.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				01769A672BB4C79D006F09C5 /* GuessLabelDisplayMode.swift in Sources */,
 				013C166E2BC62AE900E895D3 /* PlaylistInfoCard.swift in Sources */,
 				013BBA652BAE0E8A0089BD12 /* CategoryDetailView.swift in Sources */,
+				0169601F2BD892AF004B59AF /* AppleMusicControllerError.swift in Sources */,
 				01DB7E492BAD338400DB7376 /* UCCategory.swift in Sources */,
 				01DB7E322BACE91400DB7376 /* UndercoverApp.swift in Sources */,
 				013C166C2BC618FD00E895D3 /* PlaylistSearchResultsRow.swift in Sources */,

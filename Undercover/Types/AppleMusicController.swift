@@ -11,18 +11,20 @@ import MusicKit
 
 @Observable
 class AppleMusicController {
-
-    
     var isAuthorized = false
+    var error: AppleMusicControllerError? = nil
+    
     func checkAuth() async {
         // This should prompt the user for authorization if unauthorized
         
         let status = await MusicAuthorization.request()
+
         switch status {
         case .authorized:
             isAuthorized = true
         default:
             isAuthorized = false
+                error = AppleMusicControllerError.missingPermissions(message: "This app requires Apple Music access in order to display music catalog information. You can allow this in Settings.")
         }
     }
 
@@ -31,7 +33,10 @@ class AppleMusicController {
         for await subscriptionType in MusicSubscription.subscriptionUpdates {
             await MainActor.run {
                 musicSubscription = subscriptionType
-                print("^^ sub type \(subscriptionType)")
+                
+                if !(musicSubscription?.canPlayCatalogContent == true) {
+                    error = AppleMusicControllerError.subscriptionRequired(message: "An active Apple Music subscription is needed in order to play catalog music.")
+                }
             }
         }
     }

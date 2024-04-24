@@ -12,12 +12,13 @@ import MusicKit
 struct ContentView: View {
     @State private var searchText = ""
     @State private var titles: [String] = []
-    @State private var isAuthorized = false
     @State private var isShowingSettings = false
     @State private var isShowingAddCategory = false
     @State private var isShowingFavorites = false
+    @State private var shouldShowAppleMusicError = false
     
     @Environment(\.modelContext) var modelContext
+    @Environment(AppleMusicController.self) var appleMusicController
     @Query var categories: [UCCategory]
     
     @State private var selectedCategoryID: UUID? = nil
@@ -83,6 +84,17 @@ struct ContentView: View {
                 let fontLarge = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 36)
                 UINavigationBar.appearance().titleTextAttributes = [.font: fontRegular!]
                 UINavigationBar.appearance().largeTitleTextAttributes = [.font: fontLarge!]
+                
+                Task {
+                    await appleMusicController.checkAuth()
+                    await appleMusicController.getMusicSubscriptionUpdates()
+                }
+            }
+            .alert(isPresented: $shouldShowAppleMusicError, error: appleMusicController.error) {
+                Button("OK"){}
+            }
+            .onChange(of: appleMusicController.error) { _, _ in
+                shouldShowAppleMusicError = true
             }
         } detail: {
             if let selectedCategoryID {
