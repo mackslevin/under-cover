@@ -15,34 +15,41 @@ struct FavoritesIndexView: View {
     
     var body: some View {
         NavigationStack {
-            List(favoritedAlbums.reversed()) { album in
-                FavoritesListRow(album: album)
-                    .buttonStyle(PlainButtonStyle())
-                    
-                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-                        Button("Delete", systemImage: "trash", role: .destructive) {
-                            withAnimation {
-                                modelContext.delete(album)
+            
+            Group {
+                if favoritedAlbums.isEmpty {
+                    ContentUnavailableView("Nothing Favorited Yet", systemImage: "star.slash", description: Text("At the end of a round or game you have the option to favorite the album(s) shown. Favorites will be saved here."))
+                } else {
+                    List(favoritedAlbums.reversed()) { album in
+                        FavoritesListRow(album: album)
+                            .buttonStyle(PlainButtonStyle())
+                            
+                            .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                                Button("Delete", systemImage: "trash", role: .destructive) {
+                                    withAnimation {
+                                        modelContext.delete(album)
+                                    }
+                                }
                             }
+                        
+                        // Add a divider after every row but the last
+                        if !(album.id == favoritedAlbums.reversed().last?.id) {
+                            VStack(spacing: 0) {
+                                Rectangle()
+                                    .frame(height: 1)
+                                    .opacity(0.15)
+                                Rectangle()
+                                    .frame(height: 2)
+                                    .opacity(0.07)
+                            }
+                            .listRowSeparator(.hidden)
                         }
                     }
-                
-                // Add a divider after every row but the last
-                if !(album.id == favoritedAlbums.reversed().last?.id) {
-                    VStack(spacing: 0) {
-                        Rectangle()
-                            .frame(height: 1)
-                            .opacity(0.15)
-                        Rectangle()
-                            .frame(height: 2)
-                            .opacity(0.07)
-                    }
-                    .listRowSeparator(.hidden)
+                    .listRowSpacing(0)
+                    .listStyle(.plain)
+                    .listRowInsets(EdgeInsets())
                 }
             }
-            .listRowSpacing(0)
-            .listStyle(.plain)
-            .listRowInsets(EdgeInsets())
             .padding(.bottom)
             .navigationTitle("Favorites")
             .toolbar {
