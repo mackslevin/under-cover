@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RoundResultBox: View {
     @Environment(SinglePlayerGameController.self) var gameController
-    @AppStorage("secondsPerRound") var secondsPerRound: Int = 30
+    @AppStorage(StorageKeys.secondsPerRound.rawValue) var secondsPerRound: Int = 30
     
     @State private var timeUsed = 0
     

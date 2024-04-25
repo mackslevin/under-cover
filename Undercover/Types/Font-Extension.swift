@@ -9,10 +9,5 @@ import SwiftUI
 
 
 extension Font {
-    
     static let customFontName = "PPNikkeiMaru-Ultrabold"
-    
-//    static func displayFont(ofSize size: CGFloat) -> Font {
-//        return Font.custom("PPNikkeiMaru-Ultrabold", size: size)
-//    }
 }

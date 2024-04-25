@@ -10,9 +10,9 @@ import Combine
 
 struct SPGuessingView: View {
     @Environment(SinglePlayerGameController.self) var gameController
-    @AppStorage("secondsPerRound") var secondsPerRound: Int = Utility.defaultSecondsPerRound
-    @AppStorage("guessLabelDisplayMode") var guessMode: GuessLabelDisplayMode = .both
-    @AppStorage("shouldUseMusic") var shouldUseMusic = true
+    @AppStorage(StorageKeys.secondsPerRound.rawValue) var secondsPerRound: Int = Utility.defaultSecondsPerRound
+    @AppStorage(StorageKeys.guessLabelDisplayMode.rawValue) var guessMode: GuessLabelDisplayMode = .both
+    @AppStorage(StorageKeys.shouldUseMusic.rawValue) var shouldUseMusic = true
     
     let onRoundEnd: () -> Void
     

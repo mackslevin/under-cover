@@ -3,7 +3,7 @@ import SwiftUI
 struct CategoryDetailView: View {
     @Bindable var category: UCCategory
     @Binding var navigationPath: NavigationPath
-    @AppStorage("spRounds") private var rounds: Int = 3
+    @AppStorage(StorageKeys.singlePlayerRounds.rawValue) private var rounds: Int = 3
     @Environment(SinglePlayerGameController.self) var singlePlayerGameController
     
     

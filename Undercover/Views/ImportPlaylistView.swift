@@ -160,7 +160,7 @@ struct ImportPlaylistView: View {
                 for pl in res.playlists {
                     let populated = try await pl.with([.entries])
                     
-                    if selectedPlaylist == nil { // For request results that come in late
+                    if selectedPlaylist == nil { // Skip request results that come in late. (You had your chance!)
                         searchResults.append(populated)
                     }
                 }

@@ -33,26 +33,4 @@ enum AppleMusicControllerError: LocalizedError, Equatable {
                 "Unknown"
         }
     }
-    
-    var helpAnchor: String? {
-        switch self {
-            case .missingPermissions(_):
-                "Please enable in settings."
-            case .subscriptionRequired(_):
-                "Sign in using the Music app."
-            case .unknownError(_):
-                "Please try again."
-        }
-    }
-    
-    var recoverySuggestion: String? {
-        switch self {
-            case .missingPermissions(_):
-                "Make sure to grant permission for this app to access your Apple Music data"
-            case .subscriptionRequired(_):
-                "See Music app for more details."
-            case .unknownError(_):
-                "Please try again."
-        }
-    }
 }

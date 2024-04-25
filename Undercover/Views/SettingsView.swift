@@ -11,10 +11,10 @@ import SwiftData
 struct SettingsView: View {
     @Environment(AppleMusicController.self) var appleMusicController
     @Environment(\.dismiss) var dismiss
-    @AppStorage("secondsPerRound") var secondsPerRound: Int = Utility.defaultSecondsPerRound
-    @AppStorage("guessLabelDisplayMode") var guessMode: GuessLabelDisplayMode = .both
-    @AppStorage("shouldUseDesaturation") var shouldUseDesaturation = true
-    @AppStorage("shouldUseMusic") var shouldUseMusic = true
+    @AppStorage(StorageKeys.secondsPerRound.rawValue) var secondsPerRound: Int = Utility.defaultSecondsPerRound
+    @AppStorage(StorageKeys.guessLabelDisplayMode.rawValue) var guessMode: GuessLabelDisplayMode = .both
+    @AppStorage(StorageKeys.shouldUseDesaturation.rawValue) var shouldUseDesaturation = true
+    @AppStorage(StorageKeys.shouldUseMusic.rawValue) var shouldUseMusic = true
     
     @Query var albums: [UCAlbum]
     

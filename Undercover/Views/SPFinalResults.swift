@@ -19,7 +19,7 @@ struct SPFinalResults: View {
     @State private var highestScore: UCHiScoreEntry?
     @State private var currentGameScores: [UCHiScoreEntry]? = []
     
-    @AppStorage("secondsPerRound") var secondsPerRound: Int = 30
+    @AppStorage(StorageKeys.secondsPerRound.rawValue) var secondsPerRound: Int = 30
     
     let onEndGame: () -> Void
     
