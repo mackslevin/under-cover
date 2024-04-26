@@ -18,12 +18,20 @@ struct WelcomeView: View {
         TabView {
             // MARK: Screen 1
             VStack(alignment: .leading) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 5)
+                        .aspectRatio(1, contentMode: .fit)
+                    Image("record")
+                        .resizable().scaledToFit()
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                        .padding(1)
+                }
                 Spacer()
                 Text("Under Cover")
                 .fontDesign(.none)
                 .font(.custom(Font.customFontName, size: 60))
                 .kerning(-2)
-                Text("is a quick time-killing game where you guess album covers.")
+                Text("is a simple little time-killing game where you guess album covers.")
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
@@ -42,10 +50,20 @@ struct WelcomeView: View {
                     }
                     
                     VStack {
-                        Button("Something"){}
-                            .buttonStyle(PillButtonStyle())
-                        Button("Another"){}
-                            .buttonStyle(PillButtonStyle())
+                        Button {} label: {
+                            VStack {
+                                Text("Hard Timing")
+                                Text("by Crem Hardslab & The Junk")
+                            }
+                        }
+                        .buttonStyle(PillButtonStyle())
+                        Button {} label: {
+                            VStack {
+                                Text("Full Chort")
+                                Text("by Roll Aides")
+                            }
+                        }
+                        .buttonStyle(PillButtonStyle())
                         Button{} label: {
                             VStack {
                                 Text("Prehistoric Burbank")
