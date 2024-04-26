@@ -18,6 +18,8 @@ struct SettingsView: View {
     
     @Query var albums: [UCAlbum]
     
+    @State private var isShowingWelcome = false
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -49,6 +51,12 @@ struct SettingsView: View {
                     
                     Toggle("Play Music", isOn: $shouldUseMusic)
                 }
+                
+                Section {
+                    Button("View welcome screens") {
+                        isShowingWelcome.toggle()
+                    }
+                }
             }
             .navigationTitle("Settings")
             .toolbar {
@@ -59,6 +67,9 @@ struct SettingsView: View {
             .onAppear {
                 print("^^ total albums: \(albums.count)")
             }
+            .sheet(isPresented: $isShowingWelcome, content: {
+                WelcomeView()
+            })
         }
     }
 }

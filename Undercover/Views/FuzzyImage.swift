@@ -12,7 +12,7 @@ struct FuzzyImage: View {
     let uiImage: UIImage
     
     @Environment(SinglePlayerGameController.self) var gameController
-    @AppStorage(StorageKeys.secondsPerRound.rawValue) var secondsPerRound: Int = 30
+    @AppStorage(StorageKeys.secondsPerRound.rawValue) var secondsPerRound: Int = 10
     @AppStorage(StorageKeys.shouldUseDesaturation.rawValue) var shouldUseDesaturation = false
     
     @State private var blurAmount = 50.0
