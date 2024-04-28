@@ -85,7 +85,7 @@ struct ContentView: View {
                 .onAppear {
                     let fontRegular = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 20)
                     let fontLarge = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 36)
-                    UINavigationBar.appearance().titleTextAttributes = [.font: fontRegular!, .kern: -1]
+                    UINavigationBar.appearance().titleTextAttributes = [.font: fontRegular!]
                     UINavigationBar.appearance().largeTitleTextAttributes = [.font: fontLarge!, .kern: -1]
                     
                     Task {

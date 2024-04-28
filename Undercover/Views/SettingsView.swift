@@ -19,6 +19,7 @@ struct SettingsView: View {
     @Query var albums: [UCAlbum]
     
     @State private var isShowingWelcome = false
+    @State private var isShowingPhotoCredits = false
     
     var body: some View {
         NavigationStack {
@@ -56,6 +57,10 @@ struct SettingsView: View {
                     Button("View welcome screens") {
                         isShowingWelcome.toggle()
                     }
+                    
+                    Button("Photo Credits") {
+                        isShowingPhotoCredits.toggle()
+                    }
                 }
             }
             .navigationTitle("Settings")
@@ -69,6 +74,9 @@ struct SettingsView: View {
             }
             .sheet(isPresented: $isShowingWelcome, content: {
                 WelcomeView()
+            })
+            .sheet(isPresented: $isShowingPhotoCredits, content: {
+                PhotoCredits()
             })
         }
     }
