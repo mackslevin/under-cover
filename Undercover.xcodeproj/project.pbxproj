@@ -61,6 +61,7 @@
 		013BF0BC2BDDFFBB00B29E31 /* PhotoCredits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCredits.swift; sourceTree = "<group>"; };
 		013C166B2BC618FD00E895D3 /* PlaylistSearchResultsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistSearchResultsRow.swift; sourceTree = "<group>"; };
 		013C166D2BC62AE900E895D3 /* PlaylistInfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistInfoCard.swift; sourceTree = "<group>"; };
+		014873192BE0207B00400CA7 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		0157E5CA2BC5AD7100A55A39 /* NoCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCategoriesView.swift; sourceTree = "<group>"; };
 		0169601E2BD892AF004B59AF /* AppleMusicControllerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicControllerError.swift; sourceTree = "<group>"; };
 		016CC9292BAE0A9700FCEED4 /* Undercover.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Undercover.entitlements; sourceTree = "<group>"; };
@@ -171,6 +172,7 @@
 				01DB7E412BACF16100DB7376 /* Info.plist */,
 				01DB7E372BACE91500DB7376 /* Assets.xcassets */,
 				01FB4AFE2BB64B4C007574CA /* PPNikkeiMaru-Ultrabold.otf */,
+				014873192BE0207B00400CA7 /* .gitignore */,
 			);
 			path = Undercover;
 			sourceTree = "<group>";
