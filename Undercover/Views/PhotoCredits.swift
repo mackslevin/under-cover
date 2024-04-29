@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct PhotoCredits: View {
-    @Environment(\.dismiss) var dismiss
-    
     let photographers: [Photographer] = Photographer.creditedPhotographers
     
     var body: some View {
@@ -58,13 +56,6 @@ struct PhotoCredits: View {
             }
             .navigationTitle("Photographers")
             .listStyle(.plain)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Close", systemImage: "xmark") {
-                        dismiss()
-                    }
-                }
-            }
         }
     }
 }

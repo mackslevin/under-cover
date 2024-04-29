@@ -13,7 +13,7 @@ struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     @AppStorage(StorageKeys.secondsPerRound.rawValue) var secondsPerRound: Int = Utility.defaultSecondsPerRound
     @AppStorage(StorageKeys.guessLabelDisplayMode.rawValue) var guessMode: GuessLabelDisplayMode = .both
-    @AppStorage(StorageKeys.shouldUseDesaturation.rawValue) var shouldUseDesaturation = true
+    @AppStorage(StorageKeys.shouldUseDesaturation.rawValue) var shouldUseDesaturation = false
     @AppStorage(StorageKeys.shouldUseMusic.rawValue) var shouldUseMusic = true
     
     @Query var albums: [UCAlbum]
@@ -24,22 +24,7 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section {
-                    Button("Refresh music library authorization") {
-                        Task {
-                            await appleMusicController.checkAuth()
-                        }
-                    }
-                    
-                    Button("Refresh Apple Music subscription status") {
-                        Task {
-                            await appleMusicController.getMusicSubscriptionUpdates()
-                        }
-                    }
-                }
-                .bold()
-                
-                Section {
+                Section("Game Configuration") {
                     Stepper("\(secondsPerRound) seconds per round", value: $secondsPerRound, in: 3...30)
                     
                     Picker("Guess Labels", selection: $guessMode) {
@@ -53,15 +38,28 @@ struct SettingsView: View {
                     Toggle("Play Music", isOn: $shouldUseMusic)
                 }
                 
-                Section {
-                    Button("View welcome screens") {
+                Section("Info") {
+                    Button("Overview") {
                         isShowingWelcome.toggle()
                     }
                     
-                    Button("Photo Credits") {
-                        isShowingPhotoCredits.toggle()
+//                    Button {
+//                        isShowingPhotoCredits.toggle()
+//                    } label: {
+//                        Label("Photo Credits", systemImage: "photo")
+//                            
+//                    }
+                    
+                    NavigationLink {
+                        PhotoCredits()
+                    } label: {
+                        Label("Photo Credits", systemImage: "photo")
                     }
+
+                    
                 }
+                .foregroundStyle(.primary)
+                
             }
             .navigationTitle("Settings")
             .toolbar {

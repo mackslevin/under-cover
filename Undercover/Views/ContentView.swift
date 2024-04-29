@@ -14,6 +14,7 @@ struct ContentView: View {
     @Environment(AppleMusicController.self) var appleMusicController
     @Query var categories: [UCCategory]
     @AppStorage(StorageKeys.isFirstRun.rawValue) var isFirstRun = true
+    @AppStorage(StorageKeys.shouldUseMusic.rawValue) var shouldUseMusic = true
     
     @State private var searchText = ""
     @State private var titles: [String] = []
@@ -96,8 +97,15 @@ struct ContentView: View {
                 .alert(isPresented: $shouldShowAppleMusicError, error: appleMusicController.error) {
                     Button("OK"){}
                 }
-                .onChange(of: appleMusicController.error) { _, _ in
-                    shouldShowAppleMusicError = true
+                .onChange(of: appleMusicController.error) { _, newValue in
+                    if let error = newValue {
+                        switch error {
+                            case .subscriptionRequired(_):
+                                if shouldUseMusic { shouldShowAppleMusicError = true }
+                            default:
+                                shouldShowAppleMusicError = true
+                        }
+                    }
                 }
             } detail: {
                 if let selectedCategoryID {
