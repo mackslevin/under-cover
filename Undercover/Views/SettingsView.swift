@@ -39,24 +39,18 @@ struct SettingsView: View {
                 }
                 
                 Section("Info") {
-                    Button("Overview") {
-                        isShowingWelcome.toggle()
+                    NavigationLink {
+                        WelcomeView()
+                            .navigationBarTitleDisplayMode(.inline) // To avoid empty space at top
+                    } label: {
+                        Label("Game Overview", systemImage: "info.circle")
                     }
-                    
-//                    Button {
-//                        isShowingPhotoCredits.toggle()
-//                    } label: {
-//                        Label("Photo Credits", systemImage: "photo")
-//                            
-//                    }
-                    
+
                     NavigationLink {
                         PhotoCredits()
                     } label: {
                         Label("Photo Credits", systemImage: "photo")
                     }
-
-                    
                 }
                 .foregroundStyle(.primary)
                 
