@@ -14,7 +14,7 @@ struct NoCategoriesView: View {
         ContentUnavailableView(label: {
             Label("No categories yet...", systemImage: "xmark.seal.fill")
         }, description: {
-            Text("You can convert Apple Music playlists into categories. This works best on playlists with tracks from many different artists and albums.")
+            Text("Find public playlists on Apple Music and convert them into categroies to play.")
         }, actions: {
             Button {
                 isShowingAddCategory.toggle()

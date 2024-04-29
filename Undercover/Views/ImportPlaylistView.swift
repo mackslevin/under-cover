@@ -28,6 +28,11 @@ struct ImportPlaylistView: View {
         NavigationStack {
             ScrollView {
                 VStack {
+                    Text("Look for playlists with tracks from many different artists and albums.")
+                        .foregroundStyle(.secondary)
+                        .font(.caption)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
                     TextField("Try \"90s Hip Hop\" or \"Classic Rock\"...", text: $searchText)
                         .textFieldStyle(.roundedBorder)
                         .focused($isFocused)
@@ -179,4 +184,5 @@ struct ImportPlaylistView: View {
             UINavigationBar.appearance().titleTextAttributes = [.font: fontRegular!]
             UINavigationBar.appearance().largeTitleTextAttributes = [.font: fontLarge!]
         }
+        .fontDesign(.monospaced)
 }

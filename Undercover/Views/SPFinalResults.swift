@@ -37,12 +37,14 @@ struct SPFinalResults: View {
                         .resizable().scaledToFit()
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                         .shadow(radius: 2)
+                        .frame(maxWidth: 500, maxHeight: 500)
                 } else {
                     // Not-quite-congratulatory image
                     Image(Utility.nonvictoryImageNames.randomElement()!)
                         .resizable().scaledToFit()
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                         .shadow(radius: 2)
+                        .frame(maxWidth: 500, maxHeight: 500)
                 }
                 
                 VStack(spacing:-10) {
