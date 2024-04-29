@@ -24,7 +24,7 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Game Configuration") {
+                Section("General Configuration") {
                     Stepper("\(secondsPerRound) seconds per round", value: $secondsPerRound, in: 3...30)
                     
                     Picker("Guess Labels", selection: $guessMode) {
@@ -34,9 +34,30 @@ struct SettingsView: View {
                     }
                     
                     Toggle("Black & White Mode", isOn: $shouldUseDesaturation)
-                    
-                    Toggle("Play Music", isOn: $shouldUseMusic)
                 }
+                
+                Section("Music") {
+                    Toggle("Play Music", isOn: $shouldUseMusic)
+                        .padding(.bottom, 0)
+                    
+                    Group {
+                        Text("When enabled, music from a given album will play while you're trying to guess it, if you have a currently active Apple Music Subscription.")
+                            .italic()
+                            .foregroundStyle(.secondary)
+                        
+                        HStack {
+                            Text("Subscriptions status:")
+                            Text(appleMusicController.musicSubscription?.canPlayCatalogContent == true ? "Active" : "Not Found")
+                                .bold()
+                                .foregroundStyle(appleMusicController.musicSubscription?.canPlayCatalogContent == true ? .blue : .red)
+                        }
+                        
+                    }
+                    .listRowSeparator(.hidden)
+                    
+                    .font(.caption)
+                }
+                
                 
                 Section("Info") {
                     NavigationLink {
@@ -45,14 +66,16 @@ struct SettingsView: View {
                     } label: {
                         Label("Game Overview", systemImage: "info.circle")
                     }
+                    .foregroundStyle(.primary)
 
                     NavigationLink {
                         PhotoCredits()
                     } label: {
-                        Label("Photo Credits", systemImage: "photo")
+                        Label("Photo Credits", systemImage: "camera")
                     }
+                    .foregroundStyle(.primary)
                 }
-                .foregroundStyle(.primary)
+                
                 
             }
             .navigationTitle("Settings")
@@ -77,4 +100,5 @@ struct SettingsView: View {
 #Preview {
     SettingsView()
         .environment(AppleMusicController())
+        .fontDesign(.monospaced)
 }
