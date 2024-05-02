@@ -28,7 +28,7 @@
 		0193C0CB2BBB54A20024CB50 /* RoundResultBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193C0CA2BBB54A20024CB50 /* RoundResultBox.swift */; };
 		0193C0CD2BBB5F850024CB50 /* Font-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193C0CC2BBB5F850024CB50 /* Font-Extension.swift */; };
 		0193C0CF2BBB9A900024CB50 /* BasicAlbumCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193C0CE2BBB9A900024CB50 /* BasicAlbumCard.swift */; };
-		01BA56832BE4520F0039D06F /* appstore.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BA56822BE4520F0039D06F /* appstore.png */; };
+		01BA56852BE452F20039D06F /* appstore.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BA56842BE452F20039D06F /* appstore.png */; };
 		01DB7E322BACE91400DB7376 /* UndercoverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E312BACE91400DB7376 /* UndercoverApp.swift */; };
 		01DB7E342BACE91400DB7376 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E332BACE91400DB7376 /* ContentView.swift */; };
 		01DB7E382BACE91500DB7376 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01DB7E372BACE91500DB7376 /* Assets.xcassets */; };
@@ -70,7 +70,7 @@
 		0193C0CA2BBB54A20024CB50 /* RoundResultBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundResultBox.swift; sourceTree = "<group>"; };
 		0193C0CC2BBB5F850024CB50 /* Font-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font-Extension.swift"; sourceTree = "<group>"; };
 		0193C0CE2BBB9A900024CB50 /* BasicAlbumCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAlbumCard.swift; sourceTree = "<group>"; };
-		01BA56822BE4520F0039D06F /* appstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appstore.png; sourceTree = "<group>"; };
+		01BA56842BE452F20039D06F /* appstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appstore.png; sourceTree = "<group>"; };
 		01DB7E2E2BACE91400DB7376 /* Undercover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Undercover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01DB7E312BACE91400DB7376 /* UndercoverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndercoverApp.swift; sourceTree = "<group>"; };
 		01DB7E332BACE91400DB7376 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 		01BA56812BE4511A0039D06F /* github */ = {
 			isa = PBXGroup;
 			children = (
-				01BA56822BE4520F0039D06F /* appstore.png */,
+				01BA56842BE452F20039D06F /* appstore.png */,
 			);
 			path = github;
 			sourceTree = "<group>";
@@ -255,7 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01DB7E3B2BACE91500DB7376 /* Preview Assets.xcassets in Resources */,
-				01BA56832BE4520F0039D06F /* appstore.png in Resources */,
+				01BA56852BE452F20039D06F /* appstore.png in Resources */,
 				01DB7E382BACE91500DB7376 /* Assets.xcassets in Resources */,
 				01FB4AFF2BB64B4C007574CA /* PPNikkeiMaru-Ultrabold.otf in Resources */,
 			);
