@@ -37,6 +37,7 @@ struct GetAlbumDataView: View {
                             }
                     }
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
                 
                 
                 if selectedAlbum != nil {
@@ -49,6 +50,9 @@ struct GetAlbumDataView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .padding()
+            .onAppear {
+                print("^^ UUID: \(UUID().uuidString)")
+            }
             .onChange(of: searchText) { oldValue, newValue in
                 if newValue == "" {
                     results = []
@@ -62,10 +66,11 @@ struct GetAlbumDataView: View {
                 if let newValue {
                     json = """
                     {
-                        "music_item_id":"\(newValue.id.rawValue)",
-                        "artist_name":"\(newValue.artistName)",
-                        "album_title":"\(newValue.title)",
-                        "cover_image_url":"\(newValue.artwork?.url(width: Utility.defaultArtworkSize, height: Utility.defaultArtworkSize)?.absoluteString ?? "")"
+                        "id": "\(UUID().uuidString)",
+                        "music_item_id": "\(newValue.id.rawValue)",
+                        "artist_name": "\(newValue.artistName)",
+                        "album_title": "\(newValue.title)",
+                        "cover_image_url": "\(newValue.artwork?.url(width: Utility.defaultArtworkSize, height: Utility.defaultArtworkSize)?.absoluteString ?? "")"
                     }
                     """
                 } else {
@@ -109,10 +114,11 @@ struct GetAlbumDataView: View {
                 }
             }
 
-            VStack {
+            VStack(alignment: .leading) {
                 Text(album.title)
                 Text(album.artistName)
             }
+            .multilineTextAlignment(.leading)
             .font(.caption)
         }
     }

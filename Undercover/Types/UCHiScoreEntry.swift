@@ -3,13 +3,13 @@ import SwiftData
 
 @Model
 class UCHiScoreEntry: Identifiable {
-    let id = UUID()
-    let categoryID: UUID? = nil
-    let score: Int = 0
-    let rounds: Int = 0
-    let secondsPerRound: Int = Utility.defaultSecondsPerRound
-    let numberOfOptions: Int = 0
-    let date = Date()
+    private(set) var id = UUID()
+    private(set) var categoryID: UUID? = nil
+    private(set) var score: Int = 0
+    private(set) var rounds: Int = 0
+    private(set) var secondsPerRound: Int = Utility.defaultSecondsPerRound
+    private(set) var numberOfOptions: Int = 0
+    private(set) var date = Date()
     
     init(categoryID: UUID, score: Int, rounds: Int, secondsPerRound: Int, numberOfOptions: Int) {
         self.categoryID = categoryID

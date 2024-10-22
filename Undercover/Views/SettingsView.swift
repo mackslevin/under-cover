@@ -21,8 +21,6 @@ struct SettingsView: View {
     @State private var isShowingWelcome = false
     @State private var isShowingPhotoCredits = false
     
-    @State private var isShowingGetAlbumDataView = false
-    
     var body: some View {
         NavigationStack {
             Form {
@@ -77,13 +75,6 @@ struct SettingsView: View {
                     }
                     .foregroundStyle(.primary)
                 }
-                
-                Section {
-                    Button("Get album data") {
-                        isShowingGetAlbumDataView.toggle()
-                    }
-                }
-                
             }
             .navigationTitle("Settings")
             .toolbar {
@@ -100,9 +91,6 @@ struct SettingsView: View {
             .sheet(isPresented: $isShowingPhotoCredits, content: {
                 PhotoCredits()
             })
-            .sheet(isPresented: $isShowingGetAlbumDataView) {
-                GetAlbumDataView()
-            }
         }
     }
 }
