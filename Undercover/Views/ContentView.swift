@@ -13,6 +13,7 @@ struct ContentView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(AppleMusicController.self) var appleMusicController
     @Query var categories: [UCCategory]
+    @Query var albums : [UCAlbum]
     @AppStorage(StorageKeys.isFirstRun.rawValue) var isFirstRun = true
     @AppStorage(StorageKeys.shouldUseMusic.rawValue) var shouldUseMusic = true
     
@@ -42,16 +43,8 @@ struct ContentView: View {
                                             withAnimation {
                                                 selectedCategoryID = nil
                                                 
-                                                // Delete only the category albums which are *not* favorited
-                                                if let albums = cat.albums {
-                                                    for album in albums {
-                                                        if !album.isFavorited {
-                                                            modelContext.delete(album)
-                                                        }
-                                                    }
-                                                }
-                                                
                                                 modelContext.delete(cat)
+                                                try? modelContext.save()
                                             }
                                         }
                                     }
@@ -93,6 +86,9 @@ struct ContentView: View {
                         await appleMusicController.checkAuth()
                         await appleMusicController.getMusicSubscriptionUpdates()
                     }
+                    
+                    print("^^ categories: \(categories.count)")
+                    print("^^ albums: \(albums.count)")
                 }
                 .alert(isPresented: $shouldShowAppleMusicError, error: appleMusicController.error) {
                     Button("OK"){}

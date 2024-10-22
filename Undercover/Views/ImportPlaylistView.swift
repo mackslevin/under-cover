@@ -108,6 +108,7 @@ struct ImportPlaylistView: View {
                                             if albums.count >= Utility.minimumAlbumsForCategory {
                                                 newCategory.albums = albums
                                                 modelContext.insert(newCategory)
+                                                try? modelContext.save()
                                                 isConverting = false
                                                 dismiss()
                                             } else {

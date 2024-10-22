@@ -103,6 +103,7 @@ struct SPFinalResults: View {
                     let newEntry = UCHiScoreEntry(categoryID: category.id, score: gameController.points, rounds: gameController.rounds, secondsPerRound: secondsPerRound, numberOfOptions: gameController.numberOfOptions)
                     thisScore = newEntry
                     modelContext.insert(newEntry)
+                    try? modelContext.save()
                     
                     currentGameScores = gameController.hiScoresForCurrentGame(fromScores: hiScores)?.sorted(using: [SortDescriptor(\UCHiScoreEntry.score, order: .reverse)])
                     highestScore = currentGameScores?.first

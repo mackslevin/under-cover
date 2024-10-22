@@ -28,6 +28,7 @@ struct FavoritesIndexView: View {
                                 Button("Delete", systemImage: "trash", role: .destructive) {
                                     withAnimation {
                                         modelContext.delete(album)
+                                        try? modelContext.save()
                                     }
                                 }
                             }

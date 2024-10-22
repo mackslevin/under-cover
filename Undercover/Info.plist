@@ -4,7 +4,6 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>OT2049-Regular.otf</string>
 		<string>PPNikkeiMaru-Ultrabold.otf</string>
 	</array>
 	<key>UIBackgroundModes</key>

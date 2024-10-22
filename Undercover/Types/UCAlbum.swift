@@ -48,6 +48,7 @@ final class UCAlbum: Identifiable, Decodable {
         self.id = try container.decode(UUID.self, forKey: .id)
         self.musicItemID = try container.decode(String.self, forKey: .musicItemID)
         self.artistName = try container.decode(String.self, forKey: .artistName)
+        self.albumTitle = try container.decode(String.self, forKey: .albumTitle)
         let coverURLString = try container.decode(String.self, forKey: .coverImageURL)
         self.coverImageURL = URL(string: coverURLString)
         self.category = nil

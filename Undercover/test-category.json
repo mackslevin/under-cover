@@ -1,0 +1,97 @@
+{
+    "id": "CE2A0F7C-144D-4ACA-8536-A4FA3A6E4F7D",
+    "name": "Test Category",
+    "albums": [
+        {
+            "id": "E7EF7A0B-66F5-4F92-B849-B72A9A53D4AC",
+            "music_item_id": "684737755",
+            "artist_name": "The Clash",
+            "album_title": "The Clash (2013 Remastered)",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/53/8d/7f/538d7f34-71e3-df2d-5221-4df922ab9510/886443520738.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "5266486E-12B1-4027-935B-6B9E35806F62",
+            "music_item_id": "684738276",
+            "artist_name": "The Clash",
+            "album_title": "Give 'Em Enough Rope",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/04/e1/70/04e17014-6c01-a0b8-d80b-91325a9d63eb/886443520714.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "CE98B77F-4052-4D26-ADE2-B93146800D4C",
+            "music_item_id": "684811762",
+            "artist_name": "The Clash",
+            "album_title": "London Calling",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/45/d7/17/45d71740-b204-de23-3f9e-f2f823296f1d/886443520721.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "48867789-7F12-410B-9F12-839D3F3A652C",
+            "music_item_id": "684746326",
+            "artist_name": "The Clash",
+            "album_title": "Sandinista!",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/01/d2/ad/01d2ad5f-21b1-fa56-251a-efc29063b361/886443566347.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "0930A3F3-FF33-482C-98CE-044CB79B0E19",
+            "music_item_id": "685585931",
+            "artist_name": "The Clash",
+            "album_title": "Combat Rock",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/71/b6/8a/71b68ab0-f2d7-5cf0-636c-c27de6ce8aed/886443520707.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "F606CA05-9F4C-490D-B34A-C4004212EFB0",
+            "music_item_id": "1328682500",
+            "artist_name": "Wire",
+            "album_title": "Pink Flag",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f9/e2/e4/f9e2e407-e1ee-4bef-28d9-4e0ad79cdf3e/cover.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "228436F2-4F40-4664-A2C3-A986637064C5",
+            "music_item_id": "1328869087",
+            "artist_name": "Wire",
+            "album_title": "Chairs Missing",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/3b/74/70/3b747001-cb50-23eb-a6b7-e7dc8f56608b/cover.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "45435E0F-22A1-4473-B74E-2FED29CAF44A",
+            "music_item_id": "721224313",
+            "artist_name": "The Smashing Pumpkins",
+            "album_title": "Mellon Collie and the Infinite Sadness (Remastered)",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ca/ce/b2/caceb2ed-50f0-c666-e4d0-165a0a1541fc/13UABIM04008.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "9EDFC81D-2A6E-4620-89E7-7149A33EC9FF",
+            "music_item_id": "721207206",
+            "artist_name": "The Smashing Pumpkins",
+            "album_title": "Siamese Dream",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/3a/dc/08/3adc08b0-e98c-b5dd-943e-a37c7ed06205/13UABIM03615.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "B802BF7E-D0BB-4CBE-ACDB-09E5A2541118",
+            "music_item_id": "1440818528",
+            "artist_name": "The Smashing Pumpkins",
+            "album_title": "Adore (Remastered)",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/47/7a/8c/477a8c77-fd37-800b-8f3c-d2ae08e9fa60/00602537993086.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "EA31B1F8-2A0B-474D-8500-2DE92B7BA3E8",
+            "music_item_id": "1440845400",
+            "artist_name": "No Doubt",
+            "album_title": "Tragic Kingdom",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/fe/0a/68/fe0a687a-537e-e902-0778-90465c118f77/00602547870575.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "F5D88E11-F0B9-43D0-A1B9-D41207D42E2A",
+            "music_item_id": "305665581",
+            "artist_name": "Autechre",
+            "album_title": "EP7",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music/f2/a7/b6/mzi.uqvcalod.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "F14947C3-C6E2-4D18-BB1A-C543F4917B4C",
+            "music_item_id": "282571770",
+            "artist_name": "Autechre",
+            "album_title": "Confield",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/8e/a4/62/8ea46280-312e-3e2e-eaa1-fc85ef7d7f6d/0801061012830.png/800x800bb.jpg"
+        }
+    ]
+}

@@ -141,11 +141,10 @@ struct ScoreboardView: View {
                 }
                 
                 for score in toDelete {
-                    print("^^ deleting \(score)")
                     modelContext.delete(score)
-                    print("^^ deleted \(score)")
-                    
                 }
+                
+                try? modelContext.save()
             }
             
             Button("Never Mind!") {}

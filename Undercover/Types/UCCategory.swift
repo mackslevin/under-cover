@@ -13,7 +13,7 @@ import SwiftData
 class UCCategory: Identifiable, Decodable {
     private(set) var id = UUID()
     var name: String = ""
-    @Relationship(inverse: \UCAlbum.category) var albums: [UCAlbum]?
+    @Relationship(deleteRule: .cascade, inverse: \UCAlbum.category) var albums: [UCAlbum]?
     
     init(name: String, albums: [UCAlbum]? = nil) {
         self.name = name

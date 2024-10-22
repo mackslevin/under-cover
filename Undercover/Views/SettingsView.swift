@@ -11,6 +11,8 @@ import SwiftData
 struct SettingsView: View {
     @Environment(AppleMusicController.self) var appleMusicController
     @Environment(\.dismiss) var dismiss
+    @Environment(\.modelContext) var modelContext
+    
     @AppStorage(StorageKeys.secondsPerRound.rawValue) var secondsPerRound: Int = Utility.defaultSecondsPerRound
     @AppStorage(StorageKeys.guessLabelDisplayMode.rawValue) var guessMode: GuessLabelDisplayMode = .both
     @AppStorage(StorageKeys.shouldUseDesaturation.rawValue) var shouldUseDesaturation = false
@@ -74,6 +76,13 @@ struct SettingsView: View {
                         Label("Photo Credits", systemImage: "camera")
                     }
                     .foregroundStyle(.primary)
+                }
+                
+                Section {
+                    Button("Add test category") {
+                        modelContext.insert(Utility.testCategory)
+                        try? modelContext.save()
+                    }
                 }
             }
             .navigationTitle("Settings")

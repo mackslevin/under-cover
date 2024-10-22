@@ -31,4 +31,10 @@ struct Utility {
         "nonvictory4",
         "nonvictory5"
     ]
+    
+    static var testCategory: UCCategory {
+        let jsonFileURL = Bundle.main.url(forResource: "test-category", withExtension: "json")!
+        let data = try! Data(contentsOf: jsonFileURL)
+        return try! JSONDecoder().decode(UCCategory.self, from: data)
+    }
 }
