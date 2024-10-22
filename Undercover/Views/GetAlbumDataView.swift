@@ -13,6 +13,7 @@ struct GetAlbumDataView: View {
     @State private var searchText: String = ""
     @State private var results: [Album] = []
     @State private var selectedAlbum: Album? = nil
+    @State private var json = ""
     
     var body: some View {
         
@@ -38,17 +39,12 @@ struct GetAlbumDataView: View {
                 }
                 
                 
-                if let selectedAlbum {
-                    VStack {
-                        Text(selectedAlbum.title)
-                            .bold()
-                            .foregroundStyle(.green)
-                            .font(.title)
-                        Text(selectedAlbum.artistName)
-                        Text(selectedAlbum.id.rawValue)
-                        
+                if selectedAlbum != nil {
+                    Text(json)
+                        .padding(.vertical)
+                    Button("Copy", systemImage: "document.on.document") {
+                        UIPasteboard.general.string = json
                     }
-                    
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
@@ -60,6 +56,20 @@ struct GetAlbumDataView: View {
                     Task {
                         await search()
                     }
+                }
+            }
+            .onChange(of: selectedAlbum) { oldValue, newValue in
+                if let newValue {
+                    json = """
+                    {
+                        "music_item_id":"\(newValue.id.rawValue)",
+                        "artist_name":"\(newValue.artistName)",
+                        "album_title":"\(newValue.title)",
+                        "cover_image_url":"\(newValue.artwork?.url(width: Utility.defaultArtworkSize, height: Utility.defaultArtworkSize)?.absoluteString ?? "")"
+                    }
+                    """
+                } else {
+                    json = ""
                 }
             }
         }
