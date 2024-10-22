@@ -49,4 +49,38 @@ class AppleMusicController {
             throw error
         }
     }
+    
+    func searchCatalog(searchTerm: String, types: [MusicCatalogSearchable.Type]) async throws -> [MusicCatalogSearchable]? {
+        let request = MusicCatalogSearchRequest(term: searchTerm, types: types)
+        let response = try await request.response()
+        
+        var items: [MusicCatalogSearchable] = []
+        for type in types {
+            let eligibleResults = resultsOfType(type, fromResponse: response)
+            items.append(contentsOf: eligibleResults)
+        }
+        
+        if items.isEmpty {
+            return nil
+        } else {
+            return items
+        }
+    }
+    
+    private func resultsOfType(_ type: MusicCatalogSearchable.Type, fromResponse response: MusicCatalogSearchResponse) -> [MusicCatalogSearchable] {
+        
+        if type == Album.self {
+            
+            return response.albums.map({$0})
+        } else if type == Artist.self {
+            return response.artists.map({$0})
+        } else if type == Song.self {
+            return response.songs.map({$0})
+        } else if type == Playlist.self {
+            return response.playlists.map({$0})
+        }
+        // I know we're not covering all cases 🤷‍♂️
+        
+        return []
+    }
 }

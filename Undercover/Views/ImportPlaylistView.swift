@@ -58,10 +58,8 @@ struct ImportPlaylistView: View {
                         VStack {
                             ForEach(searchResults) { pl in
                                 PlaylistSearchResultsRow(playlist: pl) {
-//                                    withAnimation {
                                         searchResults = []
                                         selectedPlaylist = pl
-//                                    }
                                 }
                             }
                         }
