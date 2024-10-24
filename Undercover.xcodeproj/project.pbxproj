@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		010AB40B2BB2042E006A52C3 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010AB40A2BB2042E006A52C3 /* Utility.swift */; };
-		010F184E2CC833F400A3B64E /* test-category.json in Resources */ = {isa = PBXBuildFile; fileRef = 010F184D2CC833ED00A3B64E /* test-category.json */; };
 		011994952BB74DC500F3DD31 /* PillButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011994942BB74DC500F3DD31 /* PillButtonStyle.swift */; };
 		0119FC4C2BB34F6F0061FD69 /* SinglePlayerGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119FC4B2BB34F6F0061FD69 /* SinglePlayerGameController.swift */; };
 		0119FC4E2BB35A380061FD69 /* SinglePlayerGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119FC4D2BB35A380061FD69 /* SinglePlayerGameView.swift */; };
@@ -41,7 +40,6 @@
 
 /* Begin PBXFileReference section */
 		010AB40A2BB2042E006A52C3 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
-		010F184D2CC833ED00A3B64E /* test-category.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "test-category.json"; sourceTree = "<group>"; };
 		011994942BB74DC500F3DD31 /* PillButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillButtonStyle.swift; sourceTree = "<group>"; };
 		0119FC4B2BB34F6F0061FD69 /* SinglePlayerGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayerGameController.swift; sourceTree = "<group>"; };
 		0119FC4D2BB35A380061FD69 /* SinglePlayerGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayerGameView.swift; sourceTree = "<group>"; };
@@ -77,6 +75,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		013CE41F2CCAC11E000F1EA6 /* Preset Categories */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Preset Categories"; sourceTree = "<group>"; };
 		01745AC72CC71E7300535B85 /* Secondary Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Secondary Views"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -158,7 +157,7 @@
 		01DB7E302BACE91400DB7376 /* Undercover */ = {
 			isa = PBXGroup;
 			children = (
-				010F184D2CC833ED00A3B64E /* test-category.json */,
+				013CE41F2CCAC11E000F1EA6 /* Preset Categories */,
 				01BA56812BE4511A0039D06F /* github */,
 				0119FC522BB35F0E0061FD69 /* Types */,
 				0119FC512BB35F040061FD69 /* Views */,
@@ -196,6 +195,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				013CE41F2CCAC11E000F1EA6 /* Preset Categories */,
 				01745AC72CC71E7300535B85 /* Secondary Views */,
 			);
 			name = Undercover;
@@ -241,7 +241,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				010F184E2CC833F400A3B64E /* test-category.json in Resources */,
 				01DB7E3B2BACE91500DB7376 /* Preview Assets.xcassets in Resources */,
 				01BA56852BE452F20039D06F /* appstore.png in Resources */,
 				01DB7E382BACE91500DB7376 /* Assets.xcassets in Resources */,

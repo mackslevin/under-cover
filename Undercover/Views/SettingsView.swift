@@ -91,9 +91,6 @@ struct SettingsView: View {
                     Button("Close", systemImage: "xmark", action: { dismiss() })
                 }
             }
-            .onAppear {
-                print("^^ total albums: \(albums.count)")
-            }
             .sheet(isPresented: $isShowingWelcome, content: {
                 WelcomeView()
             })

@@ -28,11 +28,13 @@ struct SPGuessingView: View {
                 ProgressView()
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             } else {
-                ScrollView {
+//                ScrollView {
                     VStack(spacing: 20) {
                         if let albumCover {
                             FuzzyImage(uiImage: albumCover)
+                                .frame(minHeight: 250)
                                 .frame(maxWidth: 500, maxHeight: 500)
+                                .layoutPriority(3)
                         }
                         
                         HStack(alignment: .center) {
@@ -57,6 +59,7 @@ struct SPGuessingView: View {
                             })
                         }
                         .font(.title3)
+                        .frame(height: 30)
                         
                         ForEach(shuffledAlbums) { album in
                             Button {
@@ -65,13 +68,15 @@ struct SPGuessingView: View {
                             } label: {
                                 VStack() {
                                     if guessMode == .titleOnly || guessMode == .both {
-                                        Text(album.albumTitle)
-                                            .fontWeight(.medium)
+                                        Text(album.albumTitle.uppercased())
+                                            .fontWeight(.bold)
+                                            .minimumScaleFactor(0.7)
                                     }
                                     
                                     if guessMode == .artistOnly || guessMode == .both {
                                         Text("by \(album.artistName)")
                                             .font(.body)
+                                            .minimumScaleFactor(0.7)
                                     }
                                 }
                             }
@@ -89,7 +94,7 @@ struct SPGuessingView: View {
                                 .fontWeight(.black)
                         }
                     }
-                }
+//                }
             }
         }
         .navigationBarTitleDisplayMode(.inline)
