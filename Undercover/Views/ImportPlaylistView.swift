@@ -44,7 +44,7 @@ struct ImportPlaylistView: View {
                         ContentUnavailableView {
                             Label("Music Library Authorization Required", systemImage: "xmark.circle")
                         } description: {
-                            Text("This can be enabled in Settings ➡️ Under Cover ➡️ Media & Apple Music")
+                            Text("This can be enabled in Settings > Under Cover > Media & Apple Music")
                         } actions: {
                             Button("Refresh Authorization status") {
                                 Task {

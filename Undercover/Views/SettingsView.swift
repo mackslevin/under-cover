@@ -77,13 +77,6 @@ struct SettingsView: View {
                     }
                     .foregroundStyle(.primary)
                 }
-                
-                Section {
-                    Button("Add test category") {
-                        modelContext.insert(Utility.testCategory)
-                        try? modelContext.save()
-                    }
-                }
             }
             .navigationTitle("Settings")
             .toolbar {

@@ -14,7 +14,11 @@ struct ContentView: View {
     @Environment(AppleMusicController.self) var appleMusicController
     @Query var categories: [UCCategory]
     @Query var albums : [UCAlbum]
-    @AppStorage(StorageKeys.isFirstRun.rawValue) var isFirstRun = true
+    
+    // TODO: Change back 
+//    @AppStorage(StorageKeys.isFirstRun.rawValue) var isFirstRun = true
+    @AppStorage(StorageKeys.isFirstRun.rawValue) var isFirstRun = false
+    
     @AppStorage(StorageKeys.shouldUseMusic.rawValue) var shouldUseMusic = true
     
     @State private var searchText = ""
@@ -32,28 +36,31 @@ struct ContentView: View {
         } else {
             NavigationSplitView {
                 Group {
-                    if categories.isEmpty {
-                        NoCategoriesView(isShowingAddCategory: $isShowingAddCategory)
-                    } else {
-                        List(selection: $selectedCategoryID) {
+                    List(selection: $selectedCategoryID) {
+                        if !UCCategory.presetCategories.isEmpty {
+                            Section("Preset Categories") {
+                                ForEach(UCCategory.presetCategories.sorted(by: {$0.name < $1.name})) { cat in
+                                    BigPillListRow(category: cat, selectedCategoryID: $selectedCategoryID)
+                                        .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                                            deleteCategoryButton(cat)
+                                        }
+                                }
+                            }
+                        }
+                        
+                        Section("My Categories") {
                             ForEach(categories) { cat in
                                 BigPillListRow(category: cat, selectedCategoryID: $selectedCategoryID)
                                     .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-                                        Button("Delete", systemImage: "trash", role: .destructive) {
-                                            withAnimation {
-                                                selectedCategoryID = nil
-                                                
-                                                modelContext.delete(cat)
-                                                try? modelContext.save()
-                                            }
-                                        }
+                                        deleteCategoryButton(cat)
                                     }
                             }
                         }
-                        .listStyle(.plain)
                     }
+                    .listStyle(.plain)
+                    
                 }
-                .navigationTitle("Categories")
+                .navigationTitle("Under Cover")
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Button("Settings", systemImage: "gear") {
@@ -122,9 +129,27 @@ struct ContentView: View {
             .fontDesign(.monospaced)
         }
     }
+    
+    func deleteCategoryButton(_ category: UCCategory) -> some View {
+        Button("Delete", systemImage: "trash", role: .destructive) {
+            withAnimation {
+                selectedCategoryID = nil
+                modelContext.delete(category)
+                try? modelContext.save()
+            }
+        }
+    }
 }
 
-//#Preview {
-//    ContentView()
-//        .modelContainer(for: [UCCategory.self])
-//}
+#Preview {
+    var container: ModelContainer {
+        let previewConfig = ModelConfiguration(isStoredInMemoryOnly: true)
+        let previewContainer = try! ModelContainer(for: UCCategory.self , configurations: previewConfig)
+        previewContainer.mainContext.insert(UCCategory.testCategory)
+        return previewContainer
+    }
+    
+    ContentView()
+        .modelContainer(container)
+        .environment(AppleMusicController())
+}

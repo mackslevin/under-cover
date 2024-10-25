@@ -28,73 +28,72 @@ struct SPGuessingView: View {
                 ProgressView()
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             } else {
-//                ScrollView {
-                    VStack(spacing: 20) {
-                        if let albumCover {
-                            FuzzyImage(uiImage: albumCover)
-                                .frame(minHeight: 250)
-                                .frame(maxWidth: 500, maxHeight: 500)
-                                .layoutPriority(3)
-                        }
-                        
-                        HStack(alignment: .center) {
-                            Text("\(gameController.currentRoundSecondsRemaining ?? 0)s") 
-                                .bold()
-                                .foregroundStyle(.primary).colorInvert()
-                                .font(.caption).bold()
-                                .padding(4)
-                                .background{
-                                    Capsule()
-                                        .foregroundStyle(.primary)
-                                        .foregroundStyle(Double(gameController.currentRoundSecondsRemaining ?? 0) < (Double(secondsPerRound) * 0.25) ? Color.red : Color.primary)
-                                }
-                            
-                            GeometryReader(content: { geometry in
+                VStack(spacing: 20) {
+                    if let albumCover {
+                        FuzzyImage(uiImage: albumCover)
+                            .frame(minHeight: 250)
+                            .frame(maxWidth: 500, maxHeight: 500)
+                            .layoutPriority(3)
+                    }
+                    
+                    HStack(alignment: .center) {
+                        Text("\(gameController.currentRoundSecondsRemaining ?? 0)s")
+                            .bold()
+                            .foregroundStyle(.primary).colorInvert()
+                            .font(.caption).bold()
+                            .padding(4)
+                            .background{
                                 Capsule()
-                                    .frame(
-                                        width: (geometry.size.width / CGFloat(secondsPerRound)) * CGFloat(timeBarSeconds),
-                                        height: geometry.size.height
-                                    )
+                                    .foregroundStyle(.primary)
                                     .foregroundStyle(Double(gameController.currentRoundSecondsRemaining ?? 0) < (Double(secondsPerRound) * 0.25) ? Color.red : Color.primary)
-                            })
-                        }
-                        .font(.title3)
-                        .frame(height: 30)
+                            }
                         
-                        ForEach(shuffledAlbums) { album in
-                            Button {
-                                endRound(withGuess: album)
-                                timer?.cancel()
-                            } label: {
-                                VStack() {
-                                    if guessMode == .titleOnly || guessMode == .both {
-                                        Text(album.albumTitle.uppercased())
-                                            .fontWeight(.bold)
-                                            .minimumScaleFactor(0.7)
-                                    }
-                                    
-                                    if guessMode == .artistOnly || guessMode == .both {
-                                        Text("by \(album.artistName)")
-                                            .font(.body)
-                                            .minimumScaleFactor(0.7)
-                                    }
+                        GeometryReader(content: { geometry in
+                            Capsule()
+                                .frame(
+                                    width: (geometry.size.width / CGFloat(secondsPerRound)) * CGFloat(timeBarSeconds),
+                                    height: geometry.size.height
+                                )
+                                .foregroundStyle(Double(gameController.currentRoundSecondsRemaining ?? 0) < (Double(secondsPerRound) * 0.25) ? Color.red : Color.primary)
+                        })
+                    }
+                    .font(.title3)
+                    .frame(height: 30)
+                    
+                    ForEach(shuffledAlbums) { album in
+                        Button {
+                            endRound(withGuess: album)
+                            timer?.cancel()
+                        } label: {
+                            VStack() {
+                                if guessMode == .titleOnly || guessMode == .both {
+                                    Text(album.albumTitle.uppercased())
+                                        .fontWeight(.bold)
+                                        .minimumScaleFactor(0.7)
+                                }
+                                
+                                if guessMode == .artistOnly || guessMode == .both {
+                                    Text("by \(album.artistName)")
+                                        .font(.body)
+                                        .minimumScaleFactor(0.7)
                                 }
                             }
-                            .buttonStyle(PillButtonStyle())
-                            .font(.title2)
-                            .frame(maxWidth: .infinity, alignment: .center)
                         }
-                        
-                        Spacer()
+                        .buttonStyle(PillButtonStyle())
+                        .font(.title2)
+                        .frame(maxWidth: .infinity, alignment: .center)
                     }
-                    .padding([.horizontal, .bottom])
-                    .toolbar {
-                        ToolbarItem(placement: .topBarTrailing) {
-                            Text("\(gameController.currentRound)/\(gameController.rounds)")
-                                .fontWeight(.black)
-                        }
+                    
+                    Spacer()
+                }
+                .padding([.horizontal, .bottom])
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Text("\(gameController.currentRound)/\(gameController.rounds)")
+                            .fontWeight(.black)
                     }
-//                }
+                }
+                
             }
         }
         .navigationBarTitleDisplayMode(.inline)

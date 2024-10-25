@@ -30,4 +30,24 @@ class UCCategory: Identifiable, Decodable {
         name = try container.decode(String.self, forKey: .name)
         albums = try container.decodeIfPresent([UCAlbum].self, forKey: .albums)
     }
+    
+    static var testCategory: UCCategory {
+        let jsonFileURL = Bundle.main.url(forResource: "test-category", withExtension: "json")!
+        let data = try! Data(contentsOf: jsonFileURL)
+        return try! JSONDecoder().decode(UCCategory.self, from: data)
+    }
+    
+    static var presetCategories: [UCCategory] {
+        var categories: [UCCategory] = []
+        let filenames = ["test-category"]
+        
+        for filename in filenames {
+            let jsonFileURL = Bundle.main.url(forResource: filename, withExtension: "json")!
+            if let data = try? Data(contentsOf: jsonFileURL), let category = try? JSONDecoder().decode(UCCategory.self, from: data) {
+                categories.append(category)
+            }
+        }
+        
+        return categories
+    }
 }
