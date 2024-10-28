@@ -1,0 +1,132 @@
+{
+    "id": "417A7232-8859-4398-B7F7-39BDBCF4730A",
+    "name": "Hyperpop",
+    "albums": [
+        {
+            "id": "8FC63D01-769B-42F8-9D78-7C7A73A95490",
+            "music_item_id": "1709023350",
+            "artist_name": "SOPHIE",
+            "album_title": "OIL OF EVERY PEARL'S UN-INSIDES",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/86/72/30/86723032-da83-af74-0888-7cb7588130d6/0044003196520_Cover.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "53087BBF-2525-42B6-BFB2-28BF44EE8D7A",
+            "music_item_id": "1580469220",
+            "artist_name": "Ezekiel",
+            "album_title": "Ezekiel Singles ’18-‘20",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/71/41/c8/7141c895-2a4b-36c0-5806-9b5ed000d2cb/093624879145.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "5F78B9CF-45D4-4816-945E-6970464E2FF5",
+            "music_item_id": "1541634626",
+            "artist_name": "WHOKILLEDXIX",
+            "album_title": "19",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/6e/c4/e4/6ec4e4a3-5a94-f7ae-8d30-e75addbe6d54/093624884545.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "C9EED469-1C79-4425-8B05-C066AB5BBEB7",
+            "music_item_id": "1448107672",
+            "artist_name": "Bladee",
+            "album_title": "Icedancer",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/74/40/ad/7440ad5b-7fa8-d309-3f2c-2f5ae2ce1da6/artwork.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "E949BB97-F0E1-4965-9356-E08A159A8033",
+            "music_item_id": "1497364061",
+            "artist_name": "100 gecs",
+            "album_title": "1000 gecs",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e0/15/71/e015718f-826f-3968-2d1c-e766cf30947f/075679826060.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "5A629F33-0D67-4B56-AC4D-B5A2178C10D0",
+            "music_item_id": "1715075000",
+            "artist_name": "Meishi Smile",
+            "album_title": "LUST (10th Anniversary Edition)",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/bc/50/4a/bc504a88-b562-d6dc-b518-7539fd79e162/197999340924_cover.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "C24158BF-B9B3-4A43-BC48-4B9C134C93DB",
+            "music_item_id": "1403867543",
+            "artist_name": "bo en",
+            "album_title": "Pale Machine",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/f4/50/2b/f4502b14-26eb-d750-5236-6d1d5b201a39/artwork.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "F131890A-E12C-468A-A520-EF23FBC82340",
+            "music_item_id": "932165117",
+            "artist_name": "Unicorn Kid",
+            "album_title": "Brain Wash",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/31/54/f1/3154f114-992c-a13f-7251-30579ce8393f/5060185110715.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "FEEF4666-FB9B-4E6E-B1C5-67176024D0EE",
+            "music_item_id": "1545796930",
+            "artist_name": "Various Artists",
+            "album_title": "PC Music, Vol. 1",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/13/2e/fa/132efa4f-6a48-fd16-2eed-edab565faa8b/05054227063121_Cover.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "24F4C8AA-5430-47BB-A784-E962064AAE8E",
+            "music_item_id": "1528287368",
+            "artist_name": "SOPHIE",
+            "album_title": "Product",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/cb/83/d7/cb83d737-252f-8386-3cc5-2ebf826f039d/cover.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "FF15C468-773A-4F39-B6E6-DDEB74668100",
+            "music_item_id": "1086010216",
+            "artist_name": "Henrik the Artist",
+            "album_title": "Friendship - EP",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music49/v4/99/94/4c/99944c6e-da6f-da9d-b0f4-beda3630b5f1/5050580650701.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "7C3FC43D-BDEC-41CA-B169-E13D1F1891DB",
+            "music_item_id": "1397783014",
+            "artist_name": "Galen Tipton & dj galen",
+            "album_title": "Nightbath",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/68/ca/ad/68caad00-5406-3882-6426-d9d31b8440b1/5057917912167_cover.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "3C90A8F6-8971-4197-8FE7-014B63F54012",
+            "music_item_id": "1492518431",
+            "artist_name": "Dorian Electra",
+            "album_title": "Flamboyant (Deluxe)",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/20/b1/1c/20b11c01-aa6e-b621-940c-fbec2d9ebaed/194660238887.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "9E917F82-2FDB-4AF4-A07E-6F68C0F0CAEB",
+            "music_item_id": "1502363405",
+            "artist_name": "That Kid",
+            "album_title": "Crush",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/f4/41/ca/f441ca8e-29f1-df6d-c3c9-09b05a7e1dfe/artwork.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "05E84658-270A-4437-8D23-A11725197950",
+            "music_item_id": "1535282231",
+            "artist_name": "food house, Gupi & Fraxiom",
+            "album_title": "Food House",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/9c/fe/a3/9cfea372-df54-a27d-8c04-74cf6756235c/1243.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "47DCD055-A2B7-43FD-BA01-38125D2CA611",
+            "music_item_id": "1554129662",
+            "artist_name": "underscores",
+            "album_title": "fishmonger",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/09/4b/ed/094bed76-dc67-4375-4f57-98a87f7d991e/196006145477.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "E9DEAB33-E881-4463-B31A-CFED1DDB6137",
+            "music_item_id": "1745760617",
+            "artist_name": "Jane Remover",
+            "album_title": "Teen Week - EP",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f8/21/cb/f821cb12-e910-e064-df3c-2429a1b2fd63/193436312462.png/800x800bb.jpg"
+        },
+        {
+            "id": "E93D4B37-FF17-4A9E-AE78-C4DCA7EAC518",
+            "music_item_id": "1626556863",
+            "artist_name": "quinn",
+            "album_title": "Drive-By Lullabies",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/bc/6a/09/bc6a0918-6a92-aa06-161d-d13846be6b45/196397124778_drivebylullabies.jpg/800x800bb.jpg"
+        }
+    ]
+}

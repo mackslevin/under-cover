@@ -13,7 +13,7 @@ struct ContentView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(AppleMusicController.self) var appleMusicController
     @Query var categories: [UCCategory]
-    @Query var albums : [UCAlbum]
+    @Query var albums: [UCAlbum]
     
     // TODO: Change back 
 //    @AppStorage(StorageKeys.isFirstRun.rawValue) var isFirstRun = true
@@ -37,24 +37,11 @@ struct ContentView: View {
             NavigationSplitView {
                 Group {
                     List(selection: $selectedCategoryID) {
-                        if !UCCategory.presetCategories.isEmpty {
-                            Section("Preset Categories") {
-                                ForEach(UCCategory.presetCategories.sorted(by: {$0.name < $1.name})) { cat in
-                                    BigPillListRow(category: cat, selectedCategoryID: $selectedCategoryID)
-                                        .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-                                            deleteCategoryButton(cat)
-                                        }
+                        ForEach(categories) { cat in
+                            BigPillListRow(category: cat, selectedCategoryID: $selectedCategoryID)
+                                .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                                    deleteCategoryButton(cat)
                                 }
-                            }
-                        }
-                        
-                        Section("My Categories") {
-                            ForEach(categories) { cat in
-                                BigPillListRow(category: cat, selectedCategoryID: $selectedCategoryID)
-                                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-                                        deleteCategoryButton(cat)
-                                    }
-                            }
                         }
                     }
                     .listStyle(.plain)
@@ -93,9 +80,6 @@ struct ContentView: View {
                         await appleMusicController.checkAuth()
                         await appleMusicController.getMusicSubscriptionUpdates()
                     }
-                    
-                    print("^^ categories: \(categories.count)")
-                    print("^^ albums: \(albums.count)")
                 }
                 .alert(isPresented: $shouldShowAppleMusicError, error: appleMusicController.error) {
                     Button("OK"){}
@@ -113,6 +97,8 @@ struct ContentView: View {
             } detail: {
                 if let selectedCategoryID {
                     NavigationStack(path: $navigationPath) {
+                        
+                        // TODO: Avoid this force unwrap
                         CategoryDetailView(
                             category: categories.first(where: {
                                 $0.id == selectedCategoryID

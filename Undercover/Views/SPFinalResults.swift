@@ -32,6 +32,8 @@ struct SPFinalResults: View {
                     .fontWeight(.black)
                     
                 if thisScore?.score ?? 1 > 0 {
+                    // TODO: Fix issue where the view is picking a new random image every time it re-draws 
+                    
                     // Congratulatory image
                     Image(Utility.victoryImageNames.randomElement()!)
                         .resizable().scaledToFit()
