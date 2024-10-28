@@ -23,6 +23,13 @@ struct BigPillListRow: View {
                 ZStack {
                     Capsule()
                         .stroke()
+                    
+                    if category.isPreset {
+                        Capsule()
+                            .foregroundStyle(.accent)
+                            .opacity(0.2)
+                    }  
+                    
                     Capsule()
                         .padding(1)
                         .foregroundStyle(selectedCategoryID == category.id ? Color.accentColor : Color.clear)

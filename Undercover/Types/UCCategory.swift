@@ -83,8 +83,6 @@ class UCCategory: Identifiable, Decodable {
                         print("^^ Updating albums for \(preset.name)")
                         alreadySavedPreset.albums = preset.albums
                         try modelContext.save()
-                    } else {
-                        print("No need to update albums for \(preset.name)")
                     }
                 } else {
                     modelContext.insert(preset)

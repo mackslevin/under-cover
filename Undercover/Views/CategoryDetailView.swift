@@ -19,7 +19,7 @@ struct CategoryDetailView: View {
             
             VStack {
                 HStack {
-                    Button("Decrease Rounds", systemImage: "minus.circle.fill") {
+                    Button("Decrease Rounds", systemImage: "minus") {
                         rounds -= 1
                     }
                     .font(.title).bold()
@@ -29,7 +29,7 @@ struct CategoryDetailView: View {
                         .font(.custom(Font.customFontName, size: 120))
                         .frame(minWidth: 100)
                     
-                    Button("Decrease Rounds", systemImage: "plus.circle.fill") {
+                    Button("Decrease Rounds", systemImage: "plus") {
                         rounds += 1
                     }
                     .font(.title).bold()

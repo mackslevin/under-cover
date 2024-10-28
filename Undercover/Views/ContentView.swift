@@ -95,14 +95,12 @@ struct ContentView: View {
                     }
                 }
             } detail: {
-                if let selectedCategoryID {
+                if let selectedCategoryID, let selectedCategory = categories.first(where: {
+                    $0.id == selectedCategoryID
+                }) {
                     NavigationStack(path: $navigationPath) {
-                        
-                        // TODO: Avoid this force unwrap
                         CategoryDetailView(
-                            category: categories.first(where: {
-                                $0.id == selectedCategoryID
-                            })!,
+                            category: selectedCategory,
                             navigationPath: $navigationPath
                         )
                     }

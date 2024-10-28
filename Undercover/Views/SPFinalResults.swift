@@ -18,6 +18,7 @@ struct SPFinalResults: View {
     @State private var hiScoreNoticeShouldFlash = false
     @State private var highestScore: UCHiScoreEntry?
     @State private var currentGameScores: [UCHiScoreEntry]? = []
+    @State private var heroImage: Image? = nil
     
     @AppStorage(StorageKeys.secondsPerRound.rawValue) var secondsPerRound: Int = 30
     
@@ -30,19 +31,9 @@ struct SPFinalResults: View {
                     .font(.largeTitle)
                     .italic()
                     .fontWeight(.black)
-                    
-                if thisScore?.score ?? 1 > 0 {
-                    // TODO: Fix issue where the view is picking a new random image every time it re-draws 
-                    
-                    // Congratulatory image
-                    Image(Utility.victoryImageNames.randomElement()!)
-                        .resizable().scaledToFit()
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                        .shadow(radius: 2)
-                        .frame(maxWidth: 500, maxHeight: 500)
-                } else {
-                    // Not-quite-congratulatory image
-                    Image(Utility.nonvictoryImageNames.randomElement()!)
+                
+                if let heroImage {
+                    heroImage
                         .resizable().scaledToFit()
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                         .shadow(radius: 2)
@@ -58,9 +49,6 @@ struct SPFinalResults: View {
                         .font(.custom(Font.customFontName, size: 16))
                 }
                 .fontDesign(.none)
-                
-                
-                
                 
                 if isNewHiScore {
                     Text("New Hi Score!")
@@ -112,6 +100,12 @@ struct SPFinalResults: View {
                     
                     if highestScore?.id == thisScore?.id, currentGameScores?.count ?? 0 > 1 {
                         isNewHiScore = true
+                    }
+                    
+                    if thisScore?.score ?? 1 > 0 {
+                        heroImage = Image(Utility.victoryImageNames.randomElement()!)
+                    } else {
+                        heroImage = Image(Utility.nonvictoryImageNames.randomElement()!)
                     }
                 }
             }
