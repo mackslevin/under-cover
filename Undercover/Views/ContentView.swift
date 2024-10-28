@@ -37,11 +37,22 @@ struct ContentView: View {
             NavigationSplitView {
                 Group {
                     List(selection: $selectedCategoryID) {
-                        ForEach(categories) { cat in
-                            BigPillListRow(category: cat, selectedCategoryID: $selectedCategoryID)
-                                .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-                                    deleteCategoryButton(cat)
-                                }
+                        Section("Presets") {
+                            ForEach(categories.filter({$0.isPreset})) { cat in
+                                BigPillListRow(category: cat, selectedCategoryID: $selectedCategoryID)
+                                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                                        deleteCategoryButton(cat)
+                                    }
+                            }
+                        }
+                        
+                        Section("My Categories") {
+                            ForEach(categories.filter({!$0.isPreset})) { cat in
+                                BigPillListRow(category: cat, selectedCategoryID: $selectedCategoryID)
+                                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                                        deleteCategoryButton(cat)
+                                    }
+                            }
                         }
                     }
                     .listStyle(.plain)

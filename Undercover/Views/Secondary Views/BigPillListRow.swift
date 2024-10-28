@@ -26,6 +26,7 @@ struct BigPillListRow: View {
                     
                     if category.isPreset {
                         Capsule()
+                            .fill(ImagePaint(image: Image(systemName: "music.note")))
                             .foregroundStyle(.accent)
                             .opacity(0.2)
                     }  
