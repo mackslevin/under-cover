@@ -1,0 +1,370 @@
+{
+    "id": "7938BEA8-F05D-4FEF-910F-7519BF17665A",
+    "name": "Classic Rock",
+    "albums": [
+        {
+            "id": "A178A089-8897-4305-956C-DF6B4BE7BF45",
+            "music_item_id": "1441164426",
+            "artist_name": "The Beatles",
+            "album_title": "Abbey Road",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/df/db/61/dfdb615d-47f8-06e9-9533-b96daccc029f/18UMGIM31076.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "89776275-F080-476F-8417-87D294495EC1",
+            "music_item_id": "1440872228",
+            "artist_name": "The Rolling Stones",
+            "album_title": "Exile On Main Street",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/b6/7b/df/b67bdff8-4e30-d46d-e869-fc0f38462f4c/08UMGIM15728.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "5595FC60-0FA6-476E-A9D1-159B9B637CF6",
+            "music_item_id": "580708175",
+            "artist_name": "Led Zeppelin",
+            "album_title": "Led Zeppelin IV",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5c/15/9b/5c159b27-95ca-b9a7-84e3-28e795fffd39/dj.kvkrpptq.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "F0A10D41-C0FC-4EB1-8868-43308E4A9A1F",
+            "music_item_id": "1065973699",
+            "artist_name": "Pink Floyd",
+            "album_title": "The Dark Side of the Moon",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/3c/1b/a9/3c1ba9e1-15b1-03b3-3bfd-09dbd9f1705b/dj.mggvbaou.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "7522EF4C-9024-4B2B-AC26-2462636DC57C",
+            "music_item_id": "1706357665",
+            "artist_name": "The Who",
+            "album_title": "Who's Next",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/a5/e7/70/a5e7703c-4e30-da7a-a319-2d3caef42c0e/23UM1IM04872.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "D5A4CD7E-0C52-4293-B815-E4E11E2A5BAA",
+            "music_item_id": "357225315",
+            "artist_name": "The Jimi Hendrix Experience",
+            "album_title": "Are You Experienced",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/00/67/45/006745f5-95d5-5a06-35ed-d515e9cfd7d8/dj.tbwlxwoh.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "04872B17-B740-43D6-A54D-593FF9169F16",
+            "music_item_id": "1440817229",
+            "artist_name": "Cream",
+            "album_title": "Disraeli Gears",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/9f/3f/da/9f3fdaab-98af-bec1-633c-212a2705ccf3/00602537802913.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "8F4D2972-68FC-401A-84C8-0D13EB13666A",
+            "music_item_id": "1622368510",
+            "artist_name": "The Doors",
+            "album_title": "The Doors",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/97/e2/ce/97e2ce16-02e1-54f6-3896-dcc55249ff7d/603497838738.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "73674032-AA69-48AE-B9A4-B6C14D108F8F",
+            "music_item_id": "917030890",
+            "artist_name": "Janis Joplin",
+            "album_title": "Pearl",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/16/9d/87/169d87fe-76ee-1c50-d186-14ac71ab237e/886443610538.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "69DC0634-C149-4D40-B19E-0F065EE4C0A4",
+            "music_item_id": "1039796877",
+            "artist_name": "David Bowie",
+            "album_title": "The Rise and Fall of Ziggy Stardust and the Spiders from Mars (2012 Remaster)",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/5f/fa/56/5ffa56c2-ea1f-7a17-6bad-192ff9b6476d/825646124206.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "27DF7CA3-7B7A-44DA-BC75-0AE713203171",
+            "music_item_id": "1440806041",
+            "artist_name": "Queen",
+            "album_title": "A Night at the Opera",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/b1/a9/84/b1a984dc-8dce-e8cb-1a0e-20293f7c500a/14DMGIM05548.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "42708B34-85B3-4470-B3A0-84DE03FDA99A",
+            "music_item_id": "594061854",
+            "artist_name": "Fleetwood Mac",
+            "album_title": "Rumours",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4d/13/ba/4d13bac3-d3d5-7581-2c74-034219eadf2b/081227970949.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "0930657C-D6FC-4971-9DEE-77E1DF983F6A",
+            "music_item_id": "310730204",
+            "artist_name": "Bruce Springsteen",
+            "album_title": "Born to Run",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/0a/02/f7/0a02f7a1-ca2a-c0d7-7192-50314971721f/884977157031.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "2994517B-9FBD-476B-9F2B-0E429DC8910F",
+            "music_item_id": "635770200",
+            "artist_name": "Eagles",
+            "album_title": "Hotel California",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/88/16/2c/88162c3d-46db-8321-61f3-3a47404cfe76/075596050920.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "CD484414-4448-4CB1-8259-A3BE3B448619",
+            "music_item_id": "1660108657",
+            "artist_name": "Aerosmith",
+            "album_title": "Toys In the Attic",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/18/6e/ff/186eff4f-effc-0422-51c0-aa813e92e67d/22UM1IM35694.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "1100778D-0B90-48C4-8EE7-9F3E868A719A",
+            "music_item_id": "574050396",
+            "artist_name": "AC/DC",
+            "album_title": "Back In Black",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/1e/14/58/1e145814-281a-58e0-3ab1-145f5d1af421/886443673441.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "F44B541D-1520-4E0E-8801-17AF0074AC3A",
+            "music_item_id": "976831013",
+            "artist_name": "Van Halen",
+            "album_title": "1984",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/79/98/f7/7998f761-20e0-aa8e-4fb2-190062af1638/603497894161.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "23A0EDCE-3A25-4BA1-B907-5E8CD6F5F35A",
+            "music_item_id": "1440902935",
+            "artist_name": "Def Leppard",
+            "album_title": "Pyromania",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/99/ef/71/99ef71ff-eaea-7bb7-c479-c079f14b0a5b/17UM1IM41551.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "92703946-AE06-4B81-A3DA-41317804A594",
+            "music_item_id": "1640102583",
+            "artist_name": "Journey",
+            "album_title": "Escape",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/47/d6/fe/47d6fe2f-b14c-d8a7-597c-8a40e094364e/886449932795.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "FAFFA30A-4A82-4270-A637-D06FBDAD54A9",
+            "music_item_id": "913902091",
+            "artist_name": "Boston",
+            "album_title": "Boston",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/e3/08/9a/e3089ac9-a820-5ee9-64be-39500ad8a5e2/886444824972.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "C90318A6-EF24-4F71-88B2-EC293B7E07C6",
+            "music_item_id": "1440798539",
+            "artist_name": "Rush",
+            "album_title": "Moving Pictures",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/19/39/78/19397873-9581-13e0-07f3-3071f38527ac/12UMGIM19114.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "89E24304-8887-4769-8A94-CCA3FD58D353",
+            "music_item_id": "1728071480",
+            "artist_name": "ZZ Top",
+            "album_title": "Eliminator",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/2d/1b/df/2d1bdf1c-e8bc-8361-a800-0f13ba944ad3/0603497921461.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "761A4EC0-7115-4EC5-A44A-8E8E90BC8E8E",
+            "music_item_id": "664831661",
+            "artist_name": "Grateful Dead",
+            "album_title": "American Beauty",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/f5/27/20/f5272061-2466-6375-c2d1-f20d14be569f/603497920952.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "5BEE6F50-FD90-4B7A-BED6-5C1E6DCDC0F1",
+            "music_item_id": "1440814725",
+            "artist_name": "The Band",
+            "album_title": "Music From Big Pink",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/44/eb/9f/44eb9ffc-8e77-9a3d-8be7-8ca579de93cc/13UACIM30926.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "FCCCD3ED-0F8B-4F58-B2E6-A5BAF07FB48F",
+            "music_item_id": "158639291",
+            "artist_name": "Jeff Beck",
+            "album_title": "Blow By Blow",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/58/89/d4/5889d461-9c28-5926-11ae-f7ea7dca6382/074643340922.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "E0573A0A-E0E1-4D1F-9372-5F6989FDF15B",
+            "music_item_id": "785232473",
+            "artist_name": "Black Sabbath",
+            "album_title": "Paranoid",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/be/27/91/be279120-2285-16c6-c7ba-9d6643d4a948/075992732727.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "EA3672D4-1DFB-45BC-970F-0ACE05B0C2D3",
+            "music_item_id": "1099334597",
+            "artist_name": "Deep Purple",
+            "album_title": "Machine Head",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/09/70/d0/0970d0fa-a46d-049b-125c-d131171fce1c/603497877393.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "FB62E63D-BFC1-4184-AB36-2812785EE3F1",
+            "music_item_id": "1440918303",
+            "artist_name": "Thin Lizzy",
+            "album_title": "Jailbreak",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/99/73/ee/9973ee9c-626e-7fff-f916-ccde75ba818e/06UMGIM69340.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "F23E5DCB-4DEE-42EA-A815-2D2FAEA7240D",
+            "music_item_id": "207346194",
+            "artist_name": "Judas Priest",
+            "album_title": "British Steel",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music3/v4/3e/ce/c7/3ecec7e6-66a3-7ca8-d70f-5a4512aa21ba/dj.stjulnox.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "FE085626-8B25-4889-89E0-452A314BC8FF",
+            "music_item_id": "1713862422",
+            "artist_name": "Iron Maiden",
+            "album_title": "The Number of the Beast",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/1d/cb/ac/1dcbac1b-737d-b7c8-8bed-b5a98ae9df77/0881034134448.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "8BCA68A1-962E-4796-A869-E0168839613A",
+            "music_item_id": "847972873",
+            "artist_name": "Ramones",
+            "album_title": "Ramones",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/eb/c0/ab/ebc0ab80-e4df-08fd-64fd-e3c464e6c607/603497909629.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "2F94C44D-5430-46E8-B881-A915DCDC232D",
+            "music_item_id": "684811762",
+            "artist_name": "The Clash",
+            "album_title": "London Calling",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/45/d7/17/45d71740-b204-de23-3f9e-f2f823296f1d/886443520721.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "7D28638E-2D18-4052-9368-D76E83581DC2",
+            "music_item_id": "1440673959",
+            "artist_name": "The Police",
+            "album_title": "Synchronicity",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/a4/67/ba/a467ba62-87df-9d10-98d2-c517f68ac870/16UMGIM60882.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "630DD14D-1526-43D6-9D02-3DB1306920A7",
+            "music_item_id": "1440840988",
+            "artist_name": "Elvis Costello",
+            "album_title": "My Aim Is True",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/db/76/78/db76781b-76d9-6bba-fb7e-70a280c7d5ae/00602547382160.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "F7237C2B-DAD4-4B73-AFC8-1555C13A45BD",
+            "music_item_id": "1440929735",
+            "artist_name": "Blondie",
+            "album_title": "Parallel Lines",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/2f/0b/25/2f0b252d-838e-4f19-3c08-91e49b269564/15UMGIM18445.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "F5F86491-CA19-4981-BD41-9B34E9556AC6",
+            "music_item_id": "197210446",
+            "artist_name": "Pretenders",
+            "album_title": "Pretenders",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/93/5c/a6/935ca680-f52e-d7da-f736-5470e48880bf/mzi.klixczwp.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "81D1E545-28EC-4017-B9F7-DC8E996268E8",
+            "music_item_id": "1440860187",
+            "artist_name": "Tom Petty & The Heartbreakers",
+            "album_title": "Damn the Torpedoes",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/95/c8/d5/95c8d554-d5af-4c45-0f01-b5e49d1a33e5/06UMGIM05167.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "BBC9EB2D-2F8E-4CC4-8E2D-B61E41A18C71",
+            "music_item_id": "1088527349",
+            "artist_name": "The Cars",
+            "album_title": "The Cars",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/6b/3c/1d/6b3c1d3e-46a3-d0ac-e386-c2e60c8c8f49/mzm.hdqcumzx.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "D3140F0B-07FE-4442-8B47-0EBE42ACB489",
+            "music_item_id": "1443155637",
+            "artist_name": "U2",
+            "album_title": "The Joshua Tree",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/8f/e2/c3/8fe2c384-f6cb-9af7-371d-2b6a9b204e59/17UMGIM79292.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "FC2BC82B-86C1-4C8A-B06B-9061544134CF",
+            "music_item_id": "1440949853",
+            "artist_name": "R.E.M.",
+            "album_title": "Automatic For The People",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/fb/d9/e2/fbd9e203-818c-06cf-405d-8906f2eae6ec/00888072396258.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "15878E10-DB5B-4685-BFB3-F3698043E14B",
+            "music_item_id": "1015739190",
+            "artist_name": "Neil Young",
+            "album_title": "Harvest",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e0/4b/c4/e04bc4e6-9d3a-0bab-c953-f139c72fd337/093624924722.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "433C5C10-2F47-4838-AD8F-40884AAC4B37",
+            "music_item_id": "201281514",
+            "artist_name": "Bob Dylan",
+            "album_title": "Highway 61 Revisited",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f8/ff/c0/f8ffc056-55b4-2033-657d-32492d1eea25/827969239926.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "EA943373-F438-4C25-BE85-6F7C65E3D78E",
+            "music_item_id": "1492263092",
+            "artist_name": "Joni Mitchell",
+            "album_title": "Blue",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/00/a2/43/00a24363-cf69-bfd2-a26a-a042d57ab141/075992719926.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "2DF8515C-B709-4243-A83C-49FCD670838D",
+            "music_item_id": "747087657",
+            "artist_name": "Carole King",
+            "album_title": "Tapestry",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/68/b6/0e/68b60e89-9d41-e8a1-bba2-05c750f0832b/dj.hwpyamqm.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "9B9ED4AD-A33A-40F0-93BB-7466076237A8",
+            "music_item_id": "324127933",
+            "artist_name": "Simon & Garfunkel",
+            "album_title": "Bridge Over Troubled Water",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/a3/84/0a/a3840a6d-44e8-0afe-fc3e-316c517dddfe/5099749521421.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "76640376-999F-4B2C-85F3-27A42C820246",
+            "music_item_id": "1480026454",
+            "artist_name": "James Taylor",
+            "album_title": "Sweet Baby James (Remastered)",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/ed/c3/5a/edc35aac-57d0-44aa-4969-8bb4c13aed52/603497849154.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "BE350656-1C22-479E-8C89-62452744B356",
+            "music_item_id": "1440788438",
+            "artist_name": "Stevie Wonder",
+            "album_title": "Songs in the Key of Life",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/eb/1f/12/eb1f12ec-474c-63aa-43af-09282f423b9d/00602537004737.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "9CC17E5B-205C-4C8F-A2D8-4DD817935FFB",
+            "music_item_id": "1440863013",
+            "artist_name": "Elton John",
+            "album_title": "Goodbye Yellow Brick Road",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/b3/60/b6/b360b655-4d28-179d-d0d4-4e128ebdf4c9/13UAEIM19273.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "CD9FBDDA-A726-4A73-A9CF-AE5EA47EF1B0",
+            "music_item_id": "158617952",
+            "artist_name": "Billy Joel",
+            "album_title": "The Stranger",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/37/68/4c/37684c52-dbdf-9bfe-0d87-07492f43dc4c/dj.gmcbwich.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "6821CAF4-20DF-427C-BDD6-ABA38DDFEE13",
+            "music_item_id": "918534711",
+            "artist_name": "King Crimson",
+            "album_title": "In the Court of the Crimson King",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music5/v4/2f/c7/19/2fc71988-6871-be2c-6731-a3d0f2a6b232/Court_2500px.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "FF0DE8D8-D1A3-4467-892D-98034502C746",
+            "music_item_id": "993447560",
+            "artist_name": "Jethro Tull",
+            "album_title": "Aqualung",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music7/v4/09/a8/a1/09a8a1ba-c977-e1f2-2be4-d6e8b4b040f8/825646111596.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "488EF5FA-6EA0-4801-81F4-B36356D54AC1",
+            "music_item_id": "1719880807",
+            "artist_name": "The Zombies",
+            "album_title": "Odessey and Oracle",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/04/fb/f9/04fbf987-1a18-5fc3-3a46-75d454325fa7/842108020548.png/800x800bb.jpg"
+        }
+    ]
+}

@@ -44,7 +44,8 @@ class UCCategory: Identifiable, Decodable {
         var categories: [UCCategory] = []
         let filenames = [
             "hyperpop",
-            "test-category"
+            "classic-rock",
+            "2010s-hits"
         ]
         
         for filename in filenames {

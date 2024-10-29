@@ -37,17 +37,21 @@ struct ContentView: View {
             NavigationSplitView {
                 Group {
                     List(selection: $selectedCategoryID) {
-                        Section("Presets") {
-                            ForEach(categories.filter({$0.isPreset})) { cat in
+                        Section("Preset Categories") {
+                            ForEach(
+                                categories
+                                    .filter({$0.isPreset})
+                                    .sorted(by: {$0.name < $1.name})
+                            ) { cat in
                                 BigPillListRow(category: cat, selectedCategoryID: $selectedCategoryID)
-                                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-                                        deleteCategoryButton(cat)
-                                    }
                             }
                         }
                         
                         Section("My Categories") {
-                            ForEach(categories.filter({!$0.isPreset})) { cat in
+                            ForEach(
+                                categories
+                                    .filter({!$0.isPreset})
+                            ) { cat in
                                 BigPillListRow(category: cat, selectedCategoryID: $selectedCategoryID)
                                     .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                                         deleteCategoryButton(cat)
@@ -91,6 +95,8 @@ struct ContentView: View {
                         await appleMusicController.checkAuth()
                         await appleMusicController.getMusicSubscriptionUpdates()
                     }
+                    
+                    print("^^ uuid \(UUID().uuidString)")
                 }
                 .alert(isPresented: $shouldShowAppleMusicError, error: appleMusicController.error) {
                     Button("OK"){}

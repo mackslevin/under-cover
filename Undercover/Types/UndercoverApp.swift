@@ -30,6 +30,7 @@ struct UndercoverApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+//            GetAlbumDataView()
                 .environment(appleMusicController)
                 .environment(singlePlayerGameController)
                 .onAppear {

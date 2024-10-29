@@ -103,7 +103,7 @@
         {
             "id": "05E84658-270A-4437-8D23-A11725197950",
             "music_item_id": "1535282231",
-            "artist_name": "food house, Gupi & Fraxiom",
+            "artist_name": "Food House",
             "album_title": "Food House",
             "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/9c/fe/a3/9cfea372-df54-a27d-8c04-74cf6756235c/1243.jpg/800x800bb.jpg"
         },
@@ -127,6 +127,153 @@
             "artist_name": "quinn",
             "album_title": "Drive-By Lullabies",
             "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/bc/6a/09/bc6a0918-6a92-aa06-161d-d13846be6b45/196397124778_drivebylullabies.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "FB6DA2F3-594C-4F98-B875-304D25AD6F84",
+            "music_item_id": "1654744805",
+            "artist_name": "Frost Children",
+            "album_title": "Spiral",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/08/39/ed/0839ed35-0234-2a97-7959-cca236b70901/cover.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "AA8239D7-9AA4-4A66-B0BD-C07605CD8A0F",
+            "music_item_id": "1655225317",
+            "artist_name": "100 gecs",
+            "album_title": "10,000 gecs",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/7b/16/c9/7b16c9c2-a738-66c6-0476-65f020d5dc24/075679708069.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "0A478AC7-34B6-4BA7-B506-9DFD918CBDB4",
+            "music_item_id": "1606797651",
+            "artist_name": "dynastic",
+            "album_title": "I Know There's Something Left For You",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/aa/a9/9e/aaa99e91-a75d-3a78-6e92-47ed49997d0c/artwork.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "C44A72B5-8659-4A39-9551-B7422EE47F1E",
+            "music_item_id": "1673601639",
+            "artist_name": "Frost Children",
+            "album_title": "SPEED RUN",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/6f/4d/e5/6f4de545-547f-eefd-e107-1e051bf2a8fe/23SYMIM03242.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "4062B2B8-F3D2-43F2-95C4-5844478D161A",
+            "music_item_id": "1696378151",
+            "artist_name": "torr",
+            "album_title": "Molecule",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/0f/a9/f1/0fa9f128-1d51-8d04-0fd6-62b2265edd5b/7227.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "2B5C8BF2-3BC3-4E47-98F2-3A64D2F85B89",
+            "music_item_id": "1729737669",
+            "artist_name": "Roxy Radclyffe",
+            "album_title": "The Median's Ark",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/67/81/e0/6781e02e-8a99-f9d4-04b7-9b050840cf7c/artwork.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "23336C1A-036D-42C3-9774-18348FC59190",
+            "music_item_id": "1640739427",
+            "artist_name": "webcage",
+            "album_title": "Peer2peer",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/ae/9d/02/ae9d0274-5a43-fe35-692c-14ec65e95e19/196400010302_cover.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "B0A5EF6D-4778-4482-811D-088291F51297",
+            "music_item_id": "1671957304",
+            "artist_name": "PAS TASTA",
+            "album_title": "Good Pop",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/2d/93/9b/2d939b6a-3177-dcea-86ad-6724c4000396/859759315268_cover.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "3D590684-E49B-4509-BC87-C2EEF2C4578C",
+            "music_item_id": "1679397215",
+            "artist_name": "saoirse dream",
+            "album_title": "Everything✱",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/5e/d9/9e/5ed99e96-f1de-f2bb-7b4f-89ba82713fb7/6116.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "526F1640-2FB3-4847-8045-25A4C6DF1635",
+            "music_item_id": "1604548196",
+            "artist_name": "DJ Re:code",
+            "album_title": "ReCodePop!",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/81/18/28/81182833-2d90-1e7e-7006-799abbce78c6/artwork.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "9278FE6F-3ED5-401D-9125-2DD5D753000A",
+            "music_item_id": "1525004776",
+            "artist_name": "six impala",
+            "album_title": "Wflytd",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/87/65/11/87651144-97cb-a7b6-7bf9-782113cb2478/artwork.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "506B93A9-3227-4502-81FC-FF82C13086C2",
+            "music_item_id": "1537458315",
+            "artist_name": "ericdoa",
+            "album_title": "Coa",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/49/83/88/498388e6-b5c0-c60a-5597-4f0c6edf3db1/artwork.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "93AF6A0B-8F2C-401A-B3EB-D8E1848AADD5",
+            "music_item_id": "1695533237",
+            "artist_name": "Dorian Electra",
+            "album_title": "Fanfare",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/c6/99/49/c6994999-f180-0536-fd77-98a700d2fd09/196922543074_Cover.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "E1A94FC5-87F5-4FEE-9043-5A55F609B6CF",
+            "music_item_id": "1548052180",
+            "artist_name": "Slayyyter",
+            "album_title": "Troubled Paradise",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/8c/e2/4b/8ce24b8f-280e-c5aa-82e6-e8340dea0aed/21UMGIM01090.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "89D25A45-329B-4693-888E-0BEE30C60D7F",
+            "music_item_id": "1612520524",
+            "artist_name": "User-177606669",
+            "album_title": "@everyone!! NEW USER!!",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/7a/9a/01/7a9a011b-e8d9-1468-82f5-d3d45f5e0b94/artwork.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "6F34F2D1-7EE2-4E41-966C-35F034C7BAF8",
+            "music_item_id": "1603152596",
+            "artist_name": "Rakky Ripper",
+            "album_title": "Neptune Diamond",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/2b/cc/a1/2bcca131-f91c-548d-8fb3-201fce932cad/752489324251.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "2F1985B1-8AB4-4635-8577-05E0D3251E85",
+            "music_item_id": "1654612332",
+            "artist_name": "Frost Children",
+            "album_title": "Elixir Rejection",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/a8/f2/ce/a8f2cee6-cb20-d0bd-a375-08a3639b4cb5/cover.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "EA4EBA9B-EE16-4C46-9375-775CCDB4B91F",
+            "music_item_id": "1571022895",
+            "artist_name": "4s4ki",
+            "album_title": "Castle In Madness",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f1/91/f4/f191f476-d6c2-1a5d-6d63-5a461501fce1/VICL-65538.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "DEC447F0-08F4-4C86-8A59-5E0E2FD1CEFB",
+            "music_item_id": "1592865030",
+            "artist_name": "STARKIDS",
+            "album_title": "4D",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/54/e7/6a/54e76a1a-520e-90e0-9589-8e81e1b7e09c/859757516520_cover.png/800x800bb.jpg"
+        },
+        {
+            "id": "09D9A54D-086F-420B-991F-F3B11A213900",
+            "music_item_id": "1702830183",
+            "artist_name": "lilbesh ramko",
+            "album_title": "Shumatsucollection",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/4d/82/aa/4d82aa10-a14e-8a4a-ea74-87e160eab9e3/3617221731094_cover.png/800x800bb.jpg"
+        },
+        {
+            "id": "61DB4664-9DE1-4898-8195-F210DAF8283B",
+            "music_item_id": "1527199950",
+            "artist_name": "A. G. Cook",
+            "album_title": "Apple",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/58/37/53/583753b0-ebdd-47fb-a8f1-db4c802fe3ed/192641545238_Cover.jpg/800x800bb.jpg"
         }
     ]
 }

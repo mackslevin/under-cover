@@ -1,0 +1,405 @@
+{
+    "id": "FC55D5C6-1FB7-4C0C-A5AD-774E158FDD9E",
+    "name": "2010s #1 Albums",
+    "albums": [
+        {
+            "id": "743ABF03-F9C4-43CC-BB31-F201A66CCB71",
+            "music_item_id": "381237317",
+            "artist_name": "Kesha",
+            "album_title": "Animal",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/4f/af/ce/4fafcec5-956c-0539-67d3-f6a2493137fb/884977451856.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "2C06C05F-F7F8-4284-8A7F-C4A6EDD0ECA9",
+            "music_item_id": "338239238",
+            "artist_name": "Vampire Weekend",
+            "album_title": "Contra",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/e2/06/c4/e206c459-bb28-97c3-f501-cd2111126d2f/634904142964.png/800x800bb.jpg"
+        },
+        {
+            "id": "A65DB361-F92D-480F-9462-B84BD7B5AF3F",
+            "music_item_id": "1472491692",
+            "artist_name": "Justin Bieber",
+            "album_title": "My World 2.0",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7c/74/e0/7c74e0b8-46fe-2211-e59d-037593a87f05/10UMGIM01134.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "6B118199-BD18-4136-BC13-CB493724B6BD",
+            "music_item_id": "716601749",
+            "artist_name": "Katy Perry",
+            "album_title": "Teenage Dream",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/49/cb/ce/49cbce61-837c-00d4-8bca-09048f7133da/13UABIM57851.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "E4FAF7A3-1809-43CF-AB7D-4627130D7B7C",
+            "music_item_id": "1440935756",
+            "artist_name": "Taylor Swift",
+            "album_title": "Speak Now (Deluxe Edition)",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/12/2d/92/122d9245-3380-dfd9-38ab-db71544102b7/17UM1IM06953.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "9F44F8F4-40B3-4372-9BDD-1665CF017BCB",
+            "music_item_id": "1440909639",
+            "artist_name": "Nicki Minaj",
+            "album_title": "Pink Friday",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/3f/6a/dc/3f6adcfb-4d27-303e-b964-3710c56800e3/11UMGIM13385.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "E2C366A4-DD96-48B2-8ED4-F201BD4DE535",
+            "music_item_id": "1544491232",
+            "artist_name": "Adele",
+            "album_title": "21",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/d8/e3/f9/d8e3f9ea-d6fe-9a1b-9f13-109983d3062e/191404113868.png/800x800bb.jpg"
+        },
+        {
+            "id": "15F75B67-AC55-48E4-819C-9310EFF1014F",
+            "music_item_id": "1440857161",
+            "artist_name": "Lady Gaga",
+            "album_title": "Born This Way",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/aa/5b/b2/aa5bb2c2-ded7-de8c-3094-a549f8467444/11UMGIM12476.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "CE590F7E-C495-43A9-8801-50EB47D0927A",
+            "music_item_id": "626204707",
+            "artist_name": "Beyoncé",
+            "album_title": "4",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/c9/6b/3f/c96b3ff3-9cf6-4ce6-05aa-9f11474bd569/886443938373.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "10806AEE-A302-4204-96AB-C1EA5A0C0F3E",
+            "music_item_id": "663114146",
+            "artist_name": "Blake Shelton",
+            "album_title": "Red River Blue",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/fe/17/51/fe17515b-92fc-025d-a666-f67bf2e915f5/093624944409.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "21E140F5-E7FC-4632-B814-D1822E4FE711",
+            "music_item_id": "1666884289",
+            "artist_name": "Mac Miller",
+            "album_title": "Blue Slide Park",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/e9/48/b3/e948b3a6-00c8-45df-0431-11a26df34077/881034845894.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "9ABBCB1E-97C4-4649-8540-9B9F3DA097B0",
+            "music_item_id": "510168255",
+            "artist_name": "Carrie Underwood",
+            "album_title": "Blown Away",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/b6/eb/e6/b6ebe609-77fb-02ec-54e0-b06d91b441a5/886443417083.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "AA2C2F38-7982-4225-B7AB-A37251D7C884",
+            "music_item_id": "1440804754",
+            "artist_name": "Justin Bieber",
+            "album_title": "Believe",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/bd/89/97/bd89971c-fc5a-47dd-5e90-a433d1b9e11f/12UMGIM31898.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "D4692DCF-B4E6-4A6F-BB0A-5682D7F7A266",
+            "music_item_id": "1440718127",
+            "artist_name": "Rick Ross",
+            "album_title": "God Forgives, I Don't (Deluxe Edition)",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/33/e5/54/33e5541d-8960-ecbe-f92d-280dc34b6526/12UMGIM38067.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "99228092-C4BA-443C-A28C-F51E05F40829",
+            "music_item_id": "1771725011",
+            "artist_name": "Mumford & Sons",
+            "album_title": "Babel",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/95/bf/e3/95bfe37f-0b57-0ae1-0f26-407a47881cd1/0602537110490_Cover.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "A345D1EA-6479-4ABC-9BCE-CC6CF54548EF",
+            "music_item_id": "1440935340",
+            "artist_name": "Taylor Swift",
+            "album_title": "Red",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/e9/30/96/e93096d1-62cf-9dda-d872-9837f0192354/00843930007134.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "BB8145E9-2037-4F89-9344-50D531282189",
+            "music_item_id": "1443232426",
+            "artist_name": "Rihanna",
+            "album_title": "Unapologetic",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/24/4f/99/244f99bf-4417-421e-0ee6-934b02ff4b1b/16UMGIM59235.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "4CC0FB8F-0246-4E74-889A-5265A048AC86",
+            "music_item_id": "581748349",
+            "artist_name": "Alicia Keys",
+            "album_title": "Girl On Fire",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/ed/2f/0f/ed2f0fc2-9f20-dd60-fcff-712207d53f94/886443098961.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "B9A64BB6-40E7-4F23-A0AC-5779E15B7F83",
+            "music_item_id": "1450690198",
+            "artist_name": "A$AP Rocky",
+            "album_title": "LONG.LIVE.A$AP",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/65/4e/c2/654ec2c7-e3c9-c3a4-e1aa-bd52853f7668/886443810112.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "BC1B6767-282D-4049-BF6D-4687141C7860",
+            "music_item_id": "573962245",
+            "artist_name": "Bruno Mars",
+            "album_title": "Unorthodox Jukebox",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e0/a4/7c/e0a47c6f-005a-9f9f-ce29-8e858e2bcfcb/075679957283.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "BC80759B-9438-4D64-B90F-61DC4A2869EA",
+            "music_item_id": "1441493446",
+            "artist_name": "Justin Timberlake",
+            "album_title": "The 20/20 Experience",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/53/74/c9/5374c99e-cff1-61a6-ca0f-fa1219d050a0/886443854406.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "84C106F6-77D3-4740-A648-A65B8E3DB65B",
+            "music_item_id": "593146366",
+            "artist_name": "Paramore",
+            "album_title": "Paramore",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/32/cb/9d/32cb9d04-ef0f-93bb-fd2f-19b395785025/075679956187.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "5769B3E4-9B13-4813-B627-0E0AF36038A6",
+            "music_item_id": "613184430",
+            "artist_name": "Vampire Weekend",
+            "album_title": "Modern Vampires of the City",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/68/69/8d/68698df4-e9f8-e57e-8dbe-a05c5bb2893e/634904055653.png/800x800bb.jpg"
+        },
+        {
+            "id": "0E72F16A-FC86-4738-B503-085F9D5AA68F",
+            "music_item_id": "617154241",
+            "artist_name": "Daft Punk",
+            "album_title": "Random Access Memories",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e8/43/5f/e8435ffa-b6b9-b171-40ab-4ff3959ab661/886443919266.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "D2B41BFF-F621-4EF2-9324-B6C41BE905A5",
+            "music_item_id": "1586476451",
+            "artist_name": "Queens of the Stone Age",
+            "album_title": "...Like Clockwork",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/0c/73/3c/0c733c12-fc9a-bb06-da19-9f25d7c99050/744861104063.png/800x800bb.jpg"
+        },
+        {
+            "id": "B307BC30-A424-4DC6-9615-7916B6A0EE14",
+            "music_item_id": "1440860819",
+            "artist_name": "Ariana Grande",
+            "album_title": "Yours Truly",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/0a/19/23/0a19235d-8bcc-76d4-58ca-61a65d928587/13UAAIM68293.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "789AB236-7B36-4588-95DA-9C5FE7C41966",
+            "music_item_id": "1460315055",
+            "artist_name": "Miley Cyrus",
+            "album_title": "Bangerz",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e3/e0/84/e3e08400-2d03-75f9-6b8b-a3345452aa98/886444197816.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "744DB8C8-F274-4CA5-A910-3A9379639825",
+            "music_item_id": "1440871208",
+            "artist_name": "Katy Perry",
+            "album_title": "PRISM",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/b4/d0/9a/b4d09a1e-c7f1-de72-bab3-ff2b2be3981b/13UAAIM70445.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "DF9981C4-104A-4241-B6F4-27A301986BE0",
+            "music_item_id": "1451767927",
+            "artist_name": "Lady Gaga",
+            "album_title": "ARTPOP",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/2e/7c/89/2e7c89f2-f577-0039-52c7-bc3bb3850094/13UAAIM69753.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "3B6DDD8D-844B-4AE8-8D71-76A2CD21698A",
+            "music_item_id": "1440831284",
+            "artist_name": "Lana Del Rey",
+            "album_title": "Ultraviolence",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/57/0e/33/570e3338-56cd-1f57-5f18-512f9a0288cf/14UMGIM20259.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "756C90A2-B873-4816-839C-125514810941",
+            "music_item_id": "858518077",
+            "artist_name": "Ed Sheeran",
+            "album_title": "x",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music2/v4/b0/75/ec/b075ec42-a102-cde1-132b-9cddbc0d3496/825646285891.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "76D6C76B-5308-4B84-8C82-CADE4A086158",
+            "music_item_id": "882945378",
+            "artist_name": "Sia",
+            "album_title": "1000 Forms of Fear",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/00/bf/72/00bf72a2-3e50-e5e7-ae78-dc35bbf9bcda/886444578219.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "8570ECDE-300B-4DFC-A4EF-31C7204F6A93",
+            "music_item_id": "1440852353",
+            "artist_name": "Ariana Grande",
+            "album_title": "My Everything",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/a5/39/86/a5398609-ad90-50d3-57ad-0f87a4df5ac4/14UMGIM28138.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "20793879-B3B5-452E-94FF-9FC4A97F9E97",
+            "music_item_id": "1440842492",
+            "artist_name": "Maroon 5",
+            "album_title": "V",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/0d/f0/8b/0df08b64-3743-4ae0-f3cc-1314716d841d/14UMGIM31675.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "BBC7340B-BD19-48B3-8FB4-1B2EC2E3C0AF",
+            "music_item_id": "1440935467",
+            "artist_name": "Taylor Swift",
+            "album_title": "1989",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/09/01/16/090116af-770e-23da-21a9-6bd30782eda5/00843930013562.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "3CE7697C-AD78-4744-89B4-AEEF8F2DF406",
+            "music_item_id": "1524680509",
+            "artist_name": "One Direction",
+            "album_title": "FOUR",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/62/2d/19/622d19da-eb88-022c-2bc5-d843657defe8/886444549851.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "322A8667-1561-4401-9F45-D5140B91697C",
+            "music_item_id": "1440828886",
+            "artist_name": "Kendrick Lamar",
+            "album_title": "To Pimp a Butterfly",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/0d/ae/61/0dae6140-d4af-d0df-eae0-3c92eb392a33/15UMGIM11922.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "0A9E7C83-E65A-47F2-BC3B-6E54F6BFA8A8",
+            "music_item_id": "1440858094",
+            "artist_name": "The Weeknd",
+            "album_title": "Beauty Behind the Madness",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/30/05/1e/30051e57-a63a-3acc-4b30-42568293f5f7/15UMGIM36514.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "2620971F-EFA3-481E-A141-52B113F8295B",
+            "music_item_id": "1440826257",
+            "artist_name": "Selena Gomez",
+            "album_title": "Revival",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/0f/17/eb/0f17eba1-bae8-9a6d-f21e-b727926f5af1/15UMGIM48241.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "33DB7F3D-FC1E-4145-AC30-A876908A4372",
+            "music_item_id": "1544494115",
+            "artist_name": "Adele",
+            "album_title": "25",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/08/8c/24/088c2405-2e33-801b-5c38-e967f2c01e69/191404113974.png/800x800bb.jpg"
+        },
+        {
+            "id": "0E2E385A-B96B-43DB-938D-04C5A4E3AEE1",
+            "music_item_id": "1443230958",
+            "artist_name": "Rihanna",
+            "album_title": "ANTI",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/13/27/57/132757ba-42e6-9584-7390-ca694292a20e/16UMGIM03372.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "2EC9ADB5-DACE-4BF4-9F6D-21491A98B052",
+            "music_item_id": "1460430561",
+            "artist_name": "Beyoncé",
+            "album_title": "Lemonade",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/db/25/a1/db25a1c0-8a4a-3b4d-226d-7c7704dc92da/886447680711.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "B7673241-C52D-4CB7-A157-57E3E386312F",
+            "music_item_id": "1146195596",
+            "artist_name": "Frank Ocean",
+            "album_title": "Blonde",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/bb/45/68/bb4568f3-68cd-619d-fbcb-4e179916545d/BlondCover-Final.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "795C398B-9842-4174-9862-6609D0664727",
+            "music_item_id": "1151481435",
+            "artist_name": "Travis Scott",
+            "album_title": "Birds In The Trap Sing McKnight",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/b8/e5/27/b8e527c8-aaf4-c7b7-5562-c479458ed7d9/886446092645.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "EE465A62-D9D2-4D17-9CDE-0954477E6E16",
+            "music_item_id": "1159507212",
+            "artist_name": "Solange",
+            "album_title": "A Seat at the Table",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/76/2b/c4/762bc430-fae3-3262-ef16-bd74bad9cdea/886446143170.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "4FDB6A89-959F-4EB7-99AB-FA848473B5F7",
+            "music_item_id": "1440871397",
+            "artist_name": "The Weeknd",
+            "album_title": "Starboy",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e2/61/f8/e261f8c1-73db-9a7a-c89e-1068f19970e0/16UMGIM67863.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "10081957-CA46-41B0-80E1-37F400DD0874",
+            "music_item_id": "1429662346",
+            "artist_name": "Lorde",
+            "album_title": "Melodrama",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/8d/0d/15/8d0d1532-493b-52ec-6a29-a239ced6931b/17UMGIM81023.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "7CB44262-08F5-4B81-82DC-7CEEBC18BDF0",
+            "music_item_id": "1193701079",
+            "artist_name": "Ed Sheeran",
+            "album_title": "÷",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/15/e6/e8/15e6e8a4-4190-6a8b-86c3-ab4a51b88288/190295851286.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "A75E9A2D-A497-4772-B44F-DA31C586766A",
+            "music_item_id": "1440899893",
+            "artist_name": "Lana Del Rey",
+            "album_title": "Lust for Life",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/fc/d3/81/fcd381c9-451f-0917-da01-06678a92b85c/17UMGIM90308.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "D0BCB3D7-83A8-46E1-8659-DAD7D639FA67",
+            "music_item_id": "1368156323",
+            "artist_name": "Cardi B",
+            "album_title": "Invasion of Privacy",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/6a/f7/6c/6af76c1c-4d8e-c761-8856-34d273b4703b/075679873682.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "D9D24D2A-24B0-4376-974C-1E1A31A80A8B",
+            "music_item_id": "1598660934",
+            "artist_name": "BTS",
+            "album_title": "Love Yourself 轉 'Tear'",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/02/c5/18/02c518f5-ac06-3321-622e-08d9429fd968/192562556672_Cover.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "AFC8B2F4-F68C-4D01-BB3D-C16345B44124",
+            "music_item_id": "1399202539",
+            "artist_name": "Ariana Grande",
+            "album_title": "Sweetener",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/7e/aa/71/7eaa717a-857e-6d7a-c03c-8d67b3719706/18UMGIM36924.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "059E742D-4B9F-483B-A441-BDB477E5F213",
+            "music_item_id": "1434371867",
+            "artist_name": "Lady Gaga & Bradley Cooper",
+            "album_title": "A Star Is Born Soundtrack",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/b1/9f/ef/b19fef51-79de-a940-e8ab-9e4e07b04d96/18UMGIM53752.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "8E91E2C4-1538-45F5-ADD3-712518DC957A",
+            "music_item_id": "1450330588",
+            "artist_name": "Ariana Grande",
+            "album_title": "thank u, next",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/e4/06/d3/e406d3d8-2507-e585-c919-60bc5446985c/19UMGIM03689.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "763F22A6-6F51-4C43-AC45-499E0253FEB3",
+            "music_item_id": "1450695723",
+            "artist_name": "Billie Eilish",
+            "album_title": "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/1a/37/d1/1a37d1b1-8508-54f2-f541-bf4e437dda76/19UMGIM05028.rgb.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "411131C2-B66C-4A68-BC77-12F286D80051",
+            "music_item_id": "1463409338",
+            "artist_name": "Tyler, The Creator",
+            "album_title": "IGOR",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/0c/06/05/0c060581-6242-6a2a-a677-20170f2cf8da/886447710180.jpg/800x800bb.jpg"
+        },
+        {
+            "id": "C78288F8-1D9D-4225-A509-73C71309B70C",
+            "music_item_id": "1477886950",
+            "artist_name": "Post Malone",
+            "album_title": "Hollywood's Bleeding",
+            "cover_image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/6c/13/27/6c13279a-399b-2631-3cb2-6233a91d7a53/19UMGIM78325.rgb.jpg/800x800bb.jpg"
+        }
+    ]
+}
