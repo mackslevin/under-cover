@@ -3,9 +3,12 @@ import SwiftUI
 struct CategoryDetailView: View {
     @Bindable var category: UCCategory
     @Binding var navigationPath: NavigationPath
+    
     @AppStorage(StorageKeys.singlePlayerRounds.rawValue) private var rounds: Int = 3
     @Environment(SinglePlayerGameController.self) var singlePlayerGameController
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.dismiss) var dismiss
+    @Environment(\.modelContext) var modelContext
     
     var body: some View {
         VStack(spacing: 80) {
@@ -63,11 +66,16 @@ struct CategoryDetailView: View {
         .navigationDestination(for: UCCategory.self) { _ in
             SinglePlayerGameView()
         }
-//        .toolbar {
-//            Button("Delete", systemImage: "trash", role: .destructive) {
-//                print("hello")
-//            }
-//        }
+        .toolbar {
+            if !category.isPreset {
+                Button("Delete", systemImage: "trash", role: .destructive) {
+                    modelContext.delete(category)
+                    dismiss()
+                }
+                .tint(.red)
+            }
+            
+        }
     }
     
     func setUpGame() {
@@ -77,14 +85,14 @@ struct CategoryDetailView: View {
     }
 }
 
-#Preview {
-    CategoryDetailView(category: UCCategory(name: "Something Cool", albums: []), navigationPath: .constant(NavigationPath()))
-        .environment(SinglePlayerGameController())
-        .fontDesign(.monospaced)
-        .onAppear {
-            let fontRegular = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 20)
-            let fontLarge = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 36)
-            UINavigationBar.appearance().titleTextAttributes = [.font: fontRegular!]
-            UINavigationBar.appearance().largeTitleTextAttributes = [.font: fontLarge!]
-        }
-}
+//#Preview {
+//    CategoryDetailView(category: UCCategory(name: "Something Cool", albums: []), navigationPath: .constant(NavigationPath()))
+//        .environment(SinglePlayerGameController())
+//        .fontDesign(.monospaced)
+//        .onAppear {
+//            let fontRegular = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 20)
+//            let fontLarge = UIFont(name: "PPNikkeiMaru-Ultrabold", size: 36)
+//            UINavigationBar.appearance().titleTextAttributes = [.font: fontRegular!]
+//            UINavigationBar.appearance().largeTitleTextAttributes = [.font: fontLarge!]
+//        }
+//}

@@ -59,11 +59,9 @@ struct ContentView: View {
                                     .sorted(by: {$0.name < $1.name})
                             ) { cat in
                                 BigPillListRow(category: cat, selectedCategoryID: $selectedCategoryID)
-                                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                                        deleteCategoryButton(cat)
-                                    }
                             }
                             
+                            // Add button if no user categories exist yet 
                             if categories.filter({!$0.isPreset}).isEmpty {
                                 Button {
                                     isShowingAddCategory.toggle()
@@ -118,6 +116,12 @@ struct ContentView: View {
                         await appleMusicController.checkAuth()
                         await appleMusicController.getMusicSubscriptionUpdates()
                     }
+                    
+                    print("^^ Total categories: \(categories.count)")
+                    print("^^ Total albums: \(albums.count)")
+                    
+//                    try? modelContext.delete(model: UCCategory.self)
+//                    try? modelContext.delete(model: UCAlbum.self)
                 }
                 .alert(isPresented: $shouldShowAppleMusicError, error: appleMusicController.error) {
                     Button("OK"){}
@@ -140,7 +144,7 @@ struct ContentView: View {
                         CategoryDetailView(
                             category: selectedCategory,
                             navigationPath: $navigationPath
-                        )
+                        ) 
                     }
                 } else {
                     NavigationStack {
@@ -149,16 +153,6 @@ struct ContentView: View {
                 }
             }
             .fontDesign(.monospaced)
-        }
-    }
-    
-    func deleteCategoryButton(_ category: UCCategory) -> some View {
-        Button("Delete", systemImage: "trash", role: .destructive) {
-            withAnimation {
-                selectedCategoryID = nil
-                modelContext.delete(category)
-                try? modelContext.save()
-            }
         }
     }
 }
