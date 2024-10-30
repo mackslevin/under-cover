@@ -22,6 +22,7 @@
 		01745AC92CC7269300535B85 /* GetAlbumDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01745AC82CC7269300535B85 /* GetAlbumDataView.swift */; };
 		01769A672BB4C79D006F09C5 /* GuessLabelDisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01769A662BB4C79D006F09C5 /* GuessLabelDisplayMode.swift */; };
 		0193C0CD2BBB5F850024CB50 /* Font-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193C0CC2BBB5F850024CB50 /* Font-Extension.swift */; };
+		019C34082CD1B2B700F673DF /* NoIndentDisclosureStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019C34072CD1B2AD00F673DF /* NoIndentDisclosureStyle.swift */; };
 		01BA56852BE452F20039D06F /* appstore.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BA56842BE452F20039D06F /* appstore.png */; };
 		01DB7E322BACE91400DB7376 /* UndercoverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E312BACE91400DB7376 /* UndercoverApp.swift */; };
 		01DB7E342BACE91400DB7376 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB7E332BACE91400DB7376 /* ContentView.swift */; };
@@ -56,6 +57,7 @@
 		01745AC82CC7269300535B85 /* GetAlbumDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAlbumDataView.swift; sourceTree = "<group>"; };
 		01769A662BB4C79D006F09C5 /* GuessLabelDisplayMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessLabelDisplayMode.swift; sourceTree = "<group>"; };
 		0193C0CC2BBB5F850024CB50 /* Font-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font-Extension.swift"; sourceTree = "<group>"; };
+		019C34072CD1B2AD00F673DF /* NoIndentDisclosureStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoIndentDisclosureStyle.swift; sourceTree = "<group>"; };
 		01BA56842BE452F20039D06F /* appstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appstore.png; sourceTree = "<group>"; };
 		01DB7E2E2BACE91400DB7376 /* Undercover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Undercover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01DB7E312BACE91400DB7376 /* UndercoverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndercoverApp.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		0119FC522BB35F0E0061FD69 /* Types */ = {
 			isa = PBXGroup;
 			children = (
+				019C34072CD1B2AD00F673DF /* NoIndentDisclosureStyle.swift */,
 				01DB7E312BACE91400DB7376 /* UndercoverApp.swift */,
 				01DB7E462BAD1FFF00DB7376 /* UCAlbum.swift */,
 				01DB7E482BAD338400DB7376 /* UCCategory.swift */,
@@ -272,6 +275,7 @@
 				01DB7E492BAD338400DB7376 /* UCCategory.swift in Sources */,
 				01DB7E322BACE91400DB7376 /* UndercoverApp.swift in Sources */,
 				013BF0BD2BDDFFBB00B29E31 /* PhotoCredits.swift in Sources */,
+				019C34082CD1B2B700F673DF /* NoIndentDisclosureStyle.swift in Sources */,
 				012D7A6C2BD1C14B0058D60D /* FavoritesIndexView.swift in Sources */,
 				011994952BB74DC500F3DD31 /* PillButtonStyle.swift in Sources */,
 				0119FC592BB35FC70061FD69 /* SPFinalResults.swift in Sources */,
@@ -412,7 +416,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Undercover/Undercover.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Undercover/Preview Content\"";
 				DEVELOPMENT_TEAM = CCAQHTG68D;
 				ENABLE_PREVIEWS = YES;
@@ -430,7 +434,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnslevin.Undercover;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -450,7 +454,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Undercover/Undercover.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Undercover/Preview Content\"";
 				DEVELOPMENT_TEAM = CCAQHTG68D;
 				ENABLE_PREVIEWS = YES;
@@ -468,7 +472,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnslevin.Undercover;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

@@ -15,20 +15,19 @@ struct ContentView: View {
     @Query var categories: [UCCategory]
     @Query var albums: [UCAlbum]
     
-    // TODO: Change back 
-//    @AppStorage(StorageKeys.isFirstRun.rawValue) var isFirstRun = true
-    @AppStorage(StorageKeys.isFirstRun.rawValue) var isFirstRun = false
-    
+    @AppStorage(StorageKeys.isFirstRun.rawValue) var isFirstRun = true
     @AppStorage(StorageKeys.shouldUseMusic.rawValue) var shouldUseMusic = true
     
     @State private var searchText = ""
-    @State private var titles: [String] = []
     @State private var isShowingSettings = false
     @State private var isShowingAddCategory = false
     @State private var isShowingFavorites = false
     @State private var shouldShowAppleMusicError = false
     @State private var selectedCategoryID: UUID? = nil
     @State private var navigationPath = NavigationPath()
+    
+    @AppStorage(StorageKeys.presetsExpanded.rawValue) private var presetsExpanded = true
+    @AppStorage(StorageKeys.userCategoriesExpanded.rawValue) private var userCategoriesExpanded = true
     
     var body: some View {
         if isFirstRun {
@@ -37,7 +36,7 @@ struct ContentView: View {
             NavigationSplitView {
                 Group {
                     List(selection: $selectedCategoryID) {
-                        Section("Preset Categories") {
+                        DisclosureGroup(isExpanded: $presetsExpanded) {
                             ForEach(
                                 categories
                                     .filter({$0.isPreset})
@@ -45,19 +44,27 @@ struct ContentView: View {
                             ) { cat in
                                 BigPillListRow(category: cat, selectedCategoryID: $selectedCategoryID)
                             }
+                        } label: {
+                            Text("Preset Categories")
+                                .font(.subheadline).fontWeight(.medium).foregroundStyle(.secondary)
                         }
+                        .listRowSeparator(.hidden)
+                        .disclosureGroupStyle(NoIndentDisclosureStyle())
                         
-                        Section("My Categories") {
+                        DisclosureGroup(isExpanded: $userCategoriesExpanded) {
                             ForEach(
                                 categories
                                     .filter({!$0.isPreset})
+                                    .sorted(by: {$0.name < $1.name})
                             ) { cat in
                                 BigPillListRow(category: cat, selectedCategoryID: $selectedCategoryID)
-                                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-                                        deleteCategoryButton(cat)
-                                    }
                             }
+                        } label: {
+                            Text("My Categories")
+                                .font(.subheadline).fontWeight(.medium).foregroundStyle(.secondary)
                         }
+                        .listRowSeparator(.hidden)
+                        .disclosureGroupStyle(NoIndentDisclosureStyle())
                     }
                     .listStyle(.plain)
                     
@@ -95,8 +102,6 @@ struct ContentView: View {
                         await appleMusicController.checkAuth()
                         await appleMusicController.getMusicSubscriptionUpdates()
                     }
-                    
-                    print("^^ uuid \(UUID().uuidString)")
                 }
                 .alert(isPresented: $shouldShowAppleMusicError, error: appleMusicController.error) {
                     Button("OK"){}

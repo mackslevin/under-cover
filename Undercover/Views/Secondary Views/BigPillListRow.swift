@@ -40,6 +40,9 @@ struct BigPillListRow: View {
             .multilineTextAlignment(.center)
             .listRowBackground(Color.clear)
             .sensoryFeedback(.selection, trigger: selectedCategoryID == category.id)
+            .onTapGesture {
+                selectedCategoryID = category.id
+            }
             
     }
     

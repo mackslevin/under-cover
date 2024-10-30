@@ -15,4 +15,8 @@ enum StorageKeys: String {
     case shouldUseDesaturation = "shouldUseDesaturation"
     case shouldUseMusic = "shouldUseMusic"
     case singlePlayerRounds = "singlePlayerRounds"
+    
+    // Category index sections' expanded/collapsed state
+    case presetsExpanded = "presetsExpanded"
+    case userCategoriesExpanded = "userCategoriesExpanded"
 }
