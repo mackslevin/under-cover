@@ -10,6 +10,8 @@ struct CategoryDetailView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) var modelContext
     
+    @State private var isShowingDeleteWarning = false
+    
     var body: some View {
         VStack(spacing: 80) {
             if let count = category.albums?.count {
@@ -66,16 +68,24 @@ struct CategoryDetailView: View {
         .navigationDestination(for: UCCategory.self) { _ in
             SinglePlayerGameView()
         }
+        .alert("Are you sure you want to delete this category?", isPresented: $isShowingDeleteWarning) {
+            Button("Delete", role: .destructive) {
+                modelContext.delete(category)
+                dismiss()
+            }
+        }
         .toolbar {
             if !category.isPreset {
-                Button("Delete", systemImage: "trash", role: .destructive) {
-                    modelContext.delete(category)
-                    dismiss()
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Delete", systemImage: "trash", role: .destructive) {
+                        isShowingDeleteWarning.toggle()
+                    }
+                    .tint(.red)
                 }
-                .tint(.red)
             }
-            
         }
+        
+        
     }
     
     func setUpGame() {

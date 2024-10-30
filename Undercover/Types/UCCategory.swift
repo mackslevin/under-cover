@@ -81,7 +81,10 @@ class UCCategory: Identifiable, Decodable {
                     }
                     
                     if shouldOverwriteAlbums {
-                        print("^^ Updating albums for \(preset.name)")
+                        for savedAlbum in alreadySavedPreset.albums ?? [] {
+                            modelContext.delete(savedAlbum)
+                        }
+                        
                         alreadySavedPreset.albums = preset.albums
                         try modelContext.save()
                     }

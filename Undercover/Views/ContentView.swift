@@ -116,12 +116,6 @@ struct ContentView: View {
                         await appleMusicController.checkAuth()
                         await appleMusicController.getMusicSubscriptionUpdates()
                     }
-                    
-                    print("^^ Total categories: \(categories.count)")
-                    print("^^ Total albums: \(albums.count)")
-                    
-//                    try? modelContext.delete(model: UCCategory.self)
-//                    try? modelContext.delete(model: UCAlbum.self)
                 }
                 .alert(isPresented: $shouldShowAppleMusicError, error: appleMusicController.error) {
                     Button("OK"){}
