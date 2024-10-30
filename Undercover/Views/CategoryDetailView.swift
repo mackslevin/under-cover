@@ -5,7 +5,7 @@ struct CategoryDetailView: View {
     @Binding var navigationPath: NavigationPath
     @AppStorage(StorageKeys.singlePlayerRounds.rawValue) private var rounds: Int = 3
     @Environment(SinglePlayerGameController.self) var singlePlayerGameController
-    
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         VStack(spacing: 80) {
@@ -51,6 +51,7 @@ struct CategoryDetailView: View {
             } label: {
                 Label("Start", systemImage: "flag.2.crossed")
                     .font(.title).bold()
+                    .foregroundStyle(colorScheme == .light ? .white : .black)
             }
             .buttonStyle(.borderedProminent)
             
@@ -62,6 +63,11 @@ struct CategoryDetailView: View {
         .navigationDestination(for: UCCategory.self) { _ in
             SinglePlayerGameView()
         }
+//        .toolbar {
+//            Button("Delete", systemImage: "trash", role: .destructive) {
+//                print("hello")
+//            }
+//        }
     }
     
     func setUpGame() {

@@ -12,6 +12,7 @@ import MusicKit
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(AppleMusicController.self) var appleMusicController
+    @Environment(\.colorScheme) var colorScheme
     @Query var categories: [UCCategory]
     @Query var albums: [UCAlbum]
     
@@ -58,6 +59,21 @@ struct ContentView: View {
                                     .sorted(by: {$0.name < $1.name})
                             ) { cat in
                                 BigPillListRow(category: cat, selectedCategoryID: $selectedCategoryID)
+                                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                        deleteCategoryButton(cat)
+                                    }
+                            }
+                            
+                            if categories.filter({!$0.isPreset}).isEmpty {
+                                Button {
+                                    isShowingAddCategory.toggle()
+                                } label: {
+                                    Label("Add", systemImage: "plus.circle")
+                                        .font(.title3).bold()
+                                        .foregroundStyle(colorScheme == .light ? .white : .black)
+                                }
+                                .buttonStyle(.borderedProminent)
+                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                             }
                         } label: {
                             Text("My Categories")
